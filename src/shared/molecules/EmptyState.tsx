@@ -26,14 +26,14 @@ export function EmptyState({
         {icon}
       </div>
       <h3
-        className="text-lg font-semibold text-discord-text-normal mb-2"
+        className="text-lg font-semibold text-cfg-text-normal mb-2"
         data-testid={testId ? `${testId}-title` : undefined}
       >
         {title}
       </h3>
       {description && (
         <p
-          className="text-discord-text-muted max-w-sm"
+          className="text-cfg-text-muted max-w-sm"
           data-testid={testId ? `${testId}-description` : undefined}
         >
           {description}

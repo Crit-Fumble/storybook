@@ -53,31 +53,44 @@ src/
 
 ### Color Palette
 
-#### Crit-Fumble Brand Colors
-- **Primary Purple**: `#552e66` - Main brand color
-- **Dark Purple**: `#3d1f4a` - Darker variant for hover/active states
-- **Light Purple**: `#7a4599` - Lighter variant for accents
+#### CFG (Crit-Fumble Gaming) Brand Colors - Default Theme
 
-Use Tailwind classes: `crit-purple-primary`, `crit-purple-dark`, `crit-purple-light`
+All components use CFG brand colors by default. Use `cfg-*` Tailwind classes:
 
-#### Discord Color Palette (for Activity components)
-- **Primary Blue**: `#5865f2` - Discord brand blue
-- **Green**: `#248046` - Success states
-- **Red**: `#da373c` - Error/danger states
-- **Yellow**: `#f0b232` - Warning states
+**Primary Colors:**
+- `cfg-primary`: `#552e66` - Main brand purple
+- `cfg-primary-hover`: `#3d1f4a` - Darker variant for hover/active states
+- `cfg-accent`: `#7a4599` - Lighter variant for accents
 
-Background colors:
-- **Primary**: `#313338` - Main background
-- **Secondary**: `#2b2d31` - Secondary background
-- **Tertiary**: `#1e1f22` - Darkest background
-- **Floating**: `#232428` - Modals/popups
+**Status Colors:**
+- `cfg-green`: `#248046` - Success states
+- `cfg-red`: `#da373c` - Error/danger states
+- `cfg-yellow`: `#f0b232` - Warning states
 
-Text colors:
-- **Normal**: `#dbdee1` - Primary text
-- **Muted**: `#80848e` - Secondary/hint text
-- **Link**: `#00a8fc` - Clickable links
+**Background Colors:**
+- `cfg-background-primary`: `#1a1a2e` - Main background
+- `cfg-background-secondary`: `#16213e` - Secondary background
+- `cfg-background-tertiary`: `#0f0f1a` - Darkest background
+- `cfg-background-floating`: `#1f1f3a` - Modals/popups
 
-Use Tailwind classes: `discord-primary`, `discord-background-primary`, `discord-text-normal`, etc.
+**Text Colors:**
+- `cfg-text-normal`: `#e8e8f0` - Primary text
+- `cfg-text-muted`: `#9090a8` - Secondary/hint text
+- `cfg-text-link`: `#7a4599` - Clickable links
+
+**Border:**
+- `cfg-border`: `#3a3a5a` - Border color
+
+#### Discord Color Palette (Alternative Theme)
+
+For Discord-specific implementations, use `discord-*` Tailwind classes:
+
+- `discord-primary`: `#5865f2` - Discord brand blue
+- `discord-background-primary`: `#313338`
+- `discord-text-normal`: `#dbdee1`
+- etc.
+
+**Note:** Discord colors are available but components use CFG colors by default. Override at the implementation level if Discord theming is needed.
 
 ### Typography
 
@@ -160,9 +173,9 @@ export function Button({
         size === 'md' && 'px-4 py-2 text-base',
         size === 'lg' && 'px-6 py-3 text-lg',
         // Color variants
-        variant === 'primary' && 'bg-discord-primary text-white hover:bg-discord-primary-hover',
-        variant === 'secondary' && 'bg-discord-background-tertiary text-discord-text-normal',
-        variant === 'danger' && 'bg-discord-red text-white hover:bg-red-700',
+        variant === 'primary' && 'bg-cfg-primary text-white hover:bg-cfg-primary-hover',
+        variant === 'secondary' && 'bg-cfg-background-tertiary text-cfg-text-normal',
+        variant === 'danger' && 'bg-cfg-red text-white hover:bg-red-700',
         // States
         disabled && 'opacity-50 cursor-not-allowed',
         className

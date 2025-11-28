@@ -74,13 +74,13 @@ export const FullExample: Story = {
         <CardTitle>Campaign Settings</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-discord-text-muted">
+        <p className="text-cfg-text-muted">
           Configure your campaign settings, including player permissions,
           dice rolling options, and more.
         </p>
       </CardContent>
       <CardFooter>
-        <span className="text-sm text-discord-text-muted">Last updated: 2 hours ago</span>
+        <span className="text-sm text-cfg-text-muted">Last updated: 2 hours ago</span>
         <Button variant="primary" size="sm">Edit Settings</Button>
       </CardFooter>
     </Card>

@@ -48,7 +48,7 @@ export const WithLabel: Story = {
   render: () => (
     <div className="flex items-center gap-3">
       <Toggle />
-      <span className="text-discord-text-normal">Enable notifications</span>
+      <span className="text-cfg-text-normal">Enable notifications</span>
     </div>
   ),
 };

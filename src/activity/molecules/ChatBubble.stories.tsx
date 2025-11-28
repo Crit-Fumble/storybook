@@ -7,7 +7,7 @@ const meta: Meta<typeof ChatBubble> = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="p-4 bg-discord-bg-primary min-h-[200px]">
+      <div className="p-4 bg-cfg-bg-primary min-h-[200px]">
         <Story />
       </div>
     ),

@@ -9,7 +9,7 @@ const meta: Meta<typeof VTTLauncher> = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="p-4 bg-discord-background-tertiary max-w-md">
+      <div className="p-4 bg-cfg-background-tertiary max-w-md">
         <Story />
       </div>
     ),

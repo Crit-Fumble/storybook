@@ -70,7 +70,7 @@ export function FormField({
       )}
 
       {error && (
-        <p className="mt-1 text-sm text-discord-red" data-testid={`${fieldId}-error`}>
+        <p className="mt-1 text-sm text-cfg-red" data-testid={`${fieldId}-error`}>
           {error}
         </p>
       )}

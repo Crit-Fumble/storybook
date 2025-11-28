@@ -96,7 +96,7 @@ export const AllIcons: Story = {
       ].map((name) => (
         <div key={name} className="flex flex-col items-center gap-1">
           <Icon name={name} size="lg" />
-          <span className="text-discord-text-muted text-xs">{name}</span>
+          <span className="text-cfg-text-muted text-xs">{name}</span>
         </div>
       ))}
     </div>

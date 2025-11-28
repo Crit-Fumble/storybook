@@ -9,12 +9,12 @@ export interface MainLayoutProps {
 export function MainLayout({ children, header, testId = 'main-layout' }: MainLayoutProps) {
   return (
     <div
-      className="min-h-screen bg-discord-background-tertiary"
+      className="min-h-screen bg-cfg-background-tertiary"
       data-testid={testId}
     >
       {header && (
         <header
-          className="py-4 px-4 border-b border-discord-border bg-discord-background-secondary"
+          className="py-4 px-4 border-b border-cfg-border bg-cfg-background-secondary"
           data-testid={`${testId}-header`}
         >
           {header}

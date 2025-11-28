@@ -26,10 +26,10 @@ export function Banner({
       className={clsx(
         'py-2 px-4 text-center font-semibold text-sm z-50',
         {
-          'bg-discord-yellow text-black': variant === 'warning',
-          'bg-discord-primary text-white': variant === 'info',
-          'bg-discord-green text-white': variant === 'success',
-          'bg-discord-red text-white': variant === 'danger',
+          'bg-cfg-yellow text-black': variant === 'warning',
+          'bg-cfg-primary text-white': variant === 'info',
+          'bg-cfg-green text-white': variant === 'success',
+          'bg-cfg-red text-white': variant === 'danger',
           'sticky top-0': sticky,
         },
         className

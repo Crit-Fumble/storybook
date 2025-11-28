@@ -8,7 +8,7 @@ const meta: Meta<typeof ChatWindow> = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="p-4 bg-discord-bg-tertiary min-h-[600px]">
+      <div className="p-4 bg-cfg-bg-tertiary min-h-[600px]">
         <Story />
       </div>
     ),

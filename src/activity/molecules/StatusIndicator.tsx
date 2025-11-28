@@ -31,7 +31,7 @@ export function StatusIndicator({
       <StatusDot status={status} testId={testId ? `${testId}-dot` : undefined} />
       {showLabel && (
         <span
-          className="text-sm text-discord-text-muted"
+          className="text-sm text-cfg-text-muted"
           data-testid={testId ? `${testId}-label` : undefined}
         >
           {displayLabel}

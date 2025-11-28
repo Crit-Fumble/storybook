@@ -19,7 +19,7 @@ export function TabNav({ tabs, activeTab, onChange, testId, variant = 'default' 
     <div
       className={clsx(
         'flex gap-1',
-        variant === 'pills' && 'p-1 bg-discord-background-tertiary rounded-lg'
+        variant === 'pills' && 'p-1 bg-cfg-background-tertiary rounded-lg'
       )}
       data-testid={testId}
       role="tablist"
@@ -36,14 +36,14 @@ export function TabNav({ tabs, activeTab, onChange, testId, variant = 'default' 
               ? [
                   'border-b-2',
                   activeTab === tab.id
-                    ? 'border-discord-primary text-discord-text-normal'
-                    : 'border-transparent text-discord-text-muted hover:text-discord-text-normal',
+                    ? 'border-cfg-primary text-cfg-text-normal'
+                    : 'border-transparent text-cfg-text-muted hover:text-cfg-text-normal',
                 ]
               : [
                   'flex-1 rounded-md',
                   activeTab === tab.id
-                    ? 'bg-discord-primary text-white'
-                    : 'text-discord-text-muted hover:text-white hover:bg-discord-border',
+                    ? 'bg-cfg-primary text-white'
+                    : 'text-cfg-text-muted hover:text-white hover:bg-cfg-border',
                 ]
           )}
           onClick={() => onChange(tab.id)}

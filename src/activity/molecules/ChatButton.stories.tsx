@@ -30,8 +30,8 @@ export const WithUnread: Story = {
 
 export const InContext: Story = {
   render: () => (
-    <div className="flex items-center gap-4 p-4 bg-discord-background-secondary rounded">
-      <span className="text-discord-text-normal">Campaign Chat</span>
+    <div className="flex items-center gap-4 p-4 bg-cfg-background-secondary rounded">
+      <span className="text-cfg-text-normal">Campaign Chat</span>
       <ChatButton onClick={() => alert('Chat opened!')} />
     </div>
   ),
@@ -39,8 +39,8 @@ export const InContext: Story = {
 
 export const WithUnreadInContext: Story = {
   render: () => (
-    <div className="flex items-center gap-4 p-4 bg-discord-background-secondary rounded">
-      <span className="text-discord-text-normal">Campaign Chat</span>
+    <div className="flex items-center gap-4 p-4 bg-cfg-background-secondary rounded">
+      <span className="text-cfg-text-normal">Campaign Chat</span>
       <ChatButton onClick={() => alert('Chat opened!')} hasUnread />
     </div>
   ),

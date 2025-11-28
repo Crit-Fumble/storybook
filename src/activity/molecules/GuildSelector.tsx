@@ -27,7 +27,7 @@ export function GuildSelector({
   return (
     <div className="mb-4" data-testid={testId}>
       <label
-        className="block text-xs text-discord-text-muted uppercase mb-2"
+        className="block text-xs text-cfg-text-muted uppercase mb-2"
         data-testid={`${testId}-label`}
       >
         Select Server

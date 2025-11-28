@@ -55,8 +55,8 @@ export function Modal({
       <div
         className={clsx(
           'relative z-10 mx-4 w-full',
-          'bg-discord-background-primary rounded-lg shadow-xl',
-          'border border-discord-border',
+          'bg-cfg-background-primary rounded-lg shadow-xl',
+          'border border-cfg-border',
           {
             'max-w-sm': size === 'sm',
             'max-w-lg': size === 'md',
@@ -70,17 +70,17 @@ export function Modal({
         aria-labelledby={title ? `${testId}-title` : undefined}
       >
         {title && (
-          <div className="px-4 py-3 border-b border-discord-border flex items-center justify-between">
+          <div className="px-4 py-3 border-b border-cfg-border flex items-center justify-between">
             <h2
               id={testId ? `${testId}-title` : undefined}
-              className="text-xl font-semibold text-discord-text-normal"
+              className="text-xl font-semibold text-cfg-text-normal"
               data-testid={testId ? `${testId}-title` : undefined}
             >
               {title}
             </h2>
             <button
               onClick={onClose}
-              className="text-discord-text-muted hover:text-discord-text-normal transition-colors"
+              className="text-cfg-text-muted hover:text-cfg-text-normal transition-colors"
               data-testid={testId ? `${testId}-close` : undefined}
             >
               ×
@@ -102,7 +102,7 @@ export interface ModalFooterProps {
 export function ModalFooter({ children, testId, className }: ModalFooterProps) {
   return (
     <div
-      className={clsx('flex justify-end gap-2 pt-4 border-t border-discord-border mt-4', className)}
+      className={clsx('flex justify-end gap-2 pt-4 border-t border-cfg-border mt-4', className)}
       data-testid={testId}
     >
       {children}

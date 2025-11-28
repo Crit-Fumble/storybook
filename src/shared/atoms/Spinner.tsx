@@ -11,7 +11,7 @@ export function Spinner({ size = 'md', testId, className }: SpinnerProps) {
     <div
       data-testid={testId}
       className={clsx(
-        'animate-spin rounded-full border-2 border-discord-text-muted border-t-discord-primary',
+        'animate-spin rounded-full border-2 border-cfg-text-muted border-t-cfg-primary',
         {
           'w-4 h-4': size === 'sm',
           'w-6 h-6': size === 'md',

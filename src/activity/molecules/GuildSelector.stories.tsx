@@ -43,7 +43,7 @@ export const Interactive: Story = {
           selectedGuildId={selectedId}
           onChange={setSelectedId}
         />
-        <p className="text-discord-text-muted text-sm mt-2">
+        <p className="text-cfg-text-muted text-sm mt-2">
           Selected: {selectedId ? sampleGuilds.find(g => g.id === selectedId)?.name : 'None'}
         </p>
       </div>

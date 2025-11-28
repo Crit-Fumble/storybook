@@ -11,14 +11,14 @@ const meta: Meta<typeof FloatingChat> = {
   },
   decorators: [
     (Story) => (
-      <div className="min-h-screen bg-discord-bg-tertiary p-8">
+      <div className="min-h-screen bg-cfg-bg-tertiary p-8">
         <div className="max-w-2xl">
           <h1 className="text-2xl text-white mb-4">Page Content</h1>
-          <p className="text-discord-text-normal mb-4">
+          <p className="text-cfg-text-normal mb-4">
             This demonstrates the floating chat button. Click the button in the
             bottom-right corner to open the chat window.
           </p>
-          <p className="text-discord-text-muted">
+          <p className="text-cfg-text-muted">
             The floating chat provides a non-intrusive way to access an AI
             assistant while browsing the page.
           </p>

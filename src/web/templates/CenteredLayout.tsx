@@ -8,7 +8,7 @@ export interface CenteredLayoutProps {
 export function CenteredLayout({ children, testId = 'centered-layout' }: CenteredLayoutProps) {
   return (
     <div
-      className="min-h-screen bg-discord-background-tertiary flex items-center justify-center p-4"
+      className="min-h-screen bg-cfg-background-tertiary flex items-center justify-center p-4"
       data-testid={testId}
     >
       {children}

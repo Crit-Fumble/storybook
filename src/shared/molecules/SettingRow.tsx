@@ -14,7 +14,7 @@ export function SettingRow({ label, description, children, testId, className }: 
   return (
     <div
       className={clsx(
-        'flex justify-between items-center p-4 bg-discord-border rounded-lg',
+        'flex justify-between items-center p-4 bg-cfg-border rounded-lg',
         className
       )}
       data-testid={testId}
@@ -22,7 +22,7 @@ export function SettingRow({ label, description, children, testId, className }: 
       <div className="flex-1">
         <div className="font-medium mb-1">{label}</div>
         {description && (
-          <p className="text-xs text-discord-text-muted m-0">{description}</p>
+          <p className="text-xs text-cfg-text-muted m-0">{description}</p>
         )}
       </div>
       {children}
@@ -76,7 +76,7 @@ export function SettingSelectRow({
   return (
     <SettingRow label={label} description={description} testId={testId}>
       <select
-        className="px-3 py-2 bg-discord-background-tertiary border-none rounded text-white text-sm"
+        className="px-3 py-2 bg-cfg-background-tertiary border-none rounded text-white text-sm"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         data-testid={testId ? `${testId}-select` : undefined}

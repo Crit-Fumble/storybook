@@ -36,7 +36,7 @@ export function FloatingChat({
         onClick={onToggle}
         data-testid={testId ? `${testId}-toggle` : undefined}
         className={clsx(
-          'fixed w-14 h-14 bg-discord-primary hover:bg-discord-primary-hover text-white rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105 z-50',
+          'fixed w-14 h-14 bg-cfg-primary hover:bg-cfg-primary-hover text-white rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105 z-50',
           positionClasses[position]
         )}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}

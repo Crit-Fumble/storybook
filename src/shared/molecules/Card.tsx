@@ -14,8 +14,8 @@ export function Card({ children, className, testId, variant = 'default', ...prop
       className={clsx(
         'card',
         {
-          'shadow-lg bg-discord-background-floating': variant === 'elevated',
-          'cursor-pointer hover:border-discord-primary transition-colors': variant === 'interactive',
+          'shadow-lg bg-cfg-background-floating': variant === 'elevated',
+          'cursor-pointer hover:border-cfg-primary transition-colors': variant === 'interactive',
         },
         className
       )}
@@ -35,7 +35,7 @@ export function CardHeader({ children, className, testId, ...props }: CardHeader
   return (
     <div
       data-testid={testId}
-      className={clsx('pb-3 border-b border-discord-border mb-3', className)}
+      className={clsx('pb-3 border-b border-cfg-border mb-3', className)}
       {...props}
     >
       {children}
@@ -52,7 +52,7 @@ export function CardTitle({ children, className, testId, ...props }: CardTitlePr
   return (
     <h3
       data-testid={testId}
-      className={clsx('text-lg font-semibold text-discord-text-normal', className)}
+      className={clsx('text-lg font-semibold text-cfg-text-normal', className)}
       {...props}
     >
       {children}
@@ -69,7 +69,7 @@ export function CardContent({ children, className, testId, ...props }: CardConte
   return (
     <div
       data-testid={testId}
-      className={clsx('text-discord-text-normal', className)}
+      className={clsx('text-cfg-text-normal', className)}
       {...props}
     >
       {children}
@@ -86,7 +86,7 @@ export function CardFooter({ children, className, testId, ...props }: CardFooter
   return (
     <div
       data-testid={testId}
-      className={clsx('pt-3 border-t border-discord-border mt-3 flex items-center justify-between', className)}
+      className={clsx('pt-3 border-t border-cfg-border mt-3 flex items-center justify-between', className)}
       {...props}
     >
       {children}

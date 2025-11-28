@@ -36,15 +36,15 @@ export function ChatBubble({
         className={clsx(
           'max-w-[80%] px-3 py-2 rounded-lg',
           isUser
-            ? 'bg-discord-primary text-white'
-            : 'bg-discord-bg-secondary text-discord-text-normal'
+            ? 'bg-cfg-primary text-white'
+            : 'bg-cfg-bg-secondary text-cfg-text-normal'
         )}
       >
         <p className="text-sm whitespace-pre-wrap">{content}</p>
         {action && !isUser && (
           <button
             onClick={action.onClick}
-            className="mt-2 text-xs text-discord-primary hover:text-discord-primary-hover"
+            className="mt-2 text-xs text-cfg-primary hover:text-cfg-primary-hover"
           >
             {action.label}
           </button>

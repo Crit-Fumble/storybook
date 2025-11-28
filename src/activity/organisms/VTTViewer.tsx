@@ -75,25 +75,25 @@ export function VTTViewer({
   return (
     <div
       className={clsx(
-        'relative bg-discord-background-tertiary rounded-lg overflow-hidden',
-        'border border-discord-border',
+        'relative bg-cfg-background-tertiary rounded-lg overflow-hidden',
+        'border border-cfg-border',
         className
       )}
     >
       {/* Loading State */}
       {viewerState === 'loading' && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-discord-background-tertiary z-10">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-cfg-background-tertiary z-10">
           <Spinner size="lg" />
-          <p className="mt-4 text-discord-text-muted">Loading FoundryVTT...</p>
+          <p className="mt-4 text-cfg-text-muted">Loading FoundryVTT...</p>
         </div>
       )}
 
       {/* Starting State */}
       {viewerState === 'starting' && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-discord-background-tertiary">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-cfg-background-tertiary">
           <Spinner size="lg" />
-          <p className="mt-4 text-discord-text-normal font-medium">Starting VTT Container...</p>
-          <p className="mt-2 text-sm text-discord-text-muted">
+          <p className="mt-4 text-cfg-text-normal font-medium">Starting VTT Container...</p>
+          <p className="mt-2 text-sm text-cfg-text-muted">
             This may take a moment for first-time setup
           </p>
         </div>
@@ -101,10 +101,10 @@ export function VTTViewer({
 
       {/* Stopped State */}
       {viewerState === 'stopped' && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-discord-background-tertiary">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-cfg-background-tertiary">
           <div className="text-6xl mb-4">🎲</div>
-          <p className="text-discord-text-normal font-medium mb-2">VTT Not Running</p>
-          <p className="text-sm text-discord-text-muted mb-4">
+          <p className="text-cfg-text-normal font-medium mb-2">VTT Not Running</p>
+          <p className="text-sm text-cfg-text-muted mb-4">
             Launch the VTT to start your session
           </p>
           {onLaunch && (
@@ -117,10 +117,10 @@ export function VTTViewer({
 
       {/* Error State */}
       {viewerState === 'error' && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-discord-background-tertiary">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-cfg-background-tertiary">
           <div className="text-6xl mb-4">⚠️</div>
-          <p className="text-discord-text-normal font-medium mb-2">Unable to Load VTT</p>
-          <p className="text-sm text-discord-text-muted mb-4 max-w-md text-center">
+          <p className="text-cfg-text-normal font-medium mb-2">Unable to Load VTT</p>
+          <p className="text-sm text-cfg-text-muted mb-4 max-w-md text-center">
             {errorMessage}
           </p>
           {onLaunch && (
@@ -148,12 +148,12 @@ export function VTTViewer({
 
       {/* Connection Info Bar */}
       {viewerState === 'ready' && vttUrl && (
-        <div className="absolute bottom-0 left-0 right-0 bg-discord-background-secondary/90 backdrop-blur-sm border-t border-discord-border px-3 py-2">
+        <div className="absolute bottom-0 left-0 right-0 bg-cfg-background-secondary/90 backdrop-blur-sm border-t border-cfg-border px-3 py-2">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
-              <span className="w-2 h-2 rounded-full bg-discord-green" />
-              <span className="text-xs text-discord-text-muted truncate">
-                Connected: <code className="text-discord-text-link">{vttUrl}</code>
+              <span className="w-2 h-2 rounded-full bg-cfg-green" />
+              <span className="text-xs text-cfg-text-muted truncate">
+                Connected: <code className="text-cfg-text-link">{vttUrl}</code>
               </span>
             </div>
             <Button

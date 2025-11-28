@@ -15,20 +15,20 @@ export interface VTTStatusIndicatorProps {
 const statusConfig: Record<ContainerStatus, { label: string; color: string; pulse?: boolean }> = {
   stopped: {
     label: 'Stopped',
-    color: 'bg-discord-text-muted',
+    color: 'bg-cfg-text-muted',
   },
   starting: {
     label: 'Starting...',
-    color: 'bg-discord-yellow',
+    color: 'bg-cfg-yellow',
     pulse: true,
   },
   running: {
     label: 'Running',
-    color: 'bg-discord-green',
+    color: 'bg-cfg-green',
   },
   error: {
     label: 'Error',
-    color: 'bg-discord-red',
+    color: 'bg-cfg-red',
   },
 };
 
@@ -64,11 +64,11 @@ export function VTTStatusIndicator({
       />
       {showLabel && (
         <div className="flex items-center gap-2">
-          <span className="text-sm text-discord-text-normal font-medium">
+          <span className="text-sm text-cfg-text-normal font-medium">
             {config.label}
           </span>
           {lastActiveAt && status === 'stopped' && (
-            <span className="text-xs text-discord-text-muted">
+            <span className="text-xs text-cfg-text-muted">
               (Last active: {formatLastActive(lastActiveAt)})
             </span>
           )}

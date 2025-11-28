@@ -26,7 +26,7 @@ export const Default: Story = {
     isOpen: true,
     onClose: () => {},
     title: 'Modal Title',
-    children: <p className="text-discord-text-normal">This is the modal content.</p>,
+    children: <p className="text-cfg-text-normal">This is the modal content.</p>,
   },
 };
 
@@ -36,7 +36,7 @@ export const Small: Story = {
     onClose: () => {},
     title: 'Small Modal',
     size: 'sm',
-    children: <p className="text-discord-text-normal">A compact modal for simple confirmations.</p>,
+    children: <p className="text-cfg-text-normal">A compact modal for simple confirmations.</p>,
   },
 };
 
@@ -47,9 +47,9 @@ export const Large: Story = {
     title: 'Large Modal',
     size: 'lg',
     children: (
-      <div className="text-discord-text-normal">
+      <div className="text-cfg-text-normal">
         <p>A larger modal for more complex content.</p>
-        <p className="mt-2 text-discord-text-muted">
+        <p className="mt-2 text-cfg-text-muted">
           This size is great for forms, detailed information, or multi-step processes.
         </p>
       </div>
@@ -64,7 +64,7 @@ export const WithFooter: Story = {
     title: 'Confirm Action',
     children: (
       <>
-        <p className="text-discord-text-normal">Are you sure you want to delete this item?</p>
+        <p className="text-cfg-text-normal">Are you sure you want to delete this item?</p>
         <ModalFooter>
           <Button variant="secondary">Cancel</Button>
           <Button variant="danger">Delete</Button>
@@ -85,7 +85,7 @@ export const Interactive: Story = {
           onClose={() => setIsOpen(false)}
           title="Interactive Modal"
         >
-          <p className="text-discord-text-normal">
+          <p className="text-cfg-text-normal">
             Click the X button or press Escape to close this modal.
           </p>
           <ModalFooter>

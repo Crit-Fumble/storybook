@@ -51,23 +51,23 @@ export const AllStatuses: Story = {
     <div className="flex items-center gap-4">
       <div className="flex items-center gap-2">
         <StatusDot status="active" />
-        <span className="text-discord-text-normal text-sm">Active</span>
+        <span className="text-cfg-text-normal text-sm">Active</span>
       </div>
       <div className="flex items-center gap-2">
         <StatusDot status="stopped" />
-        <span className="text-discord-text-normal text-sm">Stopped</span>
+        <span className="text-cfg-text-normal text-sm">Stopped</span>
       </div>
       <div className="flex items-center gap-2">
         <StatusDot status="error" />
-        <span className="text-discord-text-normal text-sm">Error</span>
+        <span className="text-cfg-text-normal text-sm">Error</span>
       </div>
       <div className="flex items-center gap-2">
         <StatusDot status="warning" />
-        <span className="text-discord-text-normal text-sm">Warning</span>
+        <span className="text-cfg-text-normal text-sm">Warning</span>
       </div>
       <div className="flex items-center gap-2">
         <StatusDot status="loading" />
-        <span className="text-discord-text-normal text-sm">Loading</span>
+        <span className="text-cfg-text-normal text-sm">Loading</span>
       </div>
     </div>
   ),

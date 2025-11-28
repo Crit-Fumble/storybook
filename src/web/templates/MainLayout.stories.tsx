@@ -19,8 +19,8 @@ export const Default: Story = {
   args: {
     children: (
       <div className="p-4">
-        <h1 className="text-2xl font-bold text-discord-text-normal mb-4">Page Content</h1>
-        <p className="text-discord-text-muted">This is the main content area.</p>
+        <h1 className="text-2xl font-bold text-cfg-text-normal mb-4">Page Content</h1>
+        <p className="text-cfg-text-muted">This is the main content area.</p>
       </div>
     ),
   },
@@ -30,7 +30,7 @@ export const WithHeader: Story = {
   args: {
     header: (
       <div className="flex items-center justify-between max-w-screen-xl mx-auto">
-        <h1 className="text-xl font-bold text-discord-text-normal">Crit-Fumble</h1>
+        <h1 className="text-xl font-bold text-cfg-text-normal">Crit-Fumble</h1>
         <nav className="flex gap-4">
           <Button variant="ghost" size="sm">Dashboard</Button>
           <Button variant="ghost" size="sm">Campaigns</Button>
@@ -40,8 +40,8 @@ export const WithHeader: Story = {
     ),
     children: (
       <div className="p-4">
-        <h2 className="text-xl font-bold text-discord-text-normal mb-4">Welcome Back!</h2>
-        <p className="text-discord-text-muted">Here's what's happening in your campaigns.</p>
+        <h2 className="text-xl font-bold text-cfg-text-normal mb-4">Welcome Back!</h2>
+        <p className="text-cfg-text-muted">Here's what's happening in your campaigns.</p>
       </div>
     ),
   },
@@ -53,7 +53,7 @@ export const DashboardExample: Story = {
       <div className="flex items-center justify-between max-w-screen-xl mx-auto">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🎲</span>
-          <h1 className="text-xl font-bold text-discord-text-normal">Crit-Fumble</h1>
+          <h1 className="text-xl font-bold text-cfg-text-normal">Crit-Fumble</h1>
         </div>
         <Button variant="primary" size="sm">New Campaign</Button>
       </div>
@@ -65,7 +65,7 @@ export const DashboardExample: Story = {
             <CardTitle>Campaign: Dragon's Keep</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-discord-text-muted text-sm">5 players • Last session: 2 days ago</p>
+            <p className="text-cfg-text-muted text-sm">5 players • Last session: 2 days ago</p>
           </CardContent>
         </Card>
         <Card>
@@ -73,7 +73,7 @@ export const DashboardExample: Story = {
             <CardTitle>Campaign: Lost Mines</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-discord-text-muted text-sm">4 players • Last session: 1 week ago</p>
+            <p className="text-cfg-text-muted text-sm">4 players • Last session: 1 week ago</p>
           </CardContent>
         </Card>
         <Card>
@@ -81,7 +81,7 @@ export const DashboardExample: Story = {
             <CardTitle>Campaign: Curse of Strahd</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-discord-text-muted text-sm">6 players • Last session: 3 days ago</p>
+            <p className="text-cfg-text-muted text-sm">6 players • Last session: 3 days ago</p>
           </CardContent>
         </Card>
       </div>

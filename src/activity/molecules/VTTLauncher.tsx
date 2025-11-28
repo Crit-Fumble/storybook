@@ -45,18 +45,18 @@ export function VTTLauncher({
   return (
     <div
       className={clsx(
-        'bg-discord-background-secondary rounded-lg p-4 border border-discord-border',
+        'bg-cfg-background-secondary rounded-lg p-4 border border-cfg-border',
         className
       )}
     >
       {/* Header */}
       <div className="flex items-start justify-between gap-4 mb-3">
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-display text-discord-text-normal truncate">
+          <h3 className="text-lg font-display text-cfg-text-normal truncate">
             {campaign.name}
           </h3>
           {campaign.description && (
-            <p className="text-sm text-discord-text-muted mt-1 line-clamp-2">
+            <p className="text-sm text-cfg-text-muted mt-1 line-clamp-2">
               {campaign.description}
             </p>
           )}
@@ -69,19 +69,19 @@ export function VTTLauncher({
 
       {/* System Info */}
       {campaign.foundrySystemId && (
-        <div className="text-xs text-discord-text-muted mb-3">
-          System: <span className="text-discord-text-normal">{campaign.foundrySystemId}</span>
+        <div className="text-xs text-cfg-text-muted mb-3">
+          System: <span className="text-cfg-text-normal">{campaign.foundrySystemId}</span>
         </div>
       )}
 
       {/* Connection Info - shown when running and user wants to connect via FoundryVTT directly */}
       {showConnectionInfo && isRunning && connectionUrl && (
-        <div className="mb-4 p-3 bg-discord-background-tertiary rounded border border-discord-border">
-          <div className="text-xs text-discord-text-muted mb-1">
+        <div className="mb-4 p-3 bg-cfg-background-tertiary rounded border border-cfg-border">
+          <div className="text-xs text-cfg-text-muted mb-1">
             Direct Connection URL (for FoundryVTT)
           </div>
           <div className="flex items-center gap-2">
-            <code className="flex-1 text-sm text-discord-text-link bg-discord-background-primary px-2 py-1 rounded font-mono truncate">
+            <code className="flex-1 text-sm text-cfg-text-link bg-cfg-background-primary px-2 py-1 rounded font-mono truncate">
               {connectionUrl}
             </code>
             <Button

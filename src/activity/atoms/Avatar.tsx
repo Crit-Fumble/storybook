@@ -48,7 +48,7 @@ export function Avatar({
     <div
       data-testid={testId}
       className={clsx(
-        'rounded-full bg-discord-primary flex items-center justify-center text-white font-bold',
+        'rounded-full bg-cfg-primary flex items-center justify-center text-white font-bold',
         sizeClasses[size],
         className
       )}

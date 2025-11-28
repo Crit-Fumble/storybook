@@ -7,7 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Discord color palette
+        // CFG (Crit-Fumble Gaming) brand color palette - default theme
+        cfg: {
+          primary: '#552e66',
+          'primary-hover': '#3d1f4a',
+          brand: '#552e66',
+          'brand-hover': '#3d1f4a',
+          accent: '#7a4599',
+          green: '#248046',
+          red: '#da373c',
+          yellow: '#f0b232',
+          background: {
+            primary: '#1a1a2e',
+            secondary: '#16213e',
+            tertiary: '#0f0f1a',
+            floating: '#1f1f3a',
+          },
+          text: {
+            normal: '#e8e8f0',
+            muted: '#9090a8',
+            link: '#7a4599',
+          },
+          border: '#3a3a5a',
+        },
+        // Discord color palette - for Discord activity components
         discord: {
           primary: '#5865f2',
           'primary-hover': '#4752c4',
@@ -29,7 +52,7 @@ export default {
           },
           border: '#3f4147',
         },
-        // Crit-Fumble brand colors
+        // Legacy alias for crit-purple
         crit: {
           purple: {
             primary: '#552e66',

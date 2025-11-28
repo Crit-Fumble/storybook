@@ -14,7 +14,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         data-testid={testId}
         className={clsx(
           'input resize-none min-h-[80px]',
-          error && 'border-discord-red focus:border-discord-red',
+          error && 'border-cfg-red focus:border-cfg-red',
           className
         )}
         {...props}

@@ -14,7 +14,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         data-testid={testId}
         className={clsx(
           'input',
-          error && 'border-discord-red focus:border-discord-red',
+          error && 'border-cfg-red focus:border-cfg-red',
           className
         )}
         {...props}

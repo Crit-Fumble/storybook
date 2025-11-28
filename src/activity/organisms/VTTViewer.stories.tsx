@@ -12,7 +12,7 @@ const meta: Meta<typeof VTTViewer> = {
   },
   decorators: [
     (Story) => (
-      <div className="p-4 bg-discord-background-tertiary h-screen">
+      <div className="p-4 bg-cfg-background-tertiary h-screen">
         <div className="h-full max-w-4xl mx-auto">
           <Story />
         </div>
@@ -116,25 +116,25 @@ function InteractiveViewer() {
     <div className="h-[500px]">
       <div className="mb-4 flex gap-2">
         <button
-          className="px-3 py-1 bg-discord-primary text-white rounded text-sm"
+          className="px-3 py-1 bg-cfg-primary text-white rounded text-sm"
           onClick={() => { setStatus('stopped'); setPort(undefined); }}
         >
           Set Stopped
         </button>
         <button
-          className="px-3 py-1 bg-discord-yellow text-black rounded text-sm"
+          className="px-3 py-1 bg-cfg-yellow text-black rounded text-sm"
           onClick={() => setStatus('starting')}
         >
           Set Starting
         </button>
         <button
-          className="px-3 py-1 bg-discord-green text-white rounded text-sm"
+          className="px-3 py-1 bg-cfg-green text-white rounded text-sm"
           onClick={() => { setStatus('running'); setPort(30000); }}
         >
           Set Running
         </button>
         <button
-          className="px-3 py-1 bg-discord-red text-white rounded text-sm"
+          className="px-3 py-1 bg-cfg-red text-white rounded text-sm"
           onClick={() => { setStatus('error'); setPort(undefined); }}
         >
           Set Error

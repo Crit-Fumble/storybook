@@ -37,7 +37,7 @@ export function ChatButton({
       </Button>
       {hasUnread && (
         <span
-          className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-discord-red ring-2 ring-discord-background-primary"
+          className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-cfg-red ring-2 ring-cfg-background-primary"
           data-testid={`${testId}-unread`}
         />
       )}

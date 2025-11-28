@@ -22,7 +22,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             'btn-secondary': variant === 'secondary',
             'btn-danger': variant === 'danger',
             'btn-success': variant === 'success',
-            'bg-transparent hover:bg-discord-border': variant === 'ghost',
+            'bg-transparent hover:bg-cfg-border': variant === 'ghost',
           },
           {
             'px-2 py-1 text-sm': size === 'sm',

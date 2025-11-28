@@ -62,8 +62,8 @@ export const Interactive: Story = {
           activeTab={activeTab}
           onChange={setActiveTab}
         />
-        <div className="mt-4 p-4 bg-discord-background-secondary rounded">
-          <p className="text-discord-text-normal">
+        <div className="mt-4 p-4 bg-cfg-background-secondary rounded">
+          <p className="text-cfg-text-normal">
             Active tab: <strong>{activeTab}</strong>
           </p>
         </div>
@@ -83,8 +83,8 @@ export const PillsInteractive: Story = {
           onChange={setActiveTab}
           variant="pills"
         />
-        <div className="mt-4 p-4 bg-discord-background-secondary rounded">
-          <p className="text-discord-text-normal">
+        <div className="mt-4 p-4 bg-cfg-background-secondary rounded">
+          <p className="text-cfg-text-normal">
             Active tab: <strong>{activeTab}</strong>
           </p>
         </div>

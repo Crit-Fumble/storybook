@@ -39,7 +39,7 @@ export function UserBadge({
   return (
     <div
       className={clsx(
-        'flex items-center gap-2 px-3 py-1.5 bg-discord-background-secondary rounded',
+        'flex items-center gap-2 px-3 py-1.5 bg-cfg-background-secondary rounded',
         className
       )}
       data-testid={testId}
@@ -51,7 +51,7 @@ export function UserBadge({
         data-testid={testId ? `${testId}-avatar` : undefined}
       />
       <span
-        className="text-discord-text-normal text-sm"
+        className="text-cfg-text-normal text-sm"
         data-testid={testId ? `${testId}-name` : undefined}
       >
         {username}
