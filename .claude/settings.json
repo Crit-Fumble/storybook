@@ -1,0 +1,7 @@
+{
+  "project": {
+    "name": "@crit-fumble/react",
+    "description": "Shared React component library for Crit-Fumble Gaming projects",
+    "license": "Apache-2.0"
+  }
+}

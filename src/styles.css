@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Crit-Fumble Brand Fonts */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 1 999;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url("/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 1 999;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Changa";
+  src: url("/fonts/Changa-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 1 999;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBM_Plex/IBMPlexSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBM_Plex/IBMPlexSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBM_Plex/IBMPlexSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBM_Plex/IBMPlexSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeoSansArabic";
+  src: url("/fonts/neoSansArabic/NeoSansArabic.ttf");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --crit-purple-primary: #552e66;
+    --crit-purple-dark: #3d1f4a;
+    --crit-purple-light: #7a4599;
+
+    /* shadcn/ui CSS variables */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 270 50% 30%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 270 50% 30%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 270 50% 30%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 270 50% 40%;
+  }
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border m-0 relative;
+  }
+
+  html,
+  body {
+    @apply p-0 m-0 font-sans antialiased min-h-screen;
+  }
+
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+
+  h1, h2, h3, h4, h5, h6, button {
+    @apply m-0 font-display;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  code {
+    @apply font-mono;
+  }
+
+  ol, ul {
+    @apply block list-none p-0 m-0;
+  }
+}
+
+/* Discord Activity specific styles */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-discord-primary text-white hover:bg-discord-primary-hover;
+  }
+
+  .btn-secondary {
+    @apply bg-discord-background-tertiary text-discord-text-normal hover:bg-discord-border;
+  }
+
+  .btn-danger {
+    @apply bg-discord-red text-white hover:bg-red-700;
+  }
+
+  .btn-success {
+    @apply bg-discord-green text-white hover:bg-green-700;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 bg-discord-background-tertiary border border-discord-border rounded text-discord-text-normal placeholder-discord-text-muted focus:outline-none focus:border-discord-primary;
+  }
+
+  .card {
+    @apply bg-discord-background-primary rounded-lg p-4 border border-discord-border;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-dot-active {
+    @apply bg-discord-green;
+  }
+
+  .status-dot-stopped {
+    @apply bg-discord-text-muted;
+  }
+
+  .status-dot-error {
+    @apply bg-discord-red;
+  }
+}
+
+@layer components {
+  .landing-title {
+    font-size: clamp(2.625rem, 1.2857rem + 3.5714vw, 4rem);
+  }
+}
+
+@layer utilities {
+  .centered {
+    @apply flex justify-center items-center;
+  }
+}
