@@ -1,3 +1,50 @@
+# Crit-Fumble Gaming Monorepo
+
+This is the monorepo for Crit-Fumble Gaming shared packages.
+
+## Monorepo Structure
+
+```
+packages/
+├── react/          # @crit-fumble/react - React component library
+└── (future)        # Additional packages can be added here
+```
+
+## Quick Start
+
+```bash
+# Install all dependencies
+npm install
+
+# Run Storybook (React components)
+npm run storybook
+
+# Run all tests
+npm test
+
+# Build all packages
+npm run build
+```
+
+## Packages
+
+### @crit-fumble/react
+
+Shared React component library for Crit-Fumble projects. See [packages/react/README.md](packages/react/README.md) for details.
+
+```bash
+# Work on React package specifically
+npm run storybook                    # Start Storybook
+npm run build:react                  # Build for publishing
+npm test                             # Run tests
+```
+
+## License
+
+This project is licensed under **Apache License 2.0**. Brand assets (logos, fonts, images) are proprietary to Crit-Fumble Gaming.
+
+---
+
 # @crit-fumble/react - Component Library Guidelines
 
 ## Project Overview
@@ -5,10 +52,6 @@
 This is the shared React component library for Crit-Fumble Gaming projects. It provides UI components for:
 - **crit-fumble.com** - The main website
 - **FumbleBot Discord Activities** - VTT, chat mode, and other Discord embedded experiences
-
-## License
-
-This project is licensed under **Apache License 2.0**. Brand assets (logos, fonts, images) are proprietary to Crit-Fumble Gaming.
 
 ## Architecture
 
@@ -36,17 +79,21 @@ import '@crit-fumble/react/styles'
 ### Folder Structure
 
 ```
-src/
-├── shared/           # Components used by both web and activity
-│   ├── atoms/        # Basic building blocks (Button, Input, Badge, etc.)
-│   └── molecules/    # Combinations of atoms (Card, Modal, FormField, etc.)
-├── web/              # Website-specific components
-│   └── templates/    # Page layouts (MainLayout, CenteredLayout)
-├── activity/         # FumbleBot Discord activity components
-│   ├── atoms/        # Activity-specific atoms (Avatar, StatusDot)
-│   ├── molecules/    # Activity-specific molecules (ChatBubble, UserBadge)
-│   └── organisms/    # Complex activity components (ChatWindow, FloatingChat)
-└── index.ts          # Re-exports all categories
+packages/react/
+├── src/
+│   ├── shared/           # Components used by both web and activity
+│   │   ├── atoms/        # Basic building blocks (Button, Input, Badge, etc.)
+│   │   └── molecules/    # Combinations of atoms (Card, Modal, FormField, etc.)
+│   ├── web/              # Website-specific components
+│   │   └── templates/    # Page layouts (MainLayout, CenteredLayout)
+│   ├── activity/         # FumbleBot Discord activity components
+│   │   ├── atoms/        # Activity-specific atoms (Avatar, StatusDot)
+│   │   ├── molecules/    # Activity-specific molecules (ChatBubble, UserBadge)
+│   │   └── organisms/    # Complex activity components (ChatWindow, FloatingChat)
+│   └── index.ts          # Re-exports all categories
+├── public/               # Static assets (fonts, images)
+├── .storybook/           # Storybook configuration
+└── package.json
 ```
 
 ## Brand Guidelines
@@ -109,7 +156,7 @@ Use Tailwind classes: `font-sans`, `font-display`, `font-mono`
 
 ### Assets
 
-Brand assets are located in `public/`:
+Brand assets are located in `packages/react/public/`:
 - `public/fonts/` - Font files (Rubik, Changa, IBM Plex, Inter, Plus Jakarta Sans)
 - `public/img/` - Brand images and icons
   - `cfg-logo.jpg` - Main Crit-Fumble Gaming logo
@@ -191,8 +238,13 @@ export function Button({
 
 ## Build & Release
 
-### Scripts
+### Scripts (from monorepo root)
 - `npm run storybook` - Start Storybook dev server
+- `npm run build:react` - Build React library for publishing
+- `npm test` - Run all tests
+- `npm run build-storybook` - Build static Storybook
+
+### Scripts (from packages/react)
 - `npm run build:lib` - Build library for publishing
 - `npm run release` - Build and publish to npm
 - `npm run release:patch` - Bump patch version and release

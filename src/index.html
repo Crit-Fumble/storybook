@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crit-Fumble Storybook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crit-purple-primary: #552e66;
+      --crit-purple-dark: #3d1f4a;
+      --crit-purple-light: #7a4599;
+      --discord-background-primary: #313338;
+      --discord-background-secondary: #2b2d31;
+      --discord-text-normal: #dbdee1;
+      --discord-text-muted: #80848e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, var(--discord-background-primary) 0%, var(--crit-purple-dark) 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--discord-text-normal);
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 800px;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 32px rgba(85, 46, 102, 0.4);
+    }
+
+    h1 {
+      font-family: 'Changa', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff 0%, var(--crit-purple-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--discord-text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+
+    .storybooks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .storybook-card {
+      background: var(--discord-background-secondary);
+      border-radius: 12px;
+      padding: 2rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .storybook-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(85, 46, 102, 0.3);
+      border-color: var(--crit-purple-light);
+    }
+
+    .storybook-card h2 {
+      font-family: 'Changa', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .storybook-card p {
+      color: var(--discord-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .storybook-card .tech {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.25rem 0.75rem;
+      background: var(--crit-purple-primary);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .footer {
+      margin-top: 4rem;
+      color: var(--discord-text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer a {
+      color: var(--crit-purple-light);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/react/img/cfg-logo.jpg" alt="Crit-Fumble Gaming" class="logo">
+    <h1>Crit-Fumble Storybook</h1>
+    <p class="subtitle">Component libraries for Crit-Fumble Gaming projects</p>
+
+    <div class="storybooks">
+      <a href="/react/" class="storybook-card">
+        <h2>@crit-fumble/react</h2>
+        <p>Shared React component library for crit-fumble.com and FumbleBot Discord Activities</p>
+        <span class="tech">React + TypeScript</span>
+      </a>
+    </div>
+
+    <div class="footer">
+      <p>&copy; Crit-Fumble Gaming &bull; <a href="https://github.com/Crit-Fumble/storybook">GitHub</a></p>
+    </div>
+  </div>
+</body>
+</html>

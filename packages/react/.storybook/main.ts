@@ -22,6 +22,10 @@ const config: StorybookConfig = {
       ...config.resolve.alias,
       '@': '/src',
     };
+    // Set base path for GitHub Pages subdirectory deployment
+    if (process.env.NODE_ENV === 'production') {
+      config.base = '/react/';
+    }
     return config;
   },
 };

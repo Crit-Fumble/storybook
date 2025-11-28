@@ -30,8 +30,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Storybook
-        run: npm run build-storybook
+      - name: Create storybook output directory
+        run: mkdir -p storybook-static
+
+      - name: Build React Storybook
+        run: npm run build-storybook --workspace=@crit-fumble/react -- -o ../../storybook-static/react
+
+      - name: Copy landing page
+        run: cp src/index.html storybook-static/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
