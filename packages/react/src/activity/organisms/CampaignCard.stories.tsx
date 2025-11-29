@@ -3,7 +3,7 @@ import { CampaignCard, CreateCampaignCard } from './CampaignCard';
 import type { Campaign } from '../types';
 
 const meta: Meta<typeof CampaignCard> = {
-  title: 'Activity/Organisms/CampaignCard',
+  title: 'FumbleBot/Campaigns/CampaignCard',
   component: CampaignCard,
   tags: ['autodocs'],
   decorators: [

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AdminDashboardPage } from './AdminDashboardPage';
 
 const meta: Meta<typeof AdminDashboardPage> = {
-  title: 'Activity/Pages/AdminDashboardPage',
+  title: 'FumbleBot/Pages/AdminDashboardPage',
   component: AdminDashboardPage,
   tags: ['autodocs'],
   parameters: {

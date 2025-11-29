@@ -14,5 +14,9 @@ export { ScenePreview, type ScenePreviewProps, type FoundrySceneInfo } from './S
 export { RollResultDisplay, type RollResultDisplayProps, type FoundryRollResultInfo, type DiceTerm } from './RollResultDisplay';
 export { ManifestInfo, type ManifestInfoProps, type FoundryManifestInfo, type ManifestAuthorInfo, type ManifestCompatibilityInfo } from './ManifestInfo';
 
+// Admin Dashboard molecules
+export { MetricsCard, type MetricsCardProps } from './MetricsCard';
+export { PromptPartialCard, type PromptPartialCardProps, type PromptPartial, type PromptTargetType } from './PromptPartialCard';
+
 // Re-export StatusType from atoms for convenience
 export { type StatusType } from '../atoms';

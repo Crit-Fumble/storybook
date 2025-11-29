@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ServerSettingsPage } from './ServerSettingsPage';
 
 const meta: Meta<typeof ServerSettingsPage> = {
-  title: 'Activity/Pages/ServerSettingsPage',
+  title: 'FumbleBot/Pages/ServerSettingsPage',
   component: ServerSettingsPage,
   tags: ['autodocs'],
   parameters: {

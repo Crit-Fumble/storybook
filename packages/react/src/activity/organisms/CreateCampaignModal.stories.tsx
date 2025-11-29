@@ -4,7 +4,7 @@ import { CreateCampaignModal } from './CreateCampaignModal';
 import type { FoundrySystem } from '../types';
 
 const meta: Meta<typeof CreateCampaignModal> = {
-  title: 'Activity/Organisms/CreateCampaignModal',
+  title: 'FumbleBot/Campaigns/CreateCampaignModal',
   component: CreateCampaignModal,
   tags: ['autodocs'],
   decorators: [

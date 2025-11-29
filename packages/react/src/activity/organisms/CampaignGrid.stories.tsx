@@ -3,7 +3,7 @@ import { CampaignGrid } from './CampaignGrid';
 import type { Campaign } from '../types';
 
 const meta: Meta<typeof CampaignGrid> = {
-  title: 'Activity/Organisms/CampaignGrid',
+  title: 'FumbleBot/Campaigns/CampaignGrid',
   component: CampaignGrid,
   tags: ['autodocs'],
   decorators: [

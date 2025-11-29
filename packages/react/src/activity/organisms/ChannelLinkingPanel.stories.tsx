@@ -4,7 +4,7 @@ import { ChannelLinkingPanel } from './ChannelLinkingPanel';
 import type { ChannelLinks, DiscordChannel } from '../types';
 
 const meta: Meta<typeof ChannelLinkingPanel> = {
-  title: 'Activity/Organisms/ChannelLinkingPanel',
+  title: 'FumbleBot/Settings/ChannelLinkingPanel',
   component: ChannelLinkingPanel,
   tags: ['autodocs'],
   decorators: [

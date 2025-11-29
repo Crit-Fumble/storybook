@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { DashboardHeader } from './DashboardHeader';
 
 const meta: Meta<typeof DashboardHeader> = {
-  title: 'Activity/Organisms/DashboardHeader',
+  title: 'FumbleBot/Dashboard/DashboardHeader',
   component: DashboardHeader,
   tags: ['autodocs'],
   decorators: [

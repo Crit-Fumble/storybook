@@ -4,7 +4,7 @@ import { BotSettingsPanel } from './BotSettingsPanel';
 import type { BotSettings } from '../types';
 
 const meta: Meta<typeof BotSettingsPanel> = {
-  title: 'Activity/Organisms/BotSettingsPanel',
+  title: 'FumbleBot/Settings/BotSettingsPanel',
   component: BotSettingsPanel,
   tags: ['autodocs'],
   decorators: [

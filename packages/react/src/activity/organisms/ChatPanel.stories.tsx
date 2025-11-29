@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ChatPanel } from './ChatPanel';
 
 const meta: Meta<typeof ChatPanel> = {
-  title: 'Activity/Organisms/ChatPanel',
+  title: 'FumbleBot/Chat/ChatPanel',
   component: ChatPanel,
   tags: ['autodocs'],
   parameters: {

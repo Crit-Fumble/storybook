@@ -4,7 +4,7 @@ import { RoleLinkingPanel } from './RoleLinkingPanel';
 import type { DiscordRole } from '../types';
 
 const meta: Meta<typeof RoleLinkingPanel> = {
-  title: 'Activity/Organisms/RoleLinkingPanel',
+  title: 'FumbleBot/Settings/RoleLinkingPanel',
   component: RoleLinkingPanel,
   tags: ['autodocs'],
   decorators: [
@@ -20,12 +20,12 @@ export default meta;
 type Story = StoryObj<typeof RoleLinkingPanel>;
 
 const sampleRoles: DiscordRole[] = [
-  { id: '1', name: '@everyone', color: 0, managed: false },
-  { id: '2', name: 'Admin', color: 0xe74c3c, managed: false },
-  { id: '3', name: 'Game Master', color: 0x9b59b6, managed: false },
-  { id: '4', name: 'Player', color: 0x3498db, managed: false },
-  { id: '5', name: 'Spectator', color: 0x95a5a6, managed: false },
-  { id: '6', name: 'Bot Role', color: 0x2ecc71, managed: true },
+  { id: '1', name: '@everyone', color: 0, position: 0, managed: false },
+  { id: '2', name: 'Admin', color: 0xe74c3c, position: 5, managed: false },
+  { id: '3', name: 'Game Master', color: 0x9b59b6, position: 4, managed: false },
+  { id: '4', name: 'Player', color: 0x3498db, position: 3, managed: false },
+  { id: '5', name: 'Spectator', color: 0x95a5a6, position: 2, managed: false },
+  { id: '6', name: 'Bot Role', color: 0x2ecc71, position: 1, managed: true },
 ];
 
 export const Empty: Story = {

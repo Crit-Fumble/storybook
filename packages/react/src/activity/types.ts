@@ -1,20 +1,23 @@
 // Shared types for FumbleBot Activity components
+// Re-export common types from @crit-fumble/core
 
-export type ContainerStatus = 'stopped' | 'starting' | 'running' | 'error';
+// Core types - re-exported for convenience
+export type {
+  ContainerStatus,
+  DiscordChannel,
+  DiscordRole,
+  ChannelLinks,
+  BotSettings,
+  Campaign as CoreCampaign,
+  FoundrySystemRecord,
+  GameSession,
+  SessionStatus,
+  CampaignMember,
+  CharacterType,
+  Character,
+} from '@crit-fumble/core/types';
 
-export interface FumbleCampaign {
-  id: string;
-  guildId: string;
-  name: string;
-  description?: string;
-  foundrySystemId?: string;
-  containerId?: string;
-  containerPort?: number;
-  containerStatus: ContainerStatus;
-  lastActiveAt?: Date;
-}
-
-// Campaign types
+// UI-specific campaign type (extends core with display fields)
 export type CampaignStatus = 'active' | 'paused' | 'completed' | 'archived';
 
 export interface Campaign {
@@ -29,45 +32,26 @@ export interface Campaign {
   updatedAt: Date;
 }
 
+// Simplified types for UI components
+export interface FumbleCampaign {
+  id: string;
+  guildId: string;
+  name: string;
+  description?: string;
+  foundrySystemId?: string;
+  containerId?: string;
+  containerPort?: number;
+  containerStatus: import('@crit-fumble/core/types').ContainerStatus;
+  lastActiveAt?: Date;
+}
+
 export interface FoundrySystem {
   id: string;
   title: string;
   version?: string;
 }
 
-// Discord types
-export interface DiscordChannel {
-  id: string;
-  name: string;
-  type: number; // 0 = text, 2 = voice
-}
-
-export interface DiscordRole {
-  id: string;
-  name: string;
-  color: number;
-  managed: boolean;
-}
-
-// Settings types
-export interface ChannelLinks {
-  ic: string;
-  ooc: string;
-  dice: string;
-  gm: string;
-  announce: string;
-  voice: string;
-}
-
-export interface BotSettings {
-  autoLogIC: boolean;
-  defaultMode: string;
-  diceNotify: boolean;
-  autoSession: boolean;
-  reminderTime: number;
-}
-
-// Chat types
+// Chat types (UI-specific)
 export interface ChatMessage {
   id: string;
   role: 'user' | 'assistant';
