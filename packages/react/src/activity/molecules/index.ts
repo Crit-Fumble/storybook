@@ -6,3 +6,6 @@ export { TypingIndicator, type TypingIndicatorProps } from './TypingIndicator';
 export { UserBadge, type UserBadgeProps } from './UserBadge';
 export { VTTStatusIndicator, type VTTStatusIndicatorProps } from './VTTStatusIndicator';
 export { VTTLauncher, type VTTLauncherProps } from './VTTLauncher';
+
+// Re-export StatusType from atoms for convenience
+export { type StatusType } from '../atoms';

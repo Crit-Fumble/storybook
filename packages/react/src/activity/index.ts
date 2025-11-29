@@ -12,5 +12,8 @@ export * from './molecules';
 // Organisms - Complex UI components
 export * from './organisms';
 
+// Pages - Full page components
+export * from './pages';
+
 // Re-export shared components for convenience
 export * from '../shared';

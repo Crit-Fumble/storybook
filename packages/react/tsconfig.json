@@ -15,6 +15,7 @@
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "./dist",
+    "rootDir": "./src",
 
     /* Linting */
     "strict": true,

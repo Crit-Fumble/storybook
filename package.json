@@ -10,7 +10,7 @@
     "dev": "npm run dev --workspace=@crit-fumble/react",
     "build": "npm run build --workspaces",
     "build:react": "npm run build:lib --workspace=@crit-fumble/react",
-    "test": "npm run test --workspaces --if-present",
+    "test": "cd packages/react && npm test",
     "test:coverage": "npm run test:coverage --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "storybook": "npm run storybook --workspace=@crit-fumble/react",
@@ -22,5 +22,8 @@
     "type": "git",
     "url": "https://github.com/Crit-Fumble/storybook.git"
   },
-  "homepage": "https://storybook.crit-fumble.com"
+  "homepage": "https://storybook.crit-fumble.com",
+  "devDependencies": {
+    "@crit-fumble/core": "^7.1.0"
+  }
 }
