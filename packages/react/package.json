@@ -1,6 +1,6 @@
 {
   "name": "@crit-fumble/react",
-  "version": "19.0.0",
+  "version": "19.1.0",
   "description": "Shared React component library for Crit-Fumble projects",
   "type": "module",
   "main": "./dist/index.js",

@@ -71,7 +71,7 @@ function InteractiveCreateModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (name: string, systemId: string, description: string) => {
+  const handleSubmit = (name: string, _systemId: string, _description: string) => {
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { BotSettingsPanel, type BotSettingsPanelProps } from './BotSettingsPanel';
+import { BotSettingsPanel } from './BotSettingsPanel';
 import type { BotSettings } from '../types';
 
 const meta: Meta<typeof BotSettingsPanel> = {
