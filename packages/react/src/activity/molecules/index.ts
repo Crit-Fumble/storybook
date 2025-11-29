@@ -28,5 +28,14 @@ export { UserActivityCard, type UserActivityCardProps } from './UserActivityCard
 export { VoiceStatusCard, type VoiceStatusCardProps } from './VoiceStatusCard';
 export { VoiceSessionList, type VoiceSessionListProps } from './VoiceSessionList';
 
+// World Anvil components
+export { WorldAnvilLinkCard, type WorldAnvilLinkCardProps } from './WorldAnvilLinkCard';
+
+// Game Session components
+export { GameSessionCard, type GameSessionCardProps } from './GameSessionCard';
+
+// Snapshot components
+export { SnapshotCard, type SnapshotCardProps } from './SnapshotCard';
+
 // Re-export StatusType from atoms for convenience
 export { type StatusType } from '../atoms';

@@ -27,3 +27,9 @@ export { VoiceControlPanel, type VoiceControlPanelProps } from './VoiceControlPa
 
 // Activity Feed components
 export { CampaignActivityFeed, GuildActivityCard, type CampaignActivityFeedProps, type GuildActivityCardProps } from './CampaignActivityFeed';
+
+// Game Session components
+export { GameSessionPanel, type GameSessionPanelProps } from './GameSessionPanel';
+
+// Snapshot components
+export { SnapshotList, type SnapshotListProps } from './SnapshotList';
