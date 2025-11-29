@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { CreateCampaignModal } from './CreateCampaignModal';
-import type { FoundrySystem } from '../types';
+import type { FoundrySystemRecord } from '../types';
 
 const meta: Meta<typeof CreateCampaignModal> = {
   title: 'FumbleBot/Campaigns/CreateCampaignModal',
@@ -19,12 +19,31 @@ const meta: Meta<typeof CreateCampaignModal> = {
 export default meta;
 type Story = StoryObj<typeof CreateCampaignModal>;
 
-const sampleSystems: FoundrySystem[] = [
-  { id: 'dnd5e', title: 'D&D 5th Edition', version: '3.0.0' },
-  { id: 'pf2e', title: 'Pathfinder 2nd Edition', version: '5.2.1' },
-  { id: 'coc7e', title: 'Call of Cthulhu 7th Edition', version: '0.9.0' },
-  { id: 'swade', title: 'Savage Worlds Adventure Edition' },
-  { id: 'wfrp4e', title: 'Warhammer Fantasy 4th Edition', version: '6.0.0' },
+// Helper to create FoundrySystemRecord with required fields
+function createSystem(systemId: string, title: string, version?: string): FoundrySystemRecord {
+  return {
+    id: systemId,
+    systemId,
+    title,
+    description: null,
+    version: version ?? null,
+    manifestUrl: `https://example.com/${systemId}/system.json`,
+    compatibility: null,
+    authors: null,
+    iconUrl: null,
+    isEnabled: true,
+    sortOrder: 0,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+}
+
+const sampleSystems: FoundrySystemRecord[] = [
+  createSystem('dnd5e', 'D&D 5th Edition', '3.0.0'),
+  createSystem('pf2e', 'Pathfinder 2nd Edition', '5.2.1'),
+  createSystem('coc7e', 'Call of Cthulhu 7th Edition', '0.9.0'),
+  createSystem('swade', 'Savage Worlds Adventure Edition'),
+  createSystem('wfrp4e', 'Warhammer Fantasy 4th Edition', '6.0.0'),
 ];
 
 export const Open: Story = {

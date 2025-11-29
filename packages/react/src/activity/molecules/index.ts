@@ -8,7 +8,7 @@ export { VTTStatusIndicator, type VTTStatusIndicatorProps } from './VTTStatusInd
 export { VTTLauncher, type VTTLauncherProps } from './VTTLauncher';
 
 // Foundry VTT components
-export { SystemSelector, type SystemSelectorProps, type FoundrySystemInfo } from './SystemSelector';
+export { SystemSelector, type SystemSelectorProps } from './SystemSelector';
 export { ActorCard, type ActorCardProps, type FoundryActorInfo } from './ActorCard';
 export { ScenePreview, type ScenePreviewProps, type FoundrySceneInfo } from './ScenePreview';
 export { RollResultDisplay, type RollResultDisplayProps, type FoundryRollResultInfo, type DiceTerm } from './RollResultDisplay';

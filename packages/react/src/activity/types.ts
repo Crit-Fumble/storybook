@@ -18,7 +18,7 @@ export type {
   // Campaign & Session
   ContainerStatus,
   CampaignStatus,
-  Campaign as CoreCampaign,
+  Campaign,
   CampaignMember,
   CharacterType,
   Character,
@@ -37,21 +37,8 @@ export type {
   UserActivity,
 } from '@crit-fumble/core/types';
 
-// UI-specific campaign type (extends core Campaign with systemTitle for display)
-// Note: Core Campaign now includes status and systemTitle fields as of v9.0.2
-export interface Campaign {
-  id: string;
-  name: string;
-  systemId: string;
-  systemTitle: string;
-  description: string | null;
-  guildId: string;
-  status: import('@crit-fumble/core/types').CampaignStatus;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-// Simplified types for UI components
+// Simplified campaign type for VTT launcher UI
+// Uses subset of Campaign fields needed for container management
 export interface FumbleCampaign {
   id: string;
   guildId: string;
@@ -62,12 +49,6 @@ export interface FumbleCampaign {
   containerPort?: number;
   containerStatus: import('@crit-fumble/core/types').ContainerStatus;
   lastActiveAt?: Date;
-}
-
-export interface FoundrySystem {
-  id: string;
-  title: string;
-  version?: string;
 }
 
 // Chat types (UI-specific)

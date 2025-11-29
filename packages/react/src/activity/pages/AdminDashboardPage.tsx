@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MainLayout } from '../../web/templates';
 import { DashboardHeader, CampaignGrid, CreateCampaignModal, ChatPanel } from '../organisms';
-import type { Campaign, FoundrySystem } from '../types';
+import type { Campaign, FoundrySystemRecord } from '../types';
 
 export interface AdminDashboardPageProps {
   username: string;
@@ -21,7 +21,7 @@ export function AdminDashboardPage({
   testId = 'admin-dashboard-page',
 }: AdminDashboardPageProps) {
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
-  const [systems, setSystems] = useState<FoundrySystem[]>([]);
+  const [systems, setSystems] = useState<FoundrySystemRecord[]>([]);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -59,16 +59,23 @@ export function AdminDashboardPage({
   const handleCreateCampaign = async (name: string, systemId: string, description: string) => {
     setIsSubmitting(true);
     try {
-      const system = systems.find((s) => s.id === systemId);
+      const system = systems.find((s) => s.systemId === systemId);
       const now = new Date();
       const newCampaign: Campaign = {
         id: crypto.randomUUID(),
-        name,
-        systemId,
-        systemTitle: system?.title || systemId,
-        description: description || null,
         guildId: guildId || '',
+        name,
+        description: description || null,
         status: 'active',
+        foundrySystemId: systemId,
+        systemTitle: system?.title || systemId,
+        members: {},
+        roleMappings: {},
+        containerId: null,
+        containerPort: null,
+        containerStatus: 'stopped',
+        lastActiveAt: null,
+        createdBy: userId,
         createdAt: now,
         updatedAt: now,
       };

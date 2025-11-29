@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Button, type SelectOption } from '../../shared/atoms';
 import { Modal, ModalFooter, FormField } from '../../shared/molecules';
-import type { FoundrySystem } from '../types';
+import type { FoundrySystemRecord } from '../types';
 
 export interface CreateCampaignModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (name: string, systemId: string, description: string) => void;
-  systems: FoundrySystem[];
+  systems: FoundrySystemRecord[];
   isSubmitting?: boolean;
   testId?: string;
 }
@@ -27,7 +27,7 @@ export function CreateCampaignModal({
 
   const systemOptions: SelectOption[] = [
     ...systems.map((s) => ({
-      value: s.id,
+      value: s.systemId,
       label: `${s.title}${s.version ? ` v${s.version}` : ''}`,
     })),
     { value: '__add_new__', label: '+ Add New System...' },

@@ -20,12 +20,19 @@ type Story = StoryObj<typeof CampaignCard>;
 
 const sampleCampaign: Campaign = {
   id: '1',
-  name: 'Curse of Strahd',
-  systemId: 'dnd5e',
-  systemTitle: 'D&D 5th Edition',
-  description: 'A gothic horror campaign set in the cursed land of Barovia, where the vampire lord Strahd von Zarovich holds dominion.',
   guildId: 'guild-123',
+  name: 'Curse of Strahd',
+  description: 'A gothic horror campaign set in the cursed land of Barovia, where the vampire lord Strahd von Zarovich holds dominion.',
   status: 'active',
+  foundrySystemId: 'dnd5e',
+  systemTitle: 'D&D 5th Edition',
+  members: {},
+  roleMappings: {},
+  containerId: null,
+  containerPort: null,
+  containerStatus: 'stopped',
+  lastActiveAt: null,
+  createdBy: 'user-123',
   createdAt: new Date('2024-01-15'),
   updatedAt: new Date('2024-03-20'),
 };

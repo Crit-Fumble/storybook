@@ -1,21 +1,9 @@
 import { useState, useMemo } from 'react';
 import { Select, Input, type SelectOption } from '../../shared/atoms';
-
-export interface FoundrySystemInfo {
-  id: string;
-  name: string;
-  description: string;
-  manifest?: string;
-  version?: string;
-  compatibility?: {
-    minimum?: string;
-    verified?: string;
-    maximum?: string;
-  };
-}
+import type { FoundrySystemRecord } from '../types';
 
 export interface SystemSelectorProps {
-  systems: FoundrySystemInfo[];
+  systems: FoundrySystemRecord[];
   value: string;
   onChange: (systemId: string) => void;
   placeholder?: string;
@@ -42,18 +30,18 @@ export function SystemSelector({
     const query = searchQuery.toLowerCase();
     return systems.filter(
       (s) =>
-        s.name.toLowerCase().includes(query) ||
-        s.id.toLowerCase().includes(query) ||
-        s.description.toLowerCase().includes(query)
+        s.title.toLowerCase().includes(query) ||
+        s.systemId.toLowerCase().includes(query) ||
+        (s.description?.toLowerCase().includes(query) ?? false)
     );
   }, [systems, searchQuery]);
 
   const options: SelectOption[] = filteredSystems.map((s) => ({
-    value: s.id,
-    label: s.version ? `${s.name} (v${s.version})` : s.name,
+    value: s.systemId,
+    label: s.version ? `${s.title} (v${s.version})` : s.title,
   }));
 
-  const selectedSystem = systems.find((s) => s.id === value);
+  const selectedSystem = systems.find((s) => s.systemId === value);
 
   return (
     <div data-testid={testId}>

@@ -31,12 +31,14 @@ export function CampaignCard({ campaign, onClick, onLaunch, testId }: CampaignCa
       <div className="font-semibold text-discord-text-normal mb-1" data-testid={`${cardTestId}-name`}>
         {campaign.name}
       </div>
-      <div
-        className="text-sm text-discord-primary inline-block px-2 py-0.5 bg-discord-background-tertiary rounded mb-2"
-        data-testid={`${cardTestId}-system`}
-      >
-        {campaign.systemTitle}
-      </div>
+      {campaign.systemTitle && (
+        <div
+          className="text-sm text-discord-primary inline-block px-2 py-0.5 bg-discord-background-tertiary rounded mb-2"
+          data-testid={`${cardTestId}-system`}
+        >
+          {campaign.systemTitle}
+        </div>
+      )}
       <p
         className="text-sm text-discord-text-muted mb-3 line-clamp-2"
         data-testid={`${cardTestId}-description`}

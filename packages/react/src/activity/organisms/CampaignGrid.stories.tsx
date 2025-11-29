@@ -18,40 +18,54 @@ const meta: Meta<typeof CampaignGrid> = {
 export default meta;
 type Story = StoryObj<typeof CampaignGrid>;
 
-const sampleCampaigns: Campaign[] = [
-  {
-    id: '1',
-    name: 'Curse of Strahd',
-    systemId: 'dnd5e',
-    systemTitle: 'D&D 5th Edition',
-    description: 'A gothic horror campaign set in the cursed land of Barovia.',
+// Helper to create a Campaign with core type fields
+function createCampaign(overrides: Partial<Campaign> & { id: string; name: string }): Campaign {
+  return {
     guildId: 'guild-123',
+    description: null,
     status: 'active',
+    foundrySystemId: null,
+    systemTitle: null,
+    members: {},
+    roleMappings: {},
+    containerId: null,
+    containerPort: null,
+    containerStatus: 'stopped',
+    lastActiveAt: null,
+    createdBy: 'user-123',
     createdAt: new Date('2024-01-15'),
     updatedAt: new Date('2024-03-20'),
-  },
-  {
+    ...overrides,
+  };
+}
+
+const sampleCampaigns: Campaign[] = [
+  createCampaign({
+    id: '1',
+    name: 'Curse of Strahd',
+    foundrySystemId: 'dnd5e',
+    systemTitle: 'D&D 5th Edition',
+    description: 'A gothic horror campaign set in the cursed land of Barovia.',
+  }),
+  createCampaign({
     id: '2',
     name: 'Edge of the Empire',
-    systemId: 'swrpg',
+    foundrySystemId: 'swrpg',
     systemTitle: 'Star Wars RPG',
     description: 'Smugglers and scoundrels in the Outer Rim.',
-    guildId: 'guild-123',
-    status: 'active',
     createdAt: new Date('2024-02-10'),
     updatedAt: new Date('2024-03-18'),
-  },
-  {
+  }),
+  createCampaign({
     id: '3',
     name: 'Call of Cthulhu',
-    systemId: 'coc7e',
+    foundrySystemId: 'coc7e',
     systemTitle: 'Call of Cthulhu 7e',
     description: 'Investigators uncover cosmic horrors in 1920s New England.',
-    guildId: 'guild-123',
     status: 'paused',
     createdAt: new Date('2023-11-05'),
     updatedAt: new Date('2024-01-15'),
-  },
+  }),
 ];
 
 export const WithCampaigns: Story = {
@@ -95,28 +109,24 @@ export const ManyCampaigns: Story = {
   args: {
     campaigns: [
       ...sampleCampaigns,
-      {
+      createCampaign({
         id: '4',
         name: 'Blades in the Dark',
-        systemId: 'bitd',
+        foundrySystemId: 'bitd',
         systemTitle: 'Blades in the Dark',
         description: 'Daring scoundrels in a haunted Victorian city.',
-        guildId: 'guild-123',
-        status: 'active',
         createdAt: new Date('2024-03-01'),
         updatedAt: new Date('2024-03-20'),
-      },
-      {
+      }),
+      createCampaign({
         id: '5',
         name: 'Pathfinder 2e',
-        systemId: 'pf2e',
+        foundrySystemId: 'pf2e',
         systemTitle: 'Pathfinder 2nd Edition',
         description: 'High fantasy adventure in the Age of Lost Omens.',
-        guildId: 'guild-123',
-        status: 'active',
         createdAt: new Date('2024-03-05'),
         updatedAt: new Date('2024-03-19'),
-      },
+      }),
     ],
     onCampaignClick: () => {},
     onLaunch: () => {},
