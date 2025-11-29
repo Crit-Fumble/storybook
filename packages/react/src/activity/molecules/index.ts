@@ -37,5 +37,8 @@ export { GameSessionCard, type GameSessionCardProps } from './GameSessionCard';
 // Snapshot components
 export { SnapshotCard, type SnapshotCardProps } from './SnapshotCard';
 
+// Container components
+export { ContainerStatusCard, type ContainerStatusCardProps } from './ContainerStatusCard';
+
 // Re-export StatusType from atoms for convenience
 export { type StatusType } from '../atoms';

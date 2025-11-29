@@ -44,6 +44,14 @@ export type {
   VoicePlayRequest,
   VoiceListenStartRequest,
   VoiceSuccessResponse,
+  // Container API
+  ContainerStartRequest,
+  ContainerStartResponse,
+  ContainerStopRequest,
+  ContainerStopResponse,
+  ContainerStatusResponse,
+  ContainerExecRequest,
+  ContainerExecResponse,
 } from '@crit-fumble/core/types';
 
 // Simplified campaign type for VTT launcher UI

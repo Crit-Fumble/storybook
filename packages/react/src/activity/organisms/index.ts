@@ -33,3 +33,6 @@ export { GameSessionPanel, type GameSessionPanelProps } from './GameSessionPanel
 
 // Snapshot components
 export { SnapshotList, type SnapshotListProps } from './SnapshotList';
+
+// Container components
+export { ContainerControlPanel, type ContainerControlPanelProps, type ContainerInfo } from './ContainerControlPanel';
