@@ -3,23 +3,42 @@
 
 // Core types - re-exported for convenience
 export type {
-  ContainerStatus,
+  // User & Auth
+  DiscordUser,
+  User,
+  Guild,
+  DiscordContext,
+  DiscordAuth,
+  // Discord config
   DiscordChannel,
   DiscordRole,
   ChannelLinks,
   BotSettings,
+  GuildSettings,
+  // Campaign & Session
+  ContainerStatus,
+  CampaignStatus,
   Campaign as CoreCampaign,
-  FoundrySystemRecord,
-  GameSession,
-  SessionStatus,
   CampaignMember,
   CharacterType,
   Character,
+  SessionStatus,
+  GameSession,
+  MessageType,
+  SessionMessage,
+  // Assets
+  AssetType,
+  Asset,
+  WorldSnapshot,
+  // Foundry
+  FoundrySystemRecord,
+  DiscordGuild,
+  // Activity
+  UserActivity,
 } from '@crit-fumble/core/types';
 
-// UI-specific campaign type (extends core with display fields)
-export type CampaignStatus = 'active' | 'paused' | 'completed' | 'archived';
-
+// UI-specific campaign type (extends core Campaign with systemTitle for display)
+// Note: Core Campaign now includes status and systemTitle fields as of v9.0.2
 export interface Campaign {
   id: string;
   name: string;
@@ -27,7 +46,7 @@ export interface Campaign {
   systemTitle: string;
   description: string | null;
   guildId: string;
-  status: CampaignStatus;
+  status: import('@crit-fumble/core/types').CampaignStatus;
   createdAt: Date;
   updatedAt: Date;
 }

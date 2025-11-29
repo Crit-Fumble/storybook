@@ -18,3 +18,6 @@ export { PromptPartialList, type PromptPartialListProps } from './PromptPartialL
 export { ActivityFeed, type ActivityFeedProps, type ActivityItem, type ActivityType } from './ActivityFeed';
 export { AdminSettingsPanel, type AdminSettingsPanelProps, type AdminSettings, type ChannelOption } from './AdminSettingsPanel';
 export { AdminDashboardLayout, type AdminDashboardLayoutProps, type AdminTab } from './AdminDashboardLayout';
+
+// Session components
+export { SessionMessageList, type SessionMessageListProps } from './SessionMessageList';

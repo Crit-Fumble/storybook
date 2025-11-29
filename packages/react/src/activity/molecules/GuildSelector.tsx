@@ -1,10 +1,5 @@
 import { Select } from '../../shared/atoms';
-
-export interface Guild {
-  id: string;
-  name: string;
-  icon?: string | null;
-}
+import type { Guild } from '@crit-fumble/core/types';
 
 export interface GuildSelectorProps {
   guilds: Guild[];

@@ -24,6 +24,6 @@
   },
   "homepage": "https://storybook.crit-fumble.com",
   "devDependencies": {
-    "@crit-fumble/core": "^9.0.0"
+    "@crit-fumble/core": "^9.0.2"
   }
 }

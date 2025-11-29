@@ -1,6 +1,6 @@
 export { ChatBubble, type ChatBubbleProps } from './ChatBubble';
 export { ChatButton, type ChatButtonProps } from './ChatButton';
-export { GuildSelector, type GuildSelectorProps, type Guild } from './GuildSelector';
+export { GuildSelector, type GuildSelectorProps } from './GuildSelector';
 export { StatusIndicator, type StatusIndicatorProps } from './StatusIndicator';
 export { TypingIndicator, type TypingIndicatorProps } from './TypingIndicator';
 export { UserBadge, type UserBadgeProps } from './UserBadge';
@@ -17,6 +17,12 @@ export { ManifestInfo, type ManifestInfoProps, type FoundryManifestInfo, type Ma
 // Admin Dashboard molecules
 export { MetricsCard, type MetricsCardProps } from './MetricsCard';
 export { PromptPartialCard, type PromptPartialCardProps, type PromptPartial, type PromptTargetType } from './PromptPartialCard';
+
+// Core type-based components
+export { UserCard, type UserCardProps } from './UserCard';
+export { GuildCard, type GuildCardProps } from './GuildCard';
+export { AssetCard, type AssetCardProps } from './AssetCard';
+export { UserActivityCard, type UserActivityCardProps } from './UserActivityCard';
 
 // Re-export StatusType from atoms for convenience
 export { type StatusType } from '../atoms';

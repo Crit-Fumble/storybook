@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { GuildSelector } from './GuildSelector';
+import type { Guild } from '@crit-fumble/core/types';
 
 const meta: Meta<typeof GuildSelector> = {
   title: 'Activity/Molecules/GuildSelector',
@@ -11,10 +12,10 @@ const meta: Meta<typeof GuildSelector> = {
 export default meta;
 type Story = StoryObj<typeof GuildSelector>;
 
-const sampleGuilds = [
-  { id: '1', name: 'Dragon\'s Lair Gaming' },
-  { id: '2', name: 'Critical Hit Club' },
-  { id: '3', name: 'Dice & Dragons' },
+const sampleGuilds: Guild[] = [
+  { id: '1', name: "Dragon's Lair Gaming", icon: null, owner: false, permissions: '0' },
+  { id: '2', name: 'Critical Hit Club', icon: null, owner: true, permissions: '8' },
+  { id: '3', name: 'Dice & Dragons', icon: null, owner: false, permissions: '0' },
 ];
 
 export const Default: Story = {
@@ -53,7 +54,7 @@ export const Interactive: Story = {
 
 export const SingleGuild: Story = {
   args: {
-    guilds: [{ id: '1', name: 'My Only Server' }],
+    guilds: [{ id: '1', name: 'My Only Server', icon: null, owner: true, permissions: '8' }],
     selectedGuildId: null,
     onChange: () => {},
   },
@@ -62,12 +63,12 @@ export const SingleGuild: Story = {
 export const ManyGuilds: Story = {
   args: {
     guilds: [
-      { id: '1', name: 'Server Alpha' },
-      { id: '2', name: 'Server Beta' },
-      { id: '3', name: 'Server Gamma' },
-      { id: '4', name: 'Server Delta' },
-      { id: '5', name: 'Server Epsilon' },
-      { id: '6', name: 'Server Zeta' },
+      { id: '1', name: 'Server Alpha', icon: null, owner: false, permissions: '0' },
+      { id: '2', name: 'Server Beta', icon: null, owner: true, permissions: '8' },
+      { id: '3', name: 'Server Gamma', icon: null, owner: false, permissions: '0' },
+      { id: '4', name: 'Server Delta', icon: null, owner: false, permissions: '0' },
+      { id: '5', name: 'Server Epsilon', icon: null, owner: false, permissions: '0' },
+      { id: '6', name: 'Server Zeta', icon: null, owner: false, permissions: '0' },
     ],
     selectedGuildId: null,
     onChange: () => {},
