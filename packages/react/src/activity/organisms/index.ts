@@ -4,6 +4,7 @@ export { CampaignGrid, type CampaignGridProps } from './CampaignGrid';
 export { ChannelLinkingPanel, type ChannelLinkingPanelProps } from './ChannelLinkingPanel';
 export { ChatPanel, type ChatPanelProps } from './ChatPanel';
 export { ChatWindow, type ChatWindowProps } from './ChatWindow';
+export { CombatTracker, type CombatTrackerProps, type CombatInfo, type CombatantInfo } from './CombatTracker';
 export { CreateCampaignModal, type CreateCampaignModalProps } from './CreateCampaignModal';
 export { DashboardHeader, type DashboardHeaderProps } from './DashboardHeader';
 export { FloatingChat, type FloatingChatProps } from './FloatingChat';
