@@ -24,3 +24,6 @@ export { SessionMessageList, type SessionMessageListProps } from './SessionMessa
 
 // Voice components
 export { VoiceControlPanel, type VoiceControlPanelProps } from './VoiceControlPanel';
+
+// Activity Feed components
+export { CampaignActivityFeed, GuildActivityCard, type CampaignActivityFeedProps, type GuildActivityCardProps } from './CampaignActivityFeed';
