@@ -3,6 +3,9 @@
 // Atoms - Basic building blocks
 export * from './atoms';
 
+// Molecules - Composite components
+export * from './molecules';
+
 // Organisms - Complex UI components
 export * from './organisms';
 
