@@ -24,5 +24,9 @@ export { GuildCard, type GuildCardProps } from './GuildCard';
 export { AssetCard, type AssetCardProps } from './AssetCard';
 export { UserActivityCard, type UserActivityCardProps } from './UserActivityCard';
 
+// Voice components
+export { VoiceStatusCard, type VoiceStatusCardProps } from './VoiceStatusCard';
+export { VoiceSessionList, type VoiceSessionListProps } from './VoiceSessionList';
+
 // Re-export StatusType from atoms for convenience
 export { type StatusType } from '../atoms';

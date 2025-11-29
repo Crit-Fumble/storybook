@@ -21,3 +21,6 @@ export { AdminDashboardLayout, type AdminDashboardLayoutProps, type AdminTab } f
 
 // Session components
 export { SessionMessageList, type SessionMessageListProps } from './SessionMessageList';
+
+// Voice components
+export { VoiceControlPanel, type VoiceControlPanelProps } from './VoiceControlPanel';

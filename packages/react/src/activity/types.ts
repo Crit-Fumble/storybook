@@ -35,6 +35,15 @@ export type {
   DiscordGuild,
   // Activity
   UserActivity,
+  // Voice
+  VoiceStatusResponse,
+  VoiceSessionsResponse,
+  VoiceJoinRequest,
+  VoiceJoinResponse,
+  VoiceLeaveRequest,
+  VoicePlayRequest,
+  VoiceListenStartRequest,
+  VoiceSuccessResponse,
 } from '@crit-fumble/core/types';
 
 // Simplified campaign type for VTT launcher UI
