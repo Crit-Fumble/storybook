@@ -36,3 +36,6 @@ export { SnapshotList, type SnapshotListProps } from './SnapshotList';
 
 // Container components
 export { ContainerControlPanel, type ContainerControlPanelProps, type ContainerInfo } from './ContainerControlPanel';
+
+// Campaign member components
+export { CampaignMemberList, type CampaignMemberListProps, type CampaignMemberInfo } from './CampaignMemberList';

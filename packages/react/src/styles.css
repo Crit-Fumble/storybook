@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* RPG Awesome Icons */
+@import './styles/rpg-awesome.css';
+
 /* Crit-Fumble Brand Fonts */
 @font-face {
   font-family: "Rubik";

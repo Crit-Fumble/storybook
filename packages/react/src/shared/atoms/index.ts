@@ -4,6 +4,7 @@ export { Button, type ButtonProps } from './Button';
 export { Icon, type IconProps } from './Icon';
 export { Input, type InputProps } from './Input';
 export { Label, type LabelProps } from './Label';
+export { RpgIcon, type RpgIconProps, type RpgIconName, type RpgIconSize, RpgIconGroups } from './RpgIcon';
 export { Select, type SelectProps, type SelectOption } from './Select';
 export { Spinner, type SpinnerProps } from './Spinner';
 export { Textarea, type TextareaProps } from './Textarea';

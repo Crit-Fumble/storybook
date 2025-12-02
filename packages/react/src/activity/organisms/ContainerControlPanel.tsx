@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { clsx } from 'clsx';
-import { Button, Spinner } from '../../shared/atoms';
+import { Button } from '../../shared/atoms';
 import { ContainerStatusCard } from '../molecules/ContainerStatusCard';
 import type { ContainerStatus } from '../types';
 

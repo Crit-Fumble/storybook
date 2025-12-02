@@ -1,0 +1,6 @@
+# Scan for secrets before commit
+echo "Scanning for secrets..."
+npx secretlint "packages/**/*.{ts,tsx,js,json}" --secretlintignore .gitignore
+
+# Run tests
+npm test

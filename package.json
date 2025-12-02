@@ -13,8 +13,10 @@
     "test": "cd packages/react && npm test",
     "test:coverage": "npm run test:coverage --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
+    "secrets:scan": "secretlint \"packages/**/*.{ts,tsx,js,json}\" --secretlintignore .gitignore",
     "storybook": "npm run storybook --workspace=@crit-fumble/react",
-    "build-storybook": "npm run build-storybook --workspace=@crit-fumble/react"
+    "build-storybook": "npm run build-storybook --workspace=@crit-fumble/react",
+    "prepare": "husky"
   },
   "author": "Crit-Fumble Gaming",
   "license": "Apache-2.0",
@@ -24,6 +26,9 @@
   },
   "homepage": "https://storybook.crit-fumble.com",
   "devDependencies": {
-    "@crit-fumble/core": "^9.3.0"
+    "@crit-fumble/core": "^10.4.3",
+    "@secretlint/secretlint-rule-preset-recommend": "^11.2.5",
+    "husky": "^9.1.7",
+    "secretlint": "^11.2.5"
   }
 }
