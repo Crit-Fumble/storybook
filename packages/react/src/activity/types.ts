@@ -75,3 +75,35 @@ export interface ChatMessage {
   content: string;
   timestamp: Date;
 }
+
+// Channel KB Source types
+export type ChannelKBType = 'text' | 'forum' | 'thread';
+
+export interface ChannelKBSource {
+  id: string;
+  guildId: string;
+  channelId: string;
+  channelName: string | null;
+  channelType: ChannelKBType;
+  name: string;
+  description: string | null;
+  category: string;
+  syncEnabled: boolean;
+  syncThreads: boolean;
+  syncPinned: boolean;
+  maxMessages: number;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  lastSyncAt: Date | null;
+  lastSyncStatus: 'success' | 'error' | 'partial' | null;
+  lastSyncError: string | null;
+}
+
+export interface ChannelKBChannel {
+  id: string;
+  name: string;
+  type: 'text' | 'forum' | 'thread';
+  category?: string;
+  isConfigured?: boolean;
+}

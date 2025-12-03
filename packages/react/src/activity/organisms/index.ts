@@ -19,6 +19,11 @@ export { ActivityFeed, type ActivityFeedProps, type ActivityItem, type ActivityT
 export { AdminSettingsPanel, type AdminSettingsPanelProps, type AdminSettings, type ChannelOption } from './AdminSettingsPanel';
 export { AdminDashboardLayout, type AdminDashboardLayoutProps, type AdminTab } from './AdminDashboardLayout';
 
+// Channel KB organisms
+export { ChannelKBSourceList, type ChannelKBSourceListProps } from './ChannelKBSourceList';
+export { ChannelKBSourceEditor, type ChannelKBSourceEditorProps, type ChannelKBSourceFormData } from './ChannelKBSourceEditor';
+export { ChannelKBPanel, type ChannelKBPanelProps } from './ChannelKBPanel';
+
 // Session components
 export { SessionMessageList, type SessionMessageListProps } from './SessionMessageList';
 
@@ -39,3 +44,6 @@ export { ContainerControlPanel, type ContainerControlPanelProps, type ContainerI
 
 // Campaign member components
 export { CampaignMemberList, type CampaignMemberListProps, type CampaignMemberInfo } from './CampaignMemberList';
+
+// Initiative components
+export { InitiativeTracker, type InitiativeTrackerProps, type InitiativeEntry } from './InitiativeTracker';

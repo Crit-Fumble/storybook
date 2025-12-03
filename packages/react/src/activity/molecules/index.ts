@@ -17,6 +17,7 @@ export { ManifestInfo, type ManifestInfoProps, type FoundryManifestInfo, type Ma
 // Admin Dashboard molecules
 export { MetricsCard, type MetricsCardProps } from './MetricsCard';
 export { PromptPartialCard, type PromptPartialCardProps, type PromptPartial, type PromptTargetType } from './PromptPartialCard';
+export { ChannelKBSourceCard, type ChannelKBSourceCardProps } from './ChannelKBSourceCard';
 
 // Core type-based components
 export { UserCard, type UserCardProps } from './UserCard';
@@ -51,6 +52,15 @@ export { SystemCard, type SystemCardProps, type SystemCompatibility, type System
 
 // API Key components
 export { ApiKeyCard, type ApiKeyCardProps } from './ApiKeyCard';
+
+// Initiative components
+export { InitiativeEntryCard, type InitiativeEntryCardProps } from './InitiativeEntryCard';
+
+// NPC components
+export { NPCCard, type NPCCardProps } from './NPCCard';
+
+// Discord components
+export { DiscordEmbed, type DiscordEmbedProps, type EmbedField } from './DiscordEmbed';
 
 // Re-export StatusType from atoms for convenience
 export { type StatusType } from '../atoms';
