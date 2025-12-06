@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignMemberList } from './CampaignMemberList';
 
@@ -117,7 +117,7 @@ describe('CampaignMemberList', () => {
     });
 
     it('calls onInvite when clicked', () => {
-      const handleInvite = vi.fn();
+      const handleInvite = jest.fn();
       render(
         <CampaignMemberList
           members={mockMembers}
@@ -144,7 +144,7 @@ describe('CampaignMemberList', () => {
     });
 
     it('calls onRoleChange with correct arguments', () => {
-      const handleRoleChange = vi.fn();
+      const handleRoleChange = jest.fn();
       render(
         <CampaignMemberList
           members={mockMembers}
@@ -158,7 +158,7 @@ describe('CampaignMemberList', () => {
     });
 
     it('calls onRemove with correct arguments', () => {
-      const handleRemove = vi.fn();
+      const handleRemove = jest.fn();
       render(
         <CampaignMemberList
           members={mockMembers}

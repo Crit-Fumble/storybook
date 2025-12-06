@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignMemberCard } from './CampaignMemberCard';
 
@@ -91,7 +91,7 @@ describe('CampaignMemberCard', () => {
     });
 
     it('calls onRoleChange when role is changed', () => {
-      const handleRoleChange = vi.fn();
+      const handleRoleChange = jest.fn();
       render(
         <CampaignMemberCard
           {...defaultProps}
@@ -129,7 +129,7 @@ describe('CampaignMemberCard', () => {
     });
 
     it('calls onRemove when remove button clicked', () => {
-      const handleRemove = vi.fn();
+      const handleRemove = jest.fn();
       render(
         <CampaignMemberCard
           {...defaultProps}

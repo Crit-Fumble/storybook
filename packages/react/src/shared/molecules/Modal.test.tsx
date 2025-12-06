@@ -1,16 +1,15 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Modal, ModalFooter } from './Modal';
 
 describe('Modal', () => {
   const defaultProps = {
     isOpen: true,
-    onClose: vi.fn(),
+    onClose: jest.fn(),
     children: <div>Modal content</div>,
   };
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    jest.clearAllMocks();
   });
 
   afterEach(() => {
@@ -68,28 +67,28 @@ describe('Modal', () => {
 
   describe('closing behavior', () => {
     it('calls onClose when backdrop is clicked', () => {
-      const onClose = vi.fn();
+      const onClose = jest.fn();
       render(<Modal {...defaultProps} onClose={onClose} testId="modal" />);
       fireEvent.click(screen.getByTestId('modal-backdrop'));
       expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('calls onClose when close button is clicked', () => {
-      const onClose = vi.fn();
+      const onClose = jest.fn();
       render(<Modal {...defaultProps} onClose={onClose} title="Title" testId="modal" />);
       fireEvent.click(screen.getByTestId('modal-close'));
       expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('calls onClose when Escape key is pressed', () => {
-      const onClose = vi.fn();
+      const onClose = jest.fn();
       render(<Modal {...defaultProps} onClose={onClose} testId="modal" />);
       fireEvent.keyDown(document, { key: 'Escape' });
       expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('does not call onClose for other key presses', () => {
-      const onClose = vi.fn();
+      const onClose = jest.fn();
       render(<Modal {...defaultProps} onClose={onClose} testId="modal" />);
       fireEvent.keyDown(document, { key: 'Enter' });
       expect(onClose).not.toHaveBeenCalled();

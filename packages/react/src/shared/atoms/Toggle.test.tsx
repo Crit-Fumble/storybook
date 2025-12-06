@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Toggle } from './Toggle';
 
@@ -59,7 +59,7 @@ describe('Toggle', () => {
     });
 
     it('calls onChange when toggled', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(<Toggle testId="toggle" onChange={handleChange} />);
 
       fireEvent.click(screen.getByTestId('toggle'));

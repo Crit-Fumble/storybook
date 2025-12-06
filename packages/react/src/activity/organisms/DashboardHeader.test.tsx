@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { DashboardHeader } from './DashboardHeader';
 
@@ -27,7 +27,7 @@ describe('DashboardHeader', () => {
 
   describe('Activity Hub button', () => {
     it('shows Activity Hub button when onActivityHub is provided', () => {
-      const handleActivityHub = vi.fn();
+      const handleActivityHub = jest.fn();
       render(
         <DashboardHeader
           title="Dashboard"
@@ -46,7 +46,7 @@ describe('DashboardHeader', () => {
     });
 
     it('calls onActivityHub when Activity Hub button is clicked', () => {
-      const handleActivityHub = vi.fn();
+      const handleActivityHub = jest.fn();
       render(
         <DashboardHeader
           title="Dashboard"
@@ -62,7 +62,7 @@ describe('DashboardHeader', () => {
 
   describe('Settings button', () => {
     it('shows Settings button when onSettings is provided', () => {
-      const handleSettings = vi.fn();
+      const handleSettings = jest.fn();
       render(
         <DashboardHeader
           title="Dashboard"
@@ -81,7 +81,7 @@ describe('DashboardHeader', () => {
     });
 
     it('calls onSettings when Settings button is clicked', () => {
-      const handleSettings = vi.fn();
+      const handleSettings = jest.fn();
       render(
         <DashboardHeader
           title="Dashboard"
@@ -97,7 +97,7 @@ describe('DashboardHeader', () => {
 
   describe('Chat button', () => {
     it('shows Chat button when onChat is provided', () => {
-      const handleChat = vi.fn();
+      const handleChat = jest.fn();
       render(
         <DashboardHeader
           title="Dashboard"
@@ -115,7 +115,7 @@ describe('DashboardHeader', () => {
     });
 
     it('calls onChat when Chat button is clicked', () => {
-      const handleChat = vi.fn();
+      const handleChat = jest.fn();
       render(
         <DashboardHeader
           title="Dashboard"

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Select } from './Select';
 import { createRef } from 'react';
@@ -84,7 +84,7 @@ describe('Select', () => {
 
   describe('interactions', () => {
     it('handles value changes', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(<Select options={mockOptions} onChange={handleChange} />);
 
       fireEvent.change(screen.getByRole('combobox'), { target: { value: 'option2' } });

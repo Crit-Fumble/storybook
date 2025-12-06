@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { UserCard } from './UserCard';
 import type { DiscordUser } from '@crit-fumble/core/types';
@@ -119,14 +119,14 @@ describe('UserCard', () => {
 
   describe('interactions', () => {
     it('calls onClick when clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<UserCard user={mockUser} onClick={handleClick} />);
       fireEvent.click(screen.getByTestId('user-card'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('applies hover styles when onClick is provided', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<UserCard user={mockUser} onClick={handleClick} />);
       expect(screen.getByTestId('user-card')).toHaveClass('cursor-pointer');
     });

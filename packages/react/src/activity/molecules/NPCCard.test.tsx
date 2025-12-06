@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { NPCCard } from './NPCCard';
 
@@ -103,7 +102,7 @@ describe('NPCCard', () => {
     });
 
     it('calls onSave when clicked', () => {
-      const handleSave = vi.fn();
+      const handleSave = jest.fn();
       render(<NPCCard {...defaultProps} onSave={handleSave} />);
       fireEvent.click(screen.getByTestId('npc-card-save-btn'));
       expect(handleSave).toHaveBeenCalledTimes(1);
@@ -122,7 +121,7 @@ describe('NPCCard', () => {
     });
 
     it('calls onEdit when clicked', () => {
-      const handleEdit = vi.fn();
+      const handleEdit = jest.fn();
       render(<NPCCard {...defaultProps} onEdit={handleEdit} />);
       fireEvent.click(screen.getByTestId('npc-card-edit-btn'));
       expect(handleEdit).toHaveBeenCalledTimes(1);
@@ -141,7 +140,7 @@ describe('NPCCard', () => {
     });
 
     it('calls onUse when clicked', () => {
-      const handleUse = vi.fn();
+      const handleUse = jest.fn();
       render(<NPCCard {...defaultProps} onUse={handleUse} />);
       fireEvent.click(screen.getByTestId('npc-card-use-btn'));
       expect(handleUse).toHaveBeenCalledTimes(1);
@@ -170,7 +169,7 @@ describe('NPCCard', () => {
     });
 
     it('calls onToggleSecret when clicked', () => {
-      const handleToggle = vi.fn();
+      const handleToggle = jest.fn();
       render(<NPCCard {...defaultProps} secret="Hidden info" onToggleSecret={handleToggle} />);
       fireEvent.click(screen.getByTestId('npc-card-toggle-secret'));
       expect(handleToggle).toHaveBeenCalledTimes(1);

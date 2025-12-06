@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ChatBubble } from './ChatBubble';
 
@@ -52,13 +52,13 @@ describe('ChatBubble', () => {
 
   describe('action button', () => {
     it('renders action button for assistant messages when action is provided', () => {
-      const action = { label: 'Copy', onClick: vi.fn() };
+      const action = { label: 'Copy', onClick: jest.fn() };
       render(<ChatBubble content="Message" isUser={false} action={action} />);
       expect(screen.getByText('Copy')).toBeInTheDocument();
     });
 
     it('does not render action button for user messages', () => {
-      const action = { label: 'Copy', onClick: vi.fn() };
+      const action = { label: 'Copy', onClick: jest.fn() };
       render(<ChatBubble content="Message" isUser action={action} />);
       expect(screen.queryByText('Copy')).not.toBeInTheDocument();
     });
@@ -69,7 +69,7 @@ describe('ChatBubble', () => {
     });
 
     it('calls action onClick when clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       const action = { label: 'Copy', onClick: handleClick };
       render(<ChatBubble content="Message" isUser={false} action={action} />);
 

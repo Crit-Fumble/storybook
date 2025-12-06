@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Input } from './Input';
 import { createRef } from 'react';
@@ -41,7 +41,7 @@ describe('Input', () => {
 
   describe('interactions', () => {
     it('handles value changes', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(<Input onChange={handleChange} />);
       fireEvent.change(screen.getByRole('textbox'), { target: { value: 'test' } });
       expect(handleChange).toHaveBeenCalled();
@@ -56,8 +56,8 @@ describe('Input', () => {
     });
 
     it('handles focus events', () => {
-      const handleFocus = vi.fn();
-      const handleBlur = vi.fn();
+      const handleFocus = jest.fn();
+      const handleBlur = jest.fn();
       render(<Input onFocus={handleFocus} onBlur={handleBlur} />);
 
       const input = screen.getByRole('textbox');

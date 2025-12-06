@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { TabNav } from './TabNav';
 
@@ -63,7 +63,7 @@ describe('TabNav', () => {
 
   describe('interactions', () => {
     it('calls onChange when tab is clicked', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(<TabNav tabs={defaultTabs} activeTab="tab1" onChange={handleChange} />);
 
       fireEvent.click(screen.getByText('Tab 2'));
@@ -71,7 +71,7 @@ describe('TabNav', () => {
     });
 
     it('calls onChange with correct tab id', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(<TabNav tabs={defaultTabs} activeTab="tab1" onChange={handleChange} />);
 
       fireEvent.click(screen.getByText('Tab 3'));

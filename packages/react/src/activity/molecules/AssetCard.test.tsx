@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { AssetCard } from './AssetCard';
 import type { Asset, AssetType } from '@crit-fumble/core/types';
@@ -133,14 +133,14 @@ describe('AssetCard', () => {
 
   describe('interactions', () => {
     it('calls onClick when clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<AssetCard asset={createMockAsset()} onClick={handleClick} />);
       fireEvent.click(screen.getByTestId('asset-card'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('applies hover styles when onClick is provided', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<AssetCard asset={createMockAsset()} onClick={handleClick} />);
       expect(screen.getByTestId('asset-card')).toHaveClass('cursor-pointer');
     });
@@ -153,7 +153,7 @@ describe('AssetCard', () => {
 
   describe('delete button', () => {
     it('renders delete button when onDelete is provided', () => {
-      const handleDelete = vi.fn();
+      const handleDelete = jest.fn();
       render(<AssetCard asset={createMockAsset()} onDelete={handleDelete} />);
       expect(screen.getByRole('button', { name: 'Delete asset' })).toBeInTheDocument();
     });
@@ -164,15 +164,15 @@ describe('AssetCard', () => {
     });
 
     it('calls onDelete when delete button is clicked', () => {
-      const handleDelete = vi.fn();
+      const handleDelete = jest.fn();
       render(<AssetCard asset={createMockAsset()} onDelete={handleDelete} />);
       fireEvent.click(screen.getByRole('button', { name: 'Delete asset' }));
       expect(handleDelete).toHaveBeenCalledTimes(1);
     });
 
     it('stops propagation when delete button is clicked', () => {
-      const handleClick = vi.fn();
-      const handleDelete = vi.fn();
+      const handleClick = jest.fn();
+      const handleDelete = jest.fn();
       render(
         <AssetCard asset={createMockAsset()} onClick={handleClick} onDelete={handleDelete} />
       );

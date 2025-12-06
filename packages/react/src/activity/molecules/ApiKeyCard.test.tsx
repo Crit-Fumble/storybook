@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ApiKeyCard } from './ApiKeyCard';
 
@@ -116,7 +116,7 @@ describe('ApiKeyCard', () => {
     });
 
     it('calls onCopy when copy button clicked', () => {
-      const handleCopy = vi.fn();
+      const handleCopy = jest.fn();
       render(<ApiKeyCard {...defaultProps} keyValue="sk_live_1234567890abcdef" onCopy={handleCopy} />);
       fireEvent.click(screen.getByTestId('api-key-card-copy-btn'));
       expect(handleCopy).toHaveBeenCalledTimes(1);
@@ -130,7 +130,7 @@ describe('ApiKeyCard', () => {
     });
 
     it('calls onRevoke when button clicked', () => {
-      const handleRevoke = vi.fn();
+      const handleRevoke = jest.fn();
       render(<ApiKeyCard {...defaultProps} onRevoke={handleRevoke} />);
       fireEvent.click(screen.getByTestId('api-key-card-revoke-btn'));
       expect(handleRevoke).toHaveBeenCalledTimes(1);

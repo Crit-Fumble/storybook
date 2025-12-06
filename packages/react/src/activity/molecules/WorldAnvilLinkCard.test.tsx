@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { WorldAnvilLinkCard } from './WorldAnvilLinkCard';
 
@@ -18,7 +18,7 @@ describe('WorldAnvilLinkCard', () => {
     });
 
     it('shows Link World button when onLink provided', () => {
-      const handleLink = vi.fn();
+      const handleLink = jest.fn();
       render(
         <WorldAnvilLinkCard
           worldId={null}
@@ -151,7 +151,7 @@ describe('WorldAnvilLinkCard', () => {
     });
 
     it('shows Open World button when worldUrl and onOpenWorld provided', () => {
-      const handleOpen = vi.fn();
+      const handleOpen = jest.fn();
       render(
         <WorldAnvilLinkCard
           worldId="world-123"
@@ -182,7 +182,7 @@ describe('WorldAnvilLinkCard', () => {
     });
 
     it('shows Unlink button when onUnlink provided', () => {
-      const handleUnlink = vi.fn();
+      const handleUnlink = jest.fn();
       render(
         <WorldAnvilLinkCard
           worldId="world-123"

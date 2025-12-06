@@ -26,7 +26,7 @@
   },
   "homepage": "https://storybook.crit-fumble.com",
   "devDependencies": {
-    "@crit-fumble/core": "^10.4.3",
+    "@crit-fumble/core": "^10.4.4",
     "@crit-fumble/core-fumblebot": "^0.1.0",
     "@secretlint/secretlint-rule-preset-recommend": "^11.2.5",
     "husky": "^9.1.7",

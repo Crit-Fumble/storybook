@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ChannelLinkingPanel } from './ChannelLinkingPanel';
 import type { ChannelLinks, DiscordChannel } from '../types';
@@ -125,7 +125,7 @@ describe('ChannelLinkingPanel', () => {
 
   describe('Channel selection', () => {
     it('calls onChange when channel is selected', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <ChannelLinkingPanel
           channelLinks={createChannelLinks()}
@@ -144,7 +144,7 @@ describe('ChannelLinkingPanel', () => {
     });
 
     it('calls onChange when voice channel is selected', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <ChannelLinkingPanel
           channelLinks={createChannelLinks()}
@@ -178,7 +178,7 @@ describe('ChannelLinkingPanel', () => {
     });
 
     it('calls onSave when Save button is clicked', () => {
-      const handleSave = vi.fn();
+      const handleSave = jest.fn();
       render(
         <ChannelLinkingPanel
           channelLinks={createChannelLinks()}
@@ -220,7 +220,7 @@ describe('ChannelLinkingPanel', () => {
     });
 
     it('calls onRefresh when Refresh button is clicked', () => {
-      const handleRefresh = vi.fn();
+      const handleRefresh = jest.fn();
       render(
         <ChannelLinkingPanel
           channelLinks={createChannelLinks()}

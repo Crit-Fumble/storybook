@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SystemCard } from './SystemCard';
 
@@ -128,36 +128,36 @@ describe('SystemCard', () => {
 
   describe('interactions', () => {
     it('calls onSelect when clicked', () => {
-      const handleSelect = vi.fn();
+      const handleSelect = jest.fn();
       render(<SystemCard {...defaultProps} onSelect={handleSelect} />);
       fireEvent.click(screen.getByTestId('system-card'));
       expect(handleSelect).toHaveBeenCalledTimes(1);
     });
 
     it('calls onSelect on Enter key', () => {
-      const handleSelect = vi.fn();
+      const handleSelect = jest.fn();
       render(<SystemCard {...defaultProps} onSelect={handleSelect} />);
       fireEvent.keyDown(screen.getByTestId('system-card'), { key: 'Enter' });
       expect(handleSelect).toHaveBeenCalledTimes(1);
     });
 
     it('does not call onSelect when disabled', () => {
-      const handleSelect = vi.fn();
+      const handleSelect = jest.fn();
       render(<SystemCard {...defaultProps} onSelect={handleSelect} isEnabled={false} />);
       fireEvent.click(screen.getByTestId('system-card'));
       expect(handleSelect).not.toHaveBeenCalled();
     });
 
     it('calls onViewDetails when details button clicked', () => {
-      const handleViewDetails = vi.fn();
+      const handleViewDetails = jest.fn();
       render(<SystemCard {...defaultProps} onViewDetails={handleViewDetails} />);
       fireEvent.click(screen.getByTestId('system-card-details-btn'));
       expect(handleViewDetails).toHaveBeenCalledTimes(1);
     });
 
     it('stops propagation when clicking details button', () => {
-      const handleSelect = vi.fn();
-      const handleViewDetails = vi.fn();
+      const handleSelect = jest.fn();
+      const handleViewDetails = jest.fn();
       render(
         <SystemCard
           {...defaultProps}

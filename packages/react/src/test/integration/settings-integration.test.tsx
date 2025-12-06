@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useState } from 'react';
 import { SettingRow, SettingToggleRow, SettingSelectRow } from '../../shared/molecules/SettingRow';
@@ -277,7 +277,7 @@ describe('Settings Integration', () => {
     it('handles custom interaction', () => {
       // Mock clipboard API
       Object.assign(navigator, {
-        clipboard: { writeText: vi.fn() },
+        clipboard: { writeText: jest.fn() },
       });
 
       render(<CustomSettingPage />);

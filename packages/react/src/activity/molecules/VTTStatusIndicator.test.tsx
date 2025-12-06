@@ -1,4 +1,3 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { VTTStatusIndicator } from './VTTStatusIndicator';
 
@@ -79,16 +78,16 @@ describe('VTTStatusIndicator', () => {
 
   describe('lastActiveAt', () => {
     beforeEach(() => {
-      vi.useFakeTimers();
+      jest.useFakeTimers();
     });
 
     afterEach(() => {
-      vi.useRealTimers();
+      jest.useRealTimers();
     });
 
     it('shows last active time for stopped status', () => {
       const now = new Date('2024-01-15T12:00:00Z');
-      vi.setSystemTime(now);
+      jest.setSystemTime(now);
 
       const lastActive = new Date('2024-01-15T11:30:00Z');
       render(<VTTStatusIndicator status="stopped" lastActiveAt={lastActive} />);
@@ -98,7 +97,7 @@ describe('VTTStatusIndicator', () => {
 
     it('shows "Just now" for very recent activity', () => {
       const now = new Date('2024-01-15T12:00:00Z');
-      vi.setSystemTime(now);
+      jest.setSystemTime(now);
 
       const lastActive = new Date('2024-01-15T11:59:45Z');
       render(<VTTStatusIndicator status="stopped" lastActiveAt={lastActive} />);
@@ -108,7 +107,7 @@ describe('VTTStatusIndicator', () => {
 
     it('shows hours for older activity', () => {
       const now = new Date('2024-01-15T12:00:00Z');
-      vi.setSystemTime(now);
+      jest.setSystemTime(now);
 
       const lastActive = new Date('2024-01-15T09:00:00Z');
       render(<VTTStatusIndicator status="stopped" lastActiveAt={lastActive} />);
@@ -118,7 +117,7 @@ describe('VTTStatusIndicator', () => {
 
     it('shows days for much older activity', () => {
       const now = new Date('2024-01-15T12:00:00Z');
-      vi.setSystemTime(now);
+      jest.setSystemTime(now);
 
       const lastActive = new Date('2024-01-13T12:00:00Z');
       render(<VTTStatusIndicator status="stopped" lastActiveAt={lastActive} />);
@@ -128,7 +127,7 @@ describe('VTTStatusIndicator', () => {
 
     it('does not show last active for running status', () => {
       const now = new Date('2024-01-15T12:00:00Z');
-      vi.setSystemTime(now);
+      jest.setSystemTime(now);
 
       const lastActive = new Date('2024-01-15T11:30:00Z');
       render(<VTTStatusIndicator status="running" lastActiveAt={lastActive} />);

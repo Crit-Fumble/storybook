@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MetricsDashboard, type MetricsData, type MetricsPeriod } from './MetricsDashboard';
 
@@ -51,7 +51,7 @@ describe('MetricsDashboard', () => {
     });
 
     it('calls onPeriodChange when period is clicked', () => {
-      const handlePeriodChange = vi.fn();
+      const handlePeriodChange = jest.fn();
       render(
         <MetricsDashboard
           period="24h"

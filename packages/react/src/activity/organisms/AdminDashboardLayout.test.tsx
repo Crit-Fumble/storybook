@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { AdminDashboardLayout, type AdminTab } from './AdminDashboardLayout';
 
@@ -42,7 +42,7 @@ describe('AdminDashboardLayout', () => {
 
   describe('Back button', () => {
     it('shows back button when onBack is provided', () => {
-      const handleBack = vi.fn();
+      const handleBack = jest.fn();
       render(<AdminDashboardLayout {...defaultProps} onBack={handleBack} />);
 
       const backButton = screen.getByLabelText('Go back');
@@ -55,7 +55,7 @@ describe('AdminDashboardLayout', () => {
     });
 
     it('calls onBack when back button is clicked', () => {
-      const handleBack = vi.fn();
+      const handleBack = jest.fn();
       render(<AdminDashboardLayout {...defaultProps} onBack={handleBack} />);
 
       fireEvent.click(screen.getByLabelText('Go back'));
@@ -115,7 +115,7 @@ describe('AdminDashboardLayout', () => {
 
   describe('Tab change callback', () => {
     it('calls onTabChange when tab is changed', () => {
-      const handleTabChange = vi.fn();
+      const handleTabChange = jest.fn();
       render(
         <AdminDashboardLayout {...defaultProps} onTabChange={handleTabChange} />
       );
@@ -125,7 +125,7 @@ describe('AdminDashboardLayout', () => {
     });
 
     it('calls onTabChange with correct tab id', () => {
-      const handleTabChange = vi.fn();
+      const handleTabChange = jest.fn();
       render(
         <AdminDashboardLayout {...defaultProps} onTabChange={handleTabChange} />
       );

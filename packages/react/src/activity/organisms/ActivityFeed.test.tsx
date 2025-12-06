@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ActivityFeed, type ActivityItem, type ActivityType } from './ActivityFeed';
 
@@ -208,7 +208,7 @@ describe('ActivityFeed', () => {
     });
 
     it('calls onLoadMore when Load More is clicked', () => {
-      const handleLoadMore = vi.fn();
+      const handleLoadMore = jest.fn();
       render(
         <ActivityFeed
           activities={sampleActivities}

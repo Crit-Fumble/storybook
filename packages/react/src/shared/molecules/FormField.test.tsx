@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { FormField } from './FormField';
 
@@ -7,11 +7,11 @@ describe('FormField', () => {
     label: 'Email',
     name: 'email',
     value: '',
-    onChange: vi.fn(),
+    onChange: jest.fn(),
   };
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    jest.clearAllMocks();
   });
 
   describe('rendering', () => {
@@ -112,21 +112,21 @@ describe('FormField', () => {
 
   describe('interactions', () => {
     it('calls onChange with new value for text input', () => {
-      const onChange = vi.fn();
+      const onChange = jest.fn();
       render(<FormField {...defaultProps} onChange={onChange} />);
       fireEvent.change(screen.getByRole('textbox'), { target: { value: 'test@example.com' } });
       expect(onChange).toHaveBeenCalledWith('test@example.com');
     });
 
     it('calls onChange with new value for textarea', () => {
-      const onChange = vi.fn();
+      const onChange = jest.fn();
       render(<FormField {...defaultProps} type="textarea" onChange={onChange} />);
       fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Long text content' } });
       expect(onChange).toHaveBeenCalledWith('Long text content');
     });
 
     it('calls onChange with new value for select', () => {
-      const onChange = vi.fn();
+      const onChange = jest.fn();
       const options = [
         { value: 'option1', label: 'Option 1' },
         { value: 'option2', label: 'Option 2' },

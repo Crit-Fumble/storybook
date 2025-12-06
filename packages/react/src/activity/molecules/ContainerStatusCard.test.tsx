@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ContainerStatusCard } from './ContainerStatusCard';
 import type { ContainerStatus } from '../types';
@@ -110,7 +110,7 @@ describe('ContainerStatusCard', () => {
     });
 
     it('calls onStart when Start button clicked', () => {
-      const handleStart = vi.fn();
+      const handleStart = jest.fn();
       render(
         <ContainerStatusCard
           status="stopped"
@@ -159,7 +159,7 @@ describe('ContainerStatusCard', () => {
     });
 
     it('calls onStop when Stop button clicked', () => {
-      const handleStop = vi.fn();
+      const handleStop = jest.fn();
       render(
         <ContainerStatusCard
           status="running"
@@ -172,7 +172,7 @@ describe('ContainerStatusCard', () => {
     });
 
     it('calls onRestart when Restart button clicked', () => {
-      const handleRestart = vi.fn();
+      const handleRestart = jest.fn();
       render(
         <ContainerStatusCard
           status="running"
@@ -217,7 +217,7 @@ describe('ContainerStatusCard', () => {
     });
 
     it('calls onStart when Retry button clicked', () => {
-      const handleStart = vi.fn();
+      const handleStart = jest.fn();
       render(
         <ContainerStatusCard
           status="error"

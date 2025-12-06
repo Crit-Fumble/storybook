@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { VTTViewer } from './VTTViewer';
 
@@ -35,7 +35,7 @@ describe('VTTViewer', () => {
     });
 
     it('calls onLaunch when launch button is clicked', () => {
-      const onLaunch = vi.fn();
+      const onLaunch = jest.fn();
       render(<VTTViewer {...defaultProps} status="stopped" onLaunch={onLaunch} />);
 
       fireEvent.click(screen.getByRole('button', { name: 'Launch VTT' }));
@@ -131,7 +131,7 @@ describe('VTTViewer', () => {
     });
 
     it('calls onLaunch when retry button is clicked', () => {
-      const onLaunch = vi.fn();
+      const onLaunch = jest.fn();
       render(<VTTViewer {...defaultProps} status="error" onLaunch={onLaunch} />);
 
       fireEvent.click(screen.getByRole('button', { name: 'Try Again' }));

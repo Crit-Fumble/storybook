@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { InitiativeTracker } from './InitiativeTracker';
 
@@ -125,21 +124,21 @@ describe('InitiativeTracker', () => {
     });
 
     it('calls onNextTurn when next button clicked', () => {
-      const handleNext = vi.fn();
+      const handleNext = jest.fn();
       render(<InitiativeTracker entries={defaultEntries} onNextTurn={handleNext} />);
       fireEvent.click(screen.getByTestId('initiative-tracker-next-btn'));
       expect(handleNext).toHaveBeenCalledTimes(1);
     });
 
     it('calls onPrevTurn when prev button clicked', () => {
-      const handlePrev = vi.fn();
+      const handlePrev = jest.fn();
       render(<InitiativeTracker entries={defaultEntries} onPrevTurn={handlePrev} />);
       fireEvent.click(screen.getByTestId('initiative-tracker-prev-btn'));
       expect(handlePrev).toHaveBeenCalledTimes(1);
     });
 
     it('calls onResetRound when reset button clicked', () => {
-      const handleReset = vi.fn();
+      const handleReset = jest.fn();
       render(<InitiativeTracker entries={defaultEntries} onResetRound={handleReset} />);
       fireEvent.click(screen.getByTestId('initiative-tracker-reset-btn'));
       expect(handleReset).toHaveBeenCalledTimes(1);
@@ -176,14 +175,14 @@ describe('InitiativeTracker', () => {
 
   describe('entry interactions', () => {
     it('calls onEntryClick when entry clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<InitiativeTracker entries={defaultEntries} onEntryClick={handleClick} />);
       fireEvent.click(screen.getByTestId('initiative-tracker-entry-1'));
       expect(handleClick).toHaveBeenCalledWith(expect.objectContaining({ id: '1', name: 'Thorin' }));
     });
 
     it('calls onHpChange when HP adjusted', () => {
-      const handleHpChange = vi.fn();
+      const handleHpChange = jest.fn();
       const entries = [{ id: '1', name: 'Thorin', initiative: 18, hp: 25, maxHp: 30 }];
       render(<InitiativeTracker entries={entries} onHpChange={handleHpChange} />);
       fireEvent.click(screen.getByTestId('initiative-tracker-entry-1-hp-increase'));
@@ -191,7 +190,7 @@ describe('InitiativeTracker', () => {
     });
 
     it('calls onRemoveEntry when remove button clicked', () => {
-      const handleRemove = vi.fn();
+      const handleRemove = jest.fn();
       render(<InitiativeTracker entries={defaultEntries} onRemoveEntry={handleRemove} />);
       fireEvent.click(screen.getByTestId('initiative-tracker-entry-1-remove'));
       expect(handleRemove).toHaveBeenCalledWith('1');

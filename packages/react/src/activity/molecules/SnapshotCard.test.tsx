@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SnapshotCard } from './SnapshotCard';
 import type { WorldSnapshot } from '../types';
@@ -64,7 +64,7 @@ describe('SnapshotCard', () => {
 
   describe('Actions', () => {
     it('shows Restore button when onRestore provided and not current', () => {
-      const handleRestore = vi.fn();
+      const handleRestore = jest.fn();
       render(<SnapshotCard snapshot={createSnapshot()} onRestore={handleRestore} />);
 
       const restoreBtn = screen.getByTestId('snapshot-card-restore-btn');
@@ -84,7 +84,7 @@ describe('SnapshotCard', () => {
     });
 
     it('shows Download button when onDownload provided', () => {
-      const handleDownload = vi.fn();
+      const handleDownload = jest.fn();
       render(<SnapshotCard snapshot={createSnapshot()} onDownload={handleDownload} />);
 
       const downloadBtn = screen.getByTestId('snapshot-card-download-btn');
@@ -93,7 +93,7 @@ describe('SnapshotCard', () => {
     });
 
     it('shows Delete button when onDelete provided and not current', () => {
-      const handleDelete = vi.fn();
+      const handleDelete = jest.fn();
       render(<SnapshotCard snapshot={createSnapshot()} onDelete={handleDelete} />);
 
       const deleteBtn = screen.getByTestId('snapshot-card-delete-btn');

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { FloatingChat } from './FloatingChat';
 
@@ -7,14 +7,14 @@ describe('FloatingChat', () => {
     title: 'Chat',
     messages: [],
     inputValue: '',
-    onInputChange: vi.fn(),
-    onSubmit: vi.fn(),
+    onInputChange: jest.fn(),
+    onSubmit: jest.fn(),
     isOpen: false,
-    onToggle: vi.fn(),
+    onToggle: jest.fn(),
   };
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    jest.clearAllMocks();
   });
 
   describe('toggle button', () => {
@@ -34,7 +34,7 @@ describe('FloatingChat', () => {
     });
 
     it('calls onToggle when clicked', () => {
-      const onToggle = vi.fn();
+      const onToggle = jest.fn();
       render(<FloatingChat {...defaultProps} onToggle={onToggle} testId="floating" />);
 
       fireEvent.click(screen.getByTestId('floating-toggle'));
@@ -123,7 +123,7 @@ describe('FloatingChat', () => {
     });
 
     it('passes onInputChange to chat window', () => {
-      const onInputChange = vi.fn();
+      const onInputChange = jest.fn();
       render(<FloatingChat {...defaultProps} onInputChange={onInputChange} isOpen />);
 
       fireEvent.change(screen.getByRole('textbox'), { target: { value: 'New value' } });
@@ -131,7 +131,7 @@ describe('FloatingChat', () => {
     });
 
     it('passes onSubmit to chat window', () => {
-      const onSubmit = vi.fn();
+      const onSubmit = jest.fn();
       render(<FloatingChat {...defaultProps} inputValue="Hello" onSubmit={onSubmit} isOpen />);
 
       const form = screen.getByRole('textbox').closest('form')!;

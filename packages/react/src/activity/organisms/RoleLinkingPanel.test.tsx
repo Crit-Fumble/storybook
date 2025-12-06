@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { RoleLinkingPanel } from './RoleLinkingPanel';
 import type { DiscordRole } from '../types';
@@ -120,7 +120,7 @@ describe('RoleLinkingPanel', () => {
     });
 
     it('calls onChange when remove button is clicked', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <RoleLinkingPanel
           roleMappings={{ 'role-1': '4', 'role-2': '1' }}
@@ -184,7 +184,7 @@ describe('RoleLinkingPanel', () => {
     });
 
     it('calls onChange when adding a new mapping', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <RoleLinkingPanel
           roleMappings={{}}
@@ -204,7 +204,7 @@ describe('RoleLinkingPanel', () => {
     });
 
     it('does not add mapping when fields are empty', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <RoleLinkingPanel
           roleMappings={{}}

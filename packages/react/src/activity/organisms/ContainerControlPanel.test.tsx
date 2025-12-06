@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ContainerControlPanel, type ContainerInfo } from './ContainerControlPanel';
 
@@ -123,7 +123,7 @@ describe('ContainerControlPanel', () => {
     });
 
     it('calls onStopAll when clicked', () => {
-      const handleStopAll = vi.fn();
+      const handleStopAll = jest.fn();
       render(
         <ContainerControlPanel
           containers={containers}
@@ -150,7 +150,7 @@ describe('ContainerControlPanel', () => {
 
   describe('Container actions', () => {
     it('calls onStart with campaignId when start clicked', () => {
-      const handleStart = vi.fn();
+      const handleStart = jest.fn();
       const stoppedContainers = [createContainer('1', 'campaign-1', 'Test', 'stopped')];
 
       render(
@@ -165,7 +165,7 @@ describe('ContainerControlPanel', () => {
     });
 
     it('calls onStop with campaignId when stop clicked', () => {
-      const handleStop = vi.fn();
+      const handleStop = jest.fn();
       const runningContainers = [createContainer('1', 'campaign-1', 'Test', 'running')];
 
       render(
@@ -180,7 +180,7 @@ describe('ContainerControlPanel', () => {
     });
 
     it('calls onRestart with campaignId when restart clicked', () => {
-      const handleRestart = vi.fn();
+      const handleRestart = jest.fn();
       const runningContainers = [createContainer('1', 'campaign-1', 'Test', 'running')];
 
       render(

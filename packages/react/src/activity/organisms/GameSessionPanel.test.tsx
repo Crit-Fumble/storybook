@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { GameSessionPanel } from './GameSessionPanel';
 import type { GameSession, DiscordChannel } from '../types';
@@ -62,7 +62,7 @@ describe('GameSessionPanel', () => {
     });
 
     it('calls onStartSession when form is submitted', () => {
-      const handleStart = vi.fn();
+      const handleStart = jest.fn();
       render(
         <GameSessionPanel
           activeSession={null}
@@ -110,7 +110,7 @@ describe('GameSessionPanel', () => {
     });
 
     it('shows Pause button for active session', () => {
-      const handlePause = vi.fn();
+      const handlePause = jest.fn();
       render(
         <GameSessionPanel
           activeSession={createSession()}
@@ -124,7 +124,7 @@ describe('GameSessionPanel', () => {
     });
 
     it('shows End button', () => {
-      const handleEnd = vi.fn();
+      const handleEnd = jest.fn();
       render(
         <GameSessionPanel
           activeSession={createSession()}
@@ -151,7 +151,7 @@ describe('GameSessionPanel', () => {
 
   describe('With paused session', () => {
     it('shows Resume button for paused session', () => {
-      const handleResume = vi.fn();
+      const handleResume = jest.fn();
       render(
         <GameSessionPanel
           activeSession={createSession({ status: 'paused' })}
@@ -198,7 +198,7 @@ describe('GameSessionPanel', () => {
     });
 
     it('calls onViewSession for recent sessions', () => {
-      const handleView = vi.fn();
+      const handleView = jest.fn();
       const recentSessions = [
         createSession({ id: 'old-1', status: 'ended', endedAt: new Date() }),
       ];

@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { InitiativeEntryCard } from './InitiativeEntryCard';
 
@@ -80,28 +79,28 @@ describe('InitiativeEntryCard', () => {
 
   describe('HP controls', () => {
     it('shows HP adjustment buttons when onHpChange provided', () => {
-      const handleHpChange = vi.fn();
+      const handleHpChange = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} hp={25} maxHp={30} onHpChange={handleHpChange} />);
       expect(screen.getByTestId('initiative-entry-card-hp-decrease')).toBeInTheDocument();
       expect(screen.getByTestId('initiative-entry-card-hp-increase')).toBeInTheDocument();
     });
 
     it('calls onHpChange with decreased HP when minus clicked', () => {
-      const handleHpChange = vi.fn();
+      const handleHpChange = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} hp={25} maxHp={30} onHpChange={handleHpChange} />);
       fireEvent.click(screen.getByTestId('initiative-entry-card-hp-decrease'));
       expect(handleHpChange).toHaveBeenCalledWith(24);
     });
 
     it('calls onHpChange with increased HP when plus clicked', () => {
-      const handleHpChange = vi.fn();
+      const handleHpChange = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} hp={25} maxHp={30} onHpChange={handleHpChange} />);
       fireEvent.click(screen.getByTestId('initiative-entry-card-hp-increase'));
       expect(handleHpChange).toHaveBeenCalledWith(26);
     });
 
     it('does not go below 0 HP', () => {
-      const handleHpChange = vi.fn();
+      const handleHpChange = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} hp={0} maxHp={30} onHpChange={handleHpChange} />);
       fireEvent.click(screen.getByTestId('initiative-entry-card-hp-decrease'));
       expect(handleHpChange).toHaveBeenCalledWith(0);
@@ -110,43 +109,43 @@ describe('InitiativeEntryCard', () => {
 
   describe('interactions', () => {
     it('calls onClick when clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} onClick={handleClick} />);
       fireEvent.click(screen.getByTestId('initiative-entry-card'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('calls onClick on Enter key', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} onClick={handleClick} />);
       fireEvent.keyDown(screen.getByTestId('initiative-entry-card'), { key: 'Enter' });
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('calls onClick on Space key', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} onClick={handleClick} />);
       fireEvent.keyDown(screen.getByTestId('initiative-entry-card'), { key: ' ' });
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('does not call onClick when loading', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} onClick={handleClick} isLoading />);
       fireEvent.click(screen.getByTestId('initiative-entry-card'));
       expect(handleClick).not.toHaveBeenCalled();
     });
 
     it('calls onRemove when remove button clicked', () => {
-      const handleRemove = vi.fn();
+      const handleRemove = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} onRemove={handleRemove} />);
       fireEvent.click(screen.getByTestId('initiative-entry-card-remove'));
       expect(handleRemove).toHaveBeenCalledTimes(1);
     });
 
     it('stops propagation when clicking remove button', () => {
-      const handleClick = vi.fn();
-      const handleRemove = vi.fn();
+      const handleClick = jest.fn();
+      const handleRemove = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} onClick={handleClick} onRemove={handleRemove} />);
       fireEvent.click(screen.getByTestId('initiative-entry-card-remove'));
       expect(handleRemove).toHaveBeenCalled();
@@ -154,8 +153,8 @@ describe('InitiativeEntryCard', () => {
     });
 
     it('stops propagation when clicking HP buttons', () => {
-      const handleClick = vi.fn();
-      const handleHpChange = vi.fn();
+      const handleClick = jest.fn();
+      const handleHpChange = jest.fn();
       render(<InitiativeEntryCard {...defaultProps} onClick={handleClick} hp={25} maxHp={30} onHpChange={handleHpChange} />);
       fireEvent.click(screen.getByTestId('initiative-entry-card-hp-increase'));
       expect(handleHpChange).toHaveBeenCalled();

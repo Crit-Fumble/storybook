@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SessionMessageList } from './SessionMessageList';
 import type { SessionMessage, MessageType } from '@crit-fumble/core/types';
@@ -127,7 +127,7 @@ describe('SessionMessageList', () => {
   describe('load more', () => {
     it('shows load more button when hasMore and onLoadMore provided', () => {
       const messages = [createMockMessage()];
-      const handleLoadMore = vi.fn();
+      const handleLoadMore = jest.fn();
       render(
         <SessionMessageList messages={messages} hasMore={true} onLoadMore={handleLoadMore} />
       );
@@ -136,7 +136,7 @@ describe('SessionMessageList', () => {
 
     it('does not show load more button when hasMore is false', () => {
       const messages = [createMockMessage()];
-      const handleLoadMore = vi.fn();
+      const handleLoadMore = jest.fn();
       render(
         <SessionMessageList messages={messages} hasMore={false} onLoadMore={handleLoadMore} />
       );
@@ -151,7 +151,7 @@ describe('SessionMessageList', () => {
 
     it('calls onLoadMore when Load More is clicked', () => {
       const messages = [createMockMessage()];
-      const handleLoadMore = vi.fn();
+      const handleLoadMore = jest.fn();
       render(
         <SessionMessageList messages={messages} hasMore={true} onLoadMore={handleLoadMore} />
       );
@@ -161,7 +161,7 @@ describe('SessionMessageList', () => {
 
     it('shows Loading... text when loading', () => {
       const messages = [createMockMessage()];
-      const handleLoadMore = vi.fn();
+      const handleLoadMore = jest.fn();
       render(
         <SessionMessageList
           messages={messages}
@@ -175,7 +175,7 @@ describe('SessionMessageList', () => {
 
     it('disables button when loading', () => {
       const messages = [createMockMessage()];
-      const handleLoadMore = vi.fn();
+      const handleLoadMore = jest.fn();
       render(
         <SessionMessageList
           messages={messages}

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SystemSelector } from './SystemSelector';
 import type { FoundrySystemRecord } from '../types';
@@ -54,7 +54,7 @@ const mockSystems: FoundrySystemRecord[] = [
 describe('SystemSelector', () => {
   describe('rendering', () => {
     it('renders select with options', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector systems={mockSystems} value="" onChange={handleChange} />
       );
@@ -62,7 +62,7 @@ describe('SystemSelector', () => {
     });
 
     it('applies default testId', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector systems={mockSystems} value="" onChange={handleChange} />
       );
@@ -70,7 +70,7 @@ describe('SystemSelector', () => {
     });
 
     it('applies custom testId', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -83,7 +83,7 @@ describe('SystemSelector', () => {
     });
 
     it('renders system names with versions', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector systems={mockSystems} value="" onChange={handleChange} />
       );
@@ -93,7 +93,7 @@ describe('SystemSelector', () => {
     });
 
     it('renders system name without version when not available', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector systems={mockSystems} value="" onChange={handleChange} />
       );
@@ -103,7 +103,7 @@ describe('SystemSelector', () => {
 
   describe('search functionality', () => {
     it('renders search input when searchable is true', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -116,7 +116,7 @@ describe('SystemSelector', () => {
     });
 
     it('does not render search input when searchable is false', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -129,7 +129,7 @@ describe('SystemSelector', () => {
     });
 
     it('filters systems by name', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -145,7 +145,7 @@ describe('SystemSelector', () => {
     });
 
     it('filters systems by id', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -160,7 +160,7 @@ describe('SystemSelector', () => {
     });
 
     it('filters systems by description', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -177,7 +177,7 @@ describe('SystemSelector', () => {
 
   describe('description', () => {
     it('shows description when showDescription is true and system is selected', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -191,7 +191,7 @@ describe('SystemSelector', () => {
     });
 
     it('does not show description when showDescription is false', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -204,7 +204,7 @@ describe('SystemSelector', () => {
     });
 
     it('does not show description when no system is selected', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -219,7 +219,7 @@ describe('SystemSelector', () => {
 
   describe('interactions', () => {
     it('calls onChange with selected system id', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector systems={mockSystems} value="" onChange={handleChange} />
       );
@@ -231,7 +231,7 @@ describe('SystemSelector', () => {
 
   describe('disabled state', () => {
     it('disables select when disabled is true', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -244,7 +244,7 @@ describe('SystemSelector', () => {
     });
 
     it('disables search input when disabled is true', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}
@@ -260,7 +260,7 @@ describe('SystemSelector', () => {
 
   describe('placeholder', () => {
     it('uses default placeholder', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector systems={mockSystems} value="" onChange={handleChange} />
       );
@@ -268,7 +268,7 @@ describe('SystemSelector', () => {
     });
 
     it('uses custom placeholder', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SystemSelector
           systems={mockSystems}

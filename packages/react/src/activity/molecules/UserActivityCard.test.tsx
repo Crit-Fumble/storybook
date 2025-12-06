@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { UserActivityCard } from './UserActivityCard';
 import type { UserActivity } from '@crit-fumble/core/types';
@@ -212,14 +212,14 @@ describe('UserActivityCard', () => {
 
   describe('interactions', () => {
     it('calls onGuildClick when guild header is clicked', () => {
-      const handleGuildClick = vi.fn();
+      const handleGuildClick = jest.fn();
       render(<UserActivityCard activity={createMockActivity()} onGuildClick={handleGuildClick} />);
       fireEvent.click(screen.getByText('Test Server'));
       expect(handleGuildClick).toHaveBeenCalledTimes(1);
     });
 
     it('calls onCampaignClick with campaign id when campaign is clicked', () => {
-      const handleCampaignClick = vi.fn();
+      const handleCampaignClick = jest.fn();
       const activity = createMockActivity({
         campaigns: [createMockCampaign({ id: 'campaign-123', name: 'My Campaign' })],
       });
@@ -229,7 +229,7 @@ describe('UserActivityCard', () => {
     });
 
     it('calls onJoinSession with session id when Join Session is clicked', () => {
-      const handleJoinSession = vi.fn();
+      const handleJoinSession = jest.fn();
       const activity = createMockActivity({
         campaigns: [
           createMockCampaign({
@@ -244,8 +244,8 @@ describe('UserActivityCard', () => {
     });
 
     it('stops propagation when Join Session is clicked', () => {
-      const handleCampaignClick = vi.fn();
-      const handleJoinSession = vi.fn();
+      const handleCampaignClick = jest.fn();
+      const handleJoinSession = jest.fn();
       const activity = createMockActivity({
         campaigns: [
           createMockCampaign({
@@ -267,7 +267,7 @@ describe('UserActivityCard', () => {
     });
 
     it('applies hover styles when onGuildClick is provided', () => {
-      const handleGuildClick = vi.fn();
+      const handleGuildClick = jest.fn();
       render(<UserActivityCard activity={createMockActivity()} onGuildClick={handleGuildClick} />);
       // The cursor-pointer class is on the header container with the onClick handler
       const container = screen.getByTestId('user-activity-card');
@@ -276,7 +276,7 @@ describe('UserActivityCard', () => {
     });
 
     it('applies hover styles when onCampaignClick is provided', () => {
-      const handleCampaignClick = vi.fn();
+      const handleCampaignClick = jest.fn();
       const activity = createMockActivity({
         campaigns: [createMockCampaign()],
       });

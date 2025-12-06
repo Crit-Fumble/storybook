@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { GameSessionCard } from './GameSessionCard';
 import type { GameSession } from '../types';
@@ -32,7 +32,7 @@ describe('GameSessionCard', () => {
     });
 
     it('shows Pause button when onPause provided', () => {
-      const handlePause = vi.fn();
+      const handlePause = jest.fn();
       render(<GameSessionCard session={createSession()} onPause={handlePause} />);
 
       const pauseBtn = screen.getByTestId('game-session-card-pause-btn');
@@ -41,7 +41,7 @@ describe('GameSessionCard', () => {
     });
 
     it('shows End button when onEnd provided', () => {
-      const handleEnd = vi.fn();
+      const handleEnd = jest.fn();
       render(<GameSessionCard session={createSession()} onEnd={handleEnd} />);
 
       const endBtn = screen.getByTestId('game-session-card-end-btn');
@@ -62,7 +62,7 @@ describe('GameSessionCard', () => {
     });
 
     it('shows Resume button when onResume provided', () => {
-      const handleResume = vi.fn();
+      const handleResume = jest.fn();
       render(
         <GameSessionCard
           session={createSession({ status: 'paused' })}
@@ -180,7 +180,7 @@ describe('GameSessionCard', () => {
 
   describe('View button', () => {
     it('shows View button when onView provided', () => {
-      const handleView = vi.fn();
+      const handleView = jest.fn();
       render(<GameSessionCard session={createSession()} onView={handleView} />);
 
       const viewBtn = screen.getByTestId('game-session-card-view-btn');

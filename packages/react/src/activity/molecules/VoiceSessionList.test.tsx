@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { VoiceSessionList } from './VoiceSessionList';
 import type { VoiceSessionsResponse } from '../types';
@@ -106,7 +105,7 @@ describe('VoiceSessionList', () => {
 
   describe('click handling', () => {
     it('calls onSessionClick when session is clicked', () => {
-      const onSessionClick = vi.fn();
+      const onSessionClick = jest.fn();
       render(<VoiceSessionList sessions={singleSession} onSessionClick={onSessionClick} />);
 
       fireEvent.click(screen.getByTestId('voice-session-list-item-0'));

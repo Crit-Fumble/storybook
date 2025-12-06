@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { EmptyState } from './EmptyState';
 
@@ -75,7 +75,7 @@ describe('EmptyState', () => {
     });
 
     it('calls onAction when button is clicked', () => {
-      const handleAction = vi.fn();
+      const handleAction = jest.fn();
       render(
         <EmptyState
           title="No items"

@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { VoiceControlPanel } from './VoiceControlPanel';
 import type { VoiceStatusResponse, DiscordChannel } from '../types';
@@ -34,12 +33,12 @@ describe('VoiceControlPanel', () => {
   const defaultProps = {
     status: disconnectedStatus,
     channels: mockChannels,
-    onJoin: vi.fn(),
-    onLeave: vi.fn(),
-    onPlay: vi.fn(),
-    onStop: vi.fn(),
-    onStartListening: vi.fn(),
-    onStopListening: vi.fn(),
+    onJoin: jest.fn(),
+    onLeave: jest.fn(),
+    onPlay: jest.fn(),
+    onStop: jest.fn(),
+    onStartListening: jest.fn(),
+    onStopListening: jest.fn(),
   };
 
   describe('rendering', () => {
@@ -88,7 +87,7 @@ describe('VoiceControlPanel', () => {
     });
 
     it('calls onJoin when join button clicked with selected channel', () => {
-      const onJoin = vi.fn();
+      const onJoin = jest.fn();
       render(<VoiceControlPanel {...defaultProps} onJoin={onJoin} />);
 
       const select = screen.getByTestId('voice-control-panel-channel-select');
@@ -116,7 +115,7 @@ describe('VoiceControlPanel', () => {
     });
 
     it('calls onLeave when leave button clicked', () => {
-      const onLeave = vi.fn();
+      const onLeave = jest.fn();
       render(<VoiceControlPanel {...defaultProps} status={connectedStatus} onLeave={onLeave} />);
 
       fireEvent.click(screen.getByTestId('voice-control-panel-leave-btn'));
@@ -140,7 +139,7 @@ describe('VoiceControlPanel', () => {
     });
 
     it('calls onPlay with URL when play clicked', () => {
-      const onPlay = vi.fn();
+      const onPlay = jest.fn();
       render(<VoiceControlPanel {...defaultProps} status={connectedStatus} onPlay={onPlay} />);
 
       const input = screen.getByTestId('voice-control-panel-audio-url');
@@ -151,7 +150,7 @@ describe('VoiceControlPanel', () => {
     });
 
     it('calls onStop when stop clicked', () => {
-      const onStop = vi.fn();
+      const onStop = jest.fn();
       render(<VoiceControlPanel {...defaultProps} status={connectedStatus} onStop={onStop} />);
 
       fireEvent.click(screen.getByTestId('voice-control-panel-stop-btn'));
@@ -169,7 +168,7 @@ describe('VoiceControlPanel', () => {
     });
 
     it('calls onStartListening when start listening clicked', () => {
-      const onStartListening = vi.fn();
+      const onStartListening = jest.fn();
       render(<VoiceControlPanel {...defaultProps} status={connectedStatus} onStartListening={onStartListening} />);
 
       fireEvent.click(screen.getByTestId('voice-control-panel-start-listening-btn'));
@@ -184,7 +183,7 @@ describe('VoiceControlPanel', () => {
     });
 
     it('calls onStopListening when stop listening clicked', () => {
-      const onStopListening = vi.fn();
+      const onStopListening = jest.fn();
       render(<VoiceControlPanel {...defaultProps} status={listeningStatus} onStopListening={onStopListening} />);
 
       fireEvent.click(screen.getByTestId('voice-control-panel-stop-listening-btn'));

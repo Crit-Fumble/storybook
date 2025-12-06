@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SnapshotList } from './SnapshotList';
 import type { WorldSnapshot } from '../types';
@@ -39,7 +39,7 @@ describe('SnapshotList', () => {
     });
 
     it('shows Create Snapshot button when onCreateSnapshot provided', () => {
-      const handleCreate = vi.fn();
+      const handleCreate = jest.fn();
       render(<SnapshotList snapshots={snapshots} onCreateSnapshot={handleCreate} />);
 
       const createBtn = screen.getByTestId('snapshot-list-create-btn');
@@ -91,7 +91,7 @@ describe('SnapshotList', () => {
     });
 
     it('passes onRestoreSnapshot to cards', () => {
-      const handleRestore = vi.fn();
+      const handleRestore = jest.fn();
       render(
         <SnapshotList
           snapshots={snapshots}
@@ -107,7 +107,7 @@ describe('SnapshotList', () => {
     });
 
     it('passes onDownloadSnapshot to cards', () => {
-      const handleDownload = vi.fn();
+      const handleDownload = jest.fn();
       render(<SnapshotList snapshots={snapshots} onDownloadSnapshot={handleDownload} />);
 
       const downloadBtn = screen.getByTestId('snapshot-list-item-0-download-btn');
@@ -116,7 +116,7 @@ describe('SnapshotList', () => {
     });
 
     it('passes onDeleteSnapshot to cards', () => {
-      const handleDelete = vi.fn();
+      const handleDelete = jest.fn();
       render(
         <SnapshotList
           snapshots={snapshots}
@@ -170,7 +170,7 @@ describe('SnapshotList', () => {
         createSnapshot('snap-6', 6),
       ];
 
-      const handleViewAll = vi.fn();
+      const handleViewAll = jest.fn();
       render(
         <SnapshotList
           snapshots={manySnapshots}

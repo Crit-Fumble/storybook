@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ChatWindow } from './ChatWindow';
 
@@ -7,12 +7,12 @@ describe('ChatWindow', () => {
     title: 'FumbleBot',
     messages: [],
     inputValue: '',
-    onInputChange: vi.fn(),
-    onSubmit: vi.fn(),
+    onInputChange: jest.fn(),
+    onSubmit: jest.fn(),
   };
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    jest.clearAllMocks();
   });
 
   describe('rendering', () => {
@@ -141,7 +141,7 @@ describe('ChatWindow', () => {
 
   describe('interactions', () => {
     it('calls onInputChange when typing', () => {
-      const onInputChange = vi.fn();
+      const onInputChange = jest.fn();
       render(<ChatWindow {...defaultProps} onInputChange={onInputChange} />);
 
       fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Hello' } });
@@ -149,7 +149,7 @@ describe('ChatWindow', () => {
     });
 
     it('calls onSubmit when form is submitted', () => {
-      const onSubmit = vi.fn();
+      const onSubmit = jest.fn();
       render(<ChatWindow {...defaultProps} inputValue="Hello" onSubmit={onSubmit} />);
 
       const form = screen.getByRole('textbox').closest('form')!;
@@ -158,7 +158,7 @@ describe('ChatWindow', () => {
     });
 
     it('does not submit empty message', () => {
-      const onSubmit = vi.fn();
+      const onSubmit = jest.fn();
       render(<ChatWindow {...defaultProps} inputValue="" onSubmit={onSubmit} />);
 
       const form = screen.getByRole('textbox').closest('form')!;
@@ -167,7 +167,7 @@ describe('ChatWindow', () => {
     });
 
     it('does not submit whitespace-only message', () => {
-      const onSubmit = vi.fn();
+      const onSubmit = jest.fn();
       render(<ChatWindow {...defaultProps} inputValue="   " onSubmit={onSubmit} />);
 
       const form = screen.getByRole('textbox').closest('form')!;
@@ -176,7 +176,7 @@ describe('ChatWindow', () => {
     });
 
     it('trims whitespace when submitting', () => {
-      const onSubmit = vi.fn();
+      const onSubmit = jest.fn();
       render(<ChatWindow {...defaultProps} inputValue="  Hello  " onSubmit={onSubmit} />);
 
       const form = screen.getByRole('textbox').closest('form')!;
@@ -185,7 +185,7 @@ describe('ChatWindow', () => {
     });
 
     it('does not submit when loading', () => {
-      const onSubmit = vi.fn();
+      const onSubmit = jest.fn();
       render(<ChatWindow {...defaultProps} inputValue="Hello" isLoading onSubmit={onSubmit} />);
 
       const form = screen.getByRole('textbox').closest('form')!;
@@ -209,7 +209,7 @@ describe('ChatWindow', () => {
   describe('message actions', () => {
     it('renders action button on assistant messages when messageAction is provided', () => {
       const messages = [{ id: '1', role: 'assistant' as const, content: 'Response' }];
-      const messageAction = { label: 'Copy', onClick: vi.fn() };
+      const messageAction = { label: 'Copy', onClick: jest.fn() };
       render(<ChatWindow {...defaultProps} messages={messages} messageAction={messageAction} />);
 
       expect(screen.getByText('Copy')).toBeInTheDocument();
@@ -217,7 +217,7 @@ describe('ChatWindow', () => {
 
     it('calls messageAction.onClick with content when clicked', () => {
       const messages = [{ id: '1', role: 'assistant' as const, content: 'Response content' }];
-      const onClick = vi.fn();
+      const onClick = jest.fn();
       const messageAction = { label: 'Copy', onClick };
       render(<ChatWindow {...defaultProps} messages={messages} messageAction={messageAction} />);
 

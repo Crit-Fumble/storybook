@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignActivityFeed, GuildActivityCard } from './CampaignActivityFeed';
 import type { UserActivity } from '../types';
@@ -74,7 +74,7 @@ describe('GuildActivityCard', () => {
   });
 
   it('calls onCampaignClick when campaign is clicked', () => {
-    const handleClick = vi.fn();
+    const handleClick = jest.fn();
     render(<GuildActivityCard activity={sampleActivity} onCampaignClick={handleClick} />);
 
     fireEvent.click(screen.getByTestId('guild-activity-card-campaign-0'));
@@ -82,8 +82,8 @@ describe('GuildActivityCard', () => {
   });
 
   it('calls onCharacterClick when character is clicked', () => {
-    const handleCampaignClick = vi.fn();
-    const handleCharacterClick = vi.fn();
+    const handleCampaignClick = jest.fn();
+    const handleCharacterClick = jest.fn();
     render(
       <GuildActivityCard
         activity={sampleActivity}
@@ -157,7 +157,7 @@ describe('CampaignActivityFeed', () => {
   });
 
   it('shows retry button when error and onRetry provided', () => {
-    const handleRetry = vi.fn();
+    const handleRetry = jest.fn();
     render(
       <CampaignActivityFeed activities={[]} error="Error" onRetry={handleRetry} />
     );
@@ -183,8 +183,8 @@ describe('CampaignActivityFeed', () => {
   });
 
   it('passes callbacks to GuildActivityCard', () => {
-    const handleCampaignClick = vi.fn();
-    const handleCharacterClick = vi.fn();
+    const handleCampaignClick = jest.fn();
+    const handleCharacterClick = jest.fn();
     render(
       <CampaignActivityFeed
         activities={[sampleActivity]}

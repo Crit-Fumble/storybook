@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { GuildCard } from './GuildCard';
 import type { Guild } from '@crit-fumble/core/types';
@@ -131,14 +131,14 @@ describe('GuildCard', () => {
 
   describe('interactions', () => {
     it('calls onClick when clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<GuildCard guild={mockGuild} onClick={handleClick} />);
       fireEvent.click(screen.getByTestId('guild-card'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('applies hover styles when onClick is provided', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<GuildCard guild={mockGuild} onClick={handleClick} />);
       expect(screen.getByTestId('guild-card')).toHaveClass('cursor-pointer');
     });

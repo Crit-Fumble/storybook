@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { GuildSelector } from './GuildSelector';
 
@@ -106,7 +106,7 @@ describe('GuildSelector', () => {
 
   describe('interactions', () => {
     it('calls onChange with guild id when selection changes', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <GuildSelector
           guilds={mockGuilds}
@@ -122,7 +122,7 @@ describe('GuildSelector', () => {
     });
 
     it('calls onChange with different guild id', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <GuildSelector
           guilds={mockGuilds}

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BotSettingsPanel } from './BotSettingsPanel';
 import type { BotSettings } from '../types';
@@ -42,7 +42,7 @@ describe('BotSettingsPanel', () => {
     });
 
     it('calls onChange when auto-log toggle is changed', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <BotSettingsPanel
           settings={createSettings({ autoLogIC: false })}
@@ -75,7 +75,7 @@ describe('BotSettingsPanel', () => {
     });
 
     it('calls onChange when default mode is changed', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <BotSettingsPanel
           settings={createSettings({ defaultMode: 'ic' })}
@@ -108,7 +108,7 @@ describe('BotSettingsPanel', () => {
     });
 
     it('calls onChange when dice notify toggle is changed', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <BotSettingsPanel
           settings={createSettings({ diceNotify: true })}
@@ -156,7 +156,7 @@ describe('BotSettingsPanel', () => {
     });
 
     it('calls onChange when auto-session toggle is changed', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <BotSettingsPanel
           settings={createSettings({ autoSession: false })}
@@ -189,7 +189,7 @@ describe('BotSettingsPanel', () => {
     });
 
     it('calls onChange when reminder time is changed', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <BotSettingsPanel
           settings={createSettings({ reminderTime: 30 })}
@@ -223,7 +223,7 @@ describe('BotSettingsPanel', () => {
     });
 
     it('calls onReset when Reset button is clicked', () => {
-      const handleReset = vi.fn();
+      const handleReset = jest.fn();
       render(
         <BotSettingsPanel
           settings={createSettings()}
@@ -251,7 +251,7 @@ describe('BotSettingsPanel', () => {
     });
 
     it('calls onSave when Save button is clicked', () => {
-      const handleSave = vi.fn();
+      const handleSave = jest.fn();
       render(
         <BotSettingsPanel
           settings={createSettings()}

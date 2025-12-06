@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CharacterCard } from './CharacterCard';
 
@@ -103,35 +103,35 @@ describe('CharacterCard', () => {
 
   describe('interactions', () => {
     it('calls onClick when clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<CharacterCard {...defaultProps} onClick={handleClick} />);
       fireEvent.click(screen.getByTestId('character-card'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('calls onClick on Enter key', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<CharacterCard {...defaultProps} onClick={handleClick} />);
       fireEvent.keyDown(screen.getByTestId('character-card'), { key: 'Enter' });
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('does not call onClick when loading', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<CharacterCard {...defaultProps} onClick={handleClick} isLoading />);
       fireEvent.click(screen.getByTestId('character-card'));
       expect(handleClick).not.toHaveBeenCalled();
     });
 
     it('calls onEdit when edit button clicked', () => {
-      const handleEdit = vi.fn();
+      const handleEdit = jest.fn();
       render(<CharacterCard {...defaultProps} onEdit={handleEdit} />);
       fireEvent.click(screen.getByTestId('character-card-edit-btn'));
       expect(handleEdit).toHaveBeenCalledTimes(1);
     });
 
     it('calls onDelete when delete button clicked', () => {
-      const handleDelete = vi.fn();
+      const handleDelete = jest.fn();
       render(<CharacterCard {...defaultProps} onDelete={handleDelete} />);
       fireEvent.click(screen.getByTestId('character-card-delete-btn'));
       expect(handleDelete).toHaveBeenCalledTimes(1);
@@ -154,8 +154,8 @@ describe('CharacterCard', () => {
     });
 
     it('stops propagation when clicking action buttons', () => {
-      const handleClick = vi.fn();
-      const handleEdit = vi.fn();
+      const handleClick = jest.fn();
+      const handleEdit = jest.fn();
       render(<CharacterCard {...defaultProps} onClick={handleClick} onEdit={handleEdit} />);
       fireEvent.click(screen.getByTestId('character-card-edit-btn'));
       expect(handleEdit).toHaveBeenCalled();

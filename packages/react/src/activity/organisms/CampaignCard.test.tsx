@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignCard, CreateCampaignCard } from './CampaignCard';
 import type { Campaign } from '../types';
@@ -77,7 +77,7 @@ describe('CampaignCard', () => {
 
   describe('Interactions', () => {
     it('calls onClick when card is clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<CampaignCard campaign={createCampaign()} onClick={handleClick} />);
 
       fireEvent.click(screen.getByTestId('campaign-card-campaign-1'));
@@ -85,7 +85,7 @@ describe('CampaignCard', () => {
     });
 
     it('calls onLaunch when Launch button is clicked', () => {
-      const handleLaunch = vi.fn();
+      const handleLaunch = jest.fn();
       render(<CampaignCard campaign={createCampaign()} onLaunch={handleLaunch} />);
 
       fireEvent.click(screen.getByTestId('campaign-card-campaign-1-launch-btn'));
@@ -93,8 +93,8 @@ describe('CampaignCard', () => {
     });
 
     it('does not call onClick when Launch button is clicked', () => {
-      const handleClick = vi.fn();
-      const handleLaunch = vi.fn();
+      const handleClick = jest.fn();
+      const handleLaunch = jest.fn();
       render(
         <CampaignCard
           campaign={createCampaign()}
@@ -140,7 +140,7 @@ describe('CreateCampaignCard', () => {
   });
 
   it('calls onClick when clicked', () => {
-    const handleClick = vi.fn();
+    const handleClick = jest.fn();
     render(<CreateCampaignCard onClick={handleClick} />);
 
     fireEvent.click(screen.getByTestId('create-campaign-card'));

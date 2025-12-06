@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SettingRow, SettingToggleRow, SettingSelectRow } from './SettingRow';
 
@@ -93,7 +93,7 @@ describe('SettingToggleRow', () => {
 
   describe('interactions', () => {
     it('calls onChange with new state when toggled', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(<SettingToggleRow label="Dark Mode" checked={false} onChange={handleChange} testId="setting" />);
 
       fireEvent.click(screen.getByTestId('setting-toggle'));
@@ -101,7 +101,7 @@ describe('SettingToggleRow', () => {
     });
 
     it('calls onChange with false when unchecked', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(<SettingToggleRow label="Dark Mode" checked={true} onChange={handleChange} testId="setting" />);
 
       fireEvent.click(screen.getByTestId('setting-toggle'));
@@ -190,7 +190,7 @@ describe('SettingSelectRow', () => {
 
   describe('interactions', () => {
     it('calls onChange with new value when selection changes', () => {
-      const handleChange = vi.fn();
+      const handleChange = jest.fn();
       render(
         <SettingSelectRow
           label="Theme"

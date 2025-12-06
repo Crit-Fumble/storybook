@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { VTTLauncher } from './VTTLauncher';
 import type { FumbleCampaign } from '../types';
@@ -88,7 +88,7 @@ describe('VTTLauncher', () => {
 
   describe('interactions', () => {
     it('calls onLaunch when launch button is clicked', () => {
-      const onLaunch = vi.fn();
+      const onLaunch = jest.fn();
       render(<VTTLauncher campaign={mockCampaign} onLaunch={onLaunch} />);
 
       fireEvent.click(screen.getByRole('button', { name: 'Launch VTT' }));
@@ -97,8 +97,8 @@ describe('VTTLauncher', () => {
 
     it('calls onStop when stop button is clicked and onStop is provided', () => {
       const runningCampaign = { ...mockCampaign, containerStatus: 'running' as const };
-      const onLaunch = vi.fn();
-      const onStop = vi.fn();
+      const onLaunch = jest.fn();
+      const onStop = jest.fn();
       render(<VTTLauncher campaign={runningCampaign} onLaunch={onLaunch} onStop={onStop} />);
 
       fireEvent.click(screen.getByRole('button', { name: 'Stop VTT' }));
@@ -108,7 +108,7 @@ describe('VTTLauncher', () => {
 
     it('calls onLaunch when stop button is clicked and onStop is not provided', () => {
       const runningCampaign = { ...mockCampaign, containerStatus: 'running' as const };
-      const onLaunch = vi.fn();
+      const onLaunch = jest.fn();
       render(<VTTLauncher campaign={runningCampaign} onLaunch={onLaunch} />);
 
       fireEvent.click(screen.getByRole('button', { name: 'Stop VTT' }));

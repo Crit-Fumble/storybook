@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ChatButton } from './ChatButton';
 
@@ -50,7 +50,7 @@ describe('ChatButton', () => {
 
   describe('interactions', () => {
     it('calls onClick when button is clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<ChatButton onClick={handleClick} testId="chat" />);
 
       fireEvent.click(screen.getByTestId('chat-btn'));

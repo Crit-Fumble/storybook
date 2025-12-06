@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './Card';
 
@@ -48,7 +48,7 @@ describe('Card', () => {
     });
 
     it('handles onClick for interactive cards', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<Card testId="card" variant="interactive" onClick={handleClick}>Click me</Card>);
       fireEvent.click(screen.getByTestId('card'));
       expect(handleClick).toHaveBeenCalled();

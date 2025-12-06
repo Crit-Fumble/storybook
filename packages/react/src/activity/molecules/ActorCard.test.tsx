@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ActorCard } from './ActorCard';
 import type { FoundryActorInfo } from './ActorCard';
@@ -114,14 +114,14 @@ describe('ActorCard', () => {
 
   describe('interactions', () => {
     it('calls onClick when clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<ActorCard actor={mockActor} onClick={handleClick} />);
       fireEvent.click(screen.getByTestId('actor-card-actor-1'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
     it('applies interactive variant when onClick is provided', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(<ActorCard actor={mockActor} onClick={handleClick} />);
       expect(screen.getByTestId('actor-card-actor-1')).toHaveClass('cursor-pointer');
     });

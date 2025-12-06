@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignGrid } from './CampaignGrid';
 import type { Campaign } from '../types';
@@ -52,7 +52,7 @@ describe('CampaignGrid', () => {
 
   describe('Empty state', () => {
     it('shows empty state when no campaigns', () => {
-      const handleCreate = vi.fn();
+      const handleCreate = jest.fn();
       render(
         <CampaignGrid
           campaigns={[]}
@@ -65,7 +65,7 @@ describe('CampaignGrid', () => {
     });
 
     it('shows create action in empty state', () => {
-      const handleCreate = vi.fn();
+      const handleCreate = jest.fn();
       render(
         <CampaignGrid
           campaigns={[]}
@@ -105,7 +105,7 @@ describe('CampaignGrid', () => {
     });
 
     it('calls onCampaignClick when campaign card is clicked', () => {
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
       render(
         <CampaignGrid
           campaigns={campaigns}
@@ -119,7 +119,7 @@ describe('CampaignGrid', () => {
     });
 
     it('calls onLaunch when launch button is clicked', () => {
-      const handleLaunch = vi.fn();
+      const handleLaunch = jest.fn();
       render(
         <CampaignGrid
           campaigns={campaigns}
@@ -133,7 +133,7 @@ describe('CampaignGrid', () => {
     });
 
     it('calls onCreateClick when create card is clicked', () => {
-      const handleCreate = vi.fn();
+      const handleCreate = jest.fn();
       render(
         <CampaignGrid
           campaigns={campaigns}
