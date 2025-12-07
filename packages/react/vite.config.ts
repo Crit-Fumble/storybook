@@ -7,17 +7,20 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
+// @ts-expect-error - Vite version mismatch between monorepo root and package
 export default defineConfig(({ mode }) => {
   const isLib = mode === 'lib';
 
   return {
-    plugins: [
-      react(),
-      isLib && dts({
-        include: ['src'],
-        exclude: ['src/**/*.stories.tsx', 'src/**/*.test.tsx'],
-      }),
-    ].filter(Boolean),
+    plugins: isLib
+      ? [
+          react(),
+          dts({
+            include: ['src'],
+            exclude: ['src/**/*.stories.tsx', 'src/**/*.test.tsx'],
+          }),
+        ]
+      : [react()],
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'),
@@ -36,7 +39,15 @@ export default defineConfig(({ mode }) => {
             formats: ['es'],
           },
           rollupOptions: {
-            external: ['react', 'react-dom', 'react/jsx-runtime'],
+            external: [
+              'react',
+              'react-dom',
+              'react/jsx-runtime',
+              'clsx',
+              'framer-motion',
+              'react-rnd',
+              'zustand',
+            ],
             output: {
               globals: {
                 react: 'React',
