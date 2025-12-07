@@ -216,3 +216,201 @@
     @apply flex justify-center items-center;
   }
 }
+
+/* Desktop UI Components */
+@layer components {
+  /* Base Desktop Window - Themeable */
+  .desktop-window {
+    @apply bg-cfg-background-primary border-2 rounded-lg shadow-2xl;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    border-color: var(--window-border, #7a4599);
+    border-radius: var(--border-radius, 8px);
+  }
+
+  .desktop-window-focused {
+    box-shadow: var(--window-shadow, 0 0 0 2px rgba(122, 69, 153, 0.5), 0 0 20px rgba(122, 69, 153, 0.4), 0 10px 25px -5px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Title Bar */
+  .desktop-window-titlebar {
+    @apply text-white border-b-2 cursor-move;
+    background: linear-gradient(135deg, var(--titlebar-start, #552e66), var(--titlebar-end, #7a4599));
+    border-bottom-color: var(--titlebar-start, #552e66);
+    font-family: var(--font-display, Changa, Rubik, sans-serif);
+  }
+
+  /* Window Controls - Gem style buttons */
+  .window-control-btn {
+    @apply w-7 h-7 rounded-full border-2 flex items-center justify-center;
+    @apply transition-all duration-200 hover:scale-110;
+    border-color: var(--window-border, #7a4599);
+  }
+
+  .window-control-minimize {
+    background-color: var(--control-minimize, #f0b232);
+  }
+
+  .window-control-maximize {
+    background-color: var(--control-maximize, #248046);
+  }
+
+  .window-control-close {
+    background-color: var(--control-close, #da373c);
+  }
+
+  .window-control-btn:hover {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+
+  /* Desktop Background */
+  .desktop-background {
+    @apply w-full h-full overflow-hidden;
+    background: var(--desktop-background, #1a1a2e);
+  }
+
+  /* Desktop Icon */
+  .desktop-icon {
+    @apply rounded-md border transition-all duration-200 cursor-pointer;
+    background: var(--icon-background, rgba(31, 31, 58, 0.7));
+    border-color: var(--window-border, #7a4599);
+  }
+
+  .desktop-icon:hover {
+    border-color: var(--accent-primary, #7a4599);
+    background: var(--icon-background-hover, rgba(31, 31, 58, 0.9));
+    transform: translateY(-2px);
+  }
+
+  .desktop-icon-selected {
+    border-color: var(--accent-primary, #7a4599);
+    background: var(--icon-background-selected, rgba(122, 69, 153, 0.3));
+    box-shadow: 0 0 10px var(--glow-effect, rgba(122, 69, 153, 0.3));
+  }
+
+  /* Dock */
+  .desktop-dock {
+    @apply border backdrop-blur-md;
+    background: var(--dock-background, rgba(31, 31, 58, 0.85));
+    border-color: var(--window-border, #7a4599);
+  }
+
+  .desktop-dock-item {
+    @apply transition-all duration-200 cursor-pointer rounded;
+    background: var(--icon-background, rgba(31, 31, 58, 0.6));
+    border: 1px solid transparent;
+  }
+
+  .desktop-dock-item:hover {
+    border-color: var(--accent-primary, #7a4599);
+    background: var(--icon-background-hover, rgba(31, 31, 58, 0.9));
+    transform: scale(1.1);
+  }
+
+  .desktop-dock-item-active {
+    border-color: var(--accent-primary, #7a4599);
+    background: var(--icon-background-selected, rgba(122, 69, 153, 0.4));
+    box-shadow: 0 0 8px var(--glow-effect, rgba(122, 69, 153, 0.5));
+  }
+}
+
+/* Theme CSS Variable Classes */
+.theme-modern {
+  --window-border: #7a4599;
+  --window-shadow: 0 0 0 2px rgba(122, 69, 153, 0.5), 0 0 20px rgba(122, 69, 153, 0.4), 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --glow-effect: rgba(122, 69, 153, 0.3);
+  --titlebar-start: #552e66;
+  --titlebar-end: #7a4599;
+  --desktop-background: #1a1a2e;
+  --icon-background: rgba(31, 31, 58, 0.7);
+  --icon-background-hover: rgba(31, 31, 58, 0.9);
+  --icon-background-selected: rgba(122, 69, 153, 0.3);
+  --dock-background: rgba(31, 31, 58, 0.85);
+  --border-radius: 8px;
+  --control-close: #da373c;
+  --control-minimize: #f0b232;
+  --control-maximize: #248046;
+  --accent-primary: #7a4599;
+  --font-display: Changa, Rubik, sans-serif;
+  --font-body: 'IBM Plex Sans', Inter, sans-serif;
+}
+
+.theme-fantasy {
+  --window-border: #8B4513;
+  --window-shadow: 0 0 0 2px rgba(139, 69, 19, 0.6), 0 8px 32px rgba(139, 69, 19, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  --glow-effect: rgba(139, 69, 19, 0.5);
+  --titlebar-start: #654321;
+  --titlebar-end: #8B4513;
+  --desktop-background: #1a0f0a;
+  --icon-background: rgba(101, 67, 33, 0.6);
+  --icon-background-hover: rgba(101, 67, 33, 0.8);
+  --icon-background-selected: rgba(139, 69, 19, 0.4);
+  --dock-background: rgba(101, 67, 33, 0.8);
+  --border-radius: 4px;
+  --control-close: #8B0000;
+  --control-minimize: #DAA520;
+  --control-maximize: #2F4F4F;
+  --accent-primary: #8B4513;
+  --font-display: Changa, serif;
+  --font-body: 'IBM Plex Sans', serif;
+}
+
+.theme-scifi {
+  --window-border: #00d9ff;
+  --window-shadow: 0 0 0 2px rgba(0, 217, 255, 0.6), 0 0 30px rgba(0, 217, 255, 0.5), 0 10px 40px rgba(0, 0, 0, 0.8);
+  --glow-effect: rgba(0, 217, 255, 0.5);
+  --titlebar-start: #0a4d68;
+  --titlebar-end: #00d9ff;
+  --desktop-background: #050a14;
+  --icon-background: rgba(10, 77, 104, 0.6);
+  --icon-background-hover: rgba(10, 77, 104, 0.8);
+  --icon-background-selected: rgba(0, 217, 255, 0.3);
+  --dock-background: rgba(10, 77, 104, 0.8);
+  --border-radius: 2px;
+  --control-close: #ff0080;
+  --control-minimize: #00ff9d;
+  --control-maximize: #00d9ff;
+  --accent-primary: #00d9ff;
+  --font-display: Rubik, monospace;
+  --font-body: 'IBM Plex Mono', monospace;
+}
+
+.theme-cyberpunk {
+  --window-border: #ff00ff;
+  --window-shadow: 0 0 0 2px rgba(255, 0, 255, 0.6), 0 0 40px rgba(255, 0, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.4);
+  --glow-effect: rgba(255, 0, 255, 0.6);
+  --titlebar-start: #ff00ff;
+  --titlebar-end: #00ffff;
+  --desktop-background: #0d0221;
+  --icon-background: rgba(255, 0, 255, 0.2);
+  --icon-background-hover: rgba(255, 0, 255, 0.4);
+  --icon-background-selected: rgba(255, 0, 255, 0.5);
+  --dock-background: rgba(13, 2, 33, 0.9);
+  --border-radius: 0;
+  --control-close: #ff0040;
+  --control-minimize: #ffff00;
+  --control-maximize: #00ff00;
+  --accent-primary: #ff00ff;
+  --font-display: Rubik, sans-serif;
+  --font-body: 'IBM Plex Mono', monospace;
+}
+
+.theme-horror {
+  --window-border: #8b0000;
+  --window-shadow: 0 0 0 2px rgba(139, 0, 0, 0.5), 0 0 20px rgba(139, 0, 0, 0.7), 0 10px 30px rgba(0, 0, 0, 0.9);
+  --glow-effect: rgba(139, 0, 0, 0.5);
+  --titlebar-start: #2b0000;
+  --titlebar-end: #8b0000;
+  --desktop-background: #0a0a0a;
+  --icon-background: rgba(43, 0, 0, 0.6);
+  --icon-background-hover: rgba(43, 0, 0, 0.8);
+  --icon-background-selected: rgba(139, 0, 0, 0.4);
+  --dock-background: rgba(43, 0, 0, 0.8);
+  --border-radius: 4px;
+  --control-close: #8b0000;
+  --control-minimize: #4a4a4a;
+  --control-maximize: #696969;
+  --accent-primary: #8b0000;
+  --font-display: Changa, serif;
+  --font-body: 'IBM Plex Sans', serif;
+}

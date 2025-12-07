@@ -17,7 +17,7 @@ module.exports = {
       },
     }],
   },
-  testMatch: ['**/*.test.{ts,tsx}', '**/*.spec.{ts,tsx}'],
+  testMatch: ['<rootDir>/src/**/*.test.{ts,tsx}', '<rootDir>/src/**/*.spec.{ts,tsx}'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',

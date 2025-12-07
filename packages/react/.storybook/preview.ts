@@ -10,13 +10,19 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'discord-dark',
+      default: 'cfg-dark',
       values: [
-        { name: 'discord-dark', value: '#1e1f22' },
-        { name: 'discord-secondary', value: '#2b2d31' },
-        { name: 'discord-primary', value: '#313338' },
+        { name: 'cfg-dark', value: '#1a1a2e' },
+        { name: 'cfg-darker', value: '#0f0f1a' },
+        { name: 'cfg-secondary', value: '#16213e' },
+        { name: 'cfg-floating', value: '#1f1f3a' },
         { name: 'light', value: '#ffffff' },
       ],
+    },
+    options: {
+      storySort: {
+        order: ['Shared', ['Atoms', 'Molecules', 'Desktop', 'Economy'], 'Web', 'Activity'],
+      },
     },
   },
 };
