@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import { Button } from '../atoms';
 
 export interface EmptyStateProps {
@@ -6,6 +7,7 @@ export interface EmptyStateProps {
   description?: string;
   actionLabel?: string;
   onAction?: () => void;
+  className?: string;
   testId?: string;
 }
 
@@ -15,11 +17,12 @@ export function EmptyState({
   description,
   actionLabel,
   onAction,
+  className,
   testId,
 }: EmptyStateProps) {
   return (
     <div
-      className="flex flex-col items-center justify-center py-12 text-center"
+      className={clsx('flex flex-col items-center justify-center py-12 text-center', className)}
       data-testid={testId}
     >
       <div className="text-4xl mb-4" data-testid={testId ? `${testId}-icon` : undefined}>

@@ -3,7 +3,6 @@ import { Rnd } from 'react-rnd';
 import type { ReactNode } from 'react';
 import { WindowHeader } from './WindowHeader';
 import type { DesktopTheme, ThemeName } from '../types';
-import { getTheme } from '../themes';
 
 export interface WindowProps {
   id: string;
@@ -161,12 +160,12 @@ export function Window({
       }}
       position={position}
       size={size}
-      onDragStop={(e, d) => {
+      onDragStop={(_e, d) => {
         if (onPositionChange) {
           onPositionChange({ x: d.x, y: d.y });
         }
       }}
-      onResizeStop={(e, direction, ref, delta, position) => {
+      onResizeStop={(_e, _direction, ref, _delta, position) => {
         if (onSizeChange) {
           onSizeChange({
             width: parseInt(ref.style.width),

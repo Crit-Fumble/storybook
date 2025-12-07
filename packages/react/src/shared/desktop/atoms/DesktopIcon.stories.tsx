@@ -43,15 +43,15 @@ export const MultipleIcons: Story = {
     <div className="flex gap-4">
       <DesktopIcon icon={<RpgIcon icon="tower" size="2x" />} label="Campaign" />
       <DesktopIcon icon={<RpgIcon icon="player" size="2x" />} label="Characters" isSelected />
-      <DesktopIcon icon={<RpgIcon icon="gear" size="2x" />} label="Settings" />
-      <DesktopIcon icon={<RpgIcon icon="book-skull" size="2x" />} label="Monsters" />
+      <DesktopIcon icon={<RpgIcon icon="gears" size="2x" />} label="Settings" />
+      <DesktopIcon icon={<RpgIcon icon="broken-skull" size="2x" />} label="Monsters" />
     </div>
   ),
 };
 
 export const ModernTheme: Story = {
   args: {
-    icon: <RpgIcon icon="d20" size="2x" />,
+    icon: <RpgIcon icon="perspective-dice-random" size="2x" />,
     label: 'Dice Roller',
   },
   decorators: [
@@ -79,7 +79,7 @@ export const FantasyTheme: Story = {
 
 export const SciFiTheme: Story = {
   args: {
-    icon: <RpgIcon icon="lightning-helix" size="2x" />,
+    icon: <RpgIcon icon="lightning-bolt" size="2x" />,
     label: 'Power Core',
   },
   decorators: [

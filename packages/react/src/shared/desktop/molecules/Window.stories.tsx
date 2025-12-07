@@ -161,7 +161,7 @@ export const MultipleWindows: Story = {
       <Window
         id="window-9"
         title="Window 3"
-        icon={<RpgIcon icon="gear" />}
+        icon={<RpgIcon icon="gears" />}
         defaultPosition={{ x: 350, y: 250 }}
         defaultSize={{ width: 400, height: 300 }}
       >
@@ -198,7 +198,7 @@ export const SciFiTheme: Story = {
   args: {
     id: 'window-scifi',
     title: 'Starship Console',
-    icon: <RpgIcon icon="lightning-helix" />,
+    icon: <RpgIcon icon="lightning-bolt" />,
     theme: 'sci-fi',
     children: (
       <div className="text-cfg-text-normal">
@@ -242,7 +242,7 @@ export const HorrorTheme: Story = {
   args: {
     id: 'window-horror',
     title: 'Cursed Tome',
-    icon: <RpgIcon icon="book-skull" />,
+    icon: <RpgIcon icon="broken-skull" />,
     theme: 'horror',
     children: (
       <div className="text-cfg-text-normal">

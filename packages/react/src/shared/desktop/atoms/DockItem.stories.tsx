@@ -49,7 +49,7 @@ export const WithLargeBadge: Story = {
 
 export const ActiveWithBadge: Story = {
   args: {
-    icon: <RpgIcon icon="d20" />,
+    icon: <RpgIcon icon="perspective-dice-random" />,
     label: 'Dice Rolls',
     isActive: true,
     badge: 3,
@@ -63,14 +63,14 @@ export const MultipleDockItems: Story = {
       <DockItem icon={<RpgIcon icon="crossed-swords" />} label="Combat" isActive />
       <DockItem icon={<RpgIcon icon="player" />} label="Characters" badge={2} />
       <DockItem icon={<RpgIcon icon="scroll-unfurled" />} label="Chat" badge={12} />
-      <DockItem icon={<RpgIcon icon="gear" />} label="Settings" />
+      <DockItem icon={<RpgIcon icon="gears" />} label="Settings" />
     </div>
   ),
 };
 
 export const ModernTheme: Story = {
   args: {
-    icon: <RpgIcon icon="d20" />,
+    icon: <RpgIcon icon="perspective-dice-random" />,
     label: 'Dice',
     badge: 3,
   },
@@ -100,7 +100,7 @@ export const FantasyTheme: Story = {
 
 export const SciFiTheme: Story = {
   args: {
-    icon: <RpgIcon icon="lightning-helix" />,
+    icon: <RpgIcon icon="lightning-bolt" />,
     label: 'Power',
     badge: 1,
   },

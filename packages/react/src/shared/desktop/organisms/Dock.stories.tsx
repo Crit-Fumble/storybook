@@ -19,7 +19,7 @@ const defaultItems = [
   { id: '2', icon: <RpgIcon icon="crossed-swords" />, label: 'Combat', onClick: () => {} },
   { id: '3', icon: <RpgIcon icon="player" />, label: 'Players', onClick: () => {}, badge: 3 },
   { id: '4', icon: <RpgIcon icon="scroll-unfurled" />, label: 'Chat', onClick: () => {}, badge: 12 },
-  { id: '5', icon: <RpgIcon icon="gear" />, label: 'Settings', onClick: () => {} },
+  { id: '5', icon: <RpgIcon icon="gears" />, label: 'Settings', onClick: () => {} },
 ];
 
 export const BottomDock: Story = {

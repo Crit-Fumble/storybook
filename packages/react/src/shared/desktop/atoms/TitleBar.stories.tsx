@@ -37,7 +37,7 @@ export const WithLongTitle: Story = {
 export const ModernTheme: Story = {
   args: {
     title: 'Modern Window',
-    icon: <RpgIcon icon="gear" />,
+    icon: <RpgIcon icon="gears" />,
   },
   decorators: [
     (Story) => (
@@ -79,7 +79,7 @@ export const SciFiTheme: Story = {
 export const CyberpunkTheme: Story = {
   args: {
     title: 'Neural Interface',
-    icon: <RpgIcon icon="lightning-helix" />,
+    icon: <RpgIcon icon="lightning-bolt" />,
   },
   decorators: [
     (Story) => (
@@ -93,7 +93,7 @@ export const CyberpunkTheme: Story = {
 export const HorrorTheme: Story = {
   args: {
     title: 'Cursed Tome',
-    icon: <RpgIcon icon="book-skull" />,
+    icon: <RpgIcon icon="broken-skull" />,
   },
   decorators: [
     (Story) => (

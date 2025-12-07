@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { ThemeName, DesktopTheme } from './theme.types';
 
 export interface Position {
   x: number;
@@ -40,5 +41,5 @@ export interface WindowConfig {
   maxHeight?: number;
   resizable?: boolean;
   draggable?: boolean;
-  theme?: string;
+  theme?: ThemeName | DesktopTheme;
 }

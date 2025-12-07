@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { Position, Size } from '../types';
 
-interface WindowState {
+export interface WindowStoreState {
   id: string;
   position: Position;
   size: Size;
@@ -11,21 +11,21 @@ interface WindowState {
 }
 
 interface WindowStore {
-  windows: Map<string, WindowState>;
+  windows: Map<string, WindowStoreState>;
   focusedWindowId: string | null;
   baseZIndex: number;
 
   // Actions
-  addWindow: (id: string, state: Partial<WindowState>) => void;
+  addWindow: (id: string, state: Partial<WindowStoreState>) => void;
   removeWindow: (id: string) => void;
-  updateWindow: (id: string, state: Partial<WindowState>) => void;
+  updateWindow: (id: string, state: Partial<WindowStoreState>) => void;
   focusWindow: (id: string) => void;
   minimizeWindow: (id: string) => void;
   maximizeWindow: (id: string) => void;
   restoreWindow: (id: string) => void;
 
   // Getters
-  getWindow: (id: string) => WindowState | undefined;
+  getWindow: (id: string) => WindowStoreState | undefined;
   getTopZIndex: () => number;
 }
 
@@ -36,7 +36,7 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
 
   addWindow: (id, initialState) => {
     const topZIndex = get().getTopZIndex();
-    const newWindow: WindowState = {
+    const newWindow: WindowStoreState = {
       id,
       position: initialState.position || { x: 100, y: 100 },
       size: initialState.size || { width: 600, height: 400 },
@@ -138,6 +138,6 @@ export function useWindow(windowId: string) {
     minimizeWindow: () => store.minimizeWindow(windowId),
     maximizeWindow: () => store.maximizeWindow(windowId),
     restoreWindow: () => store.restoreWindow(windowId),
-    updateWindow: (updates: Partial<WindowState>) => store.updateWindow(windowId, updates),
+    updateWindow: (updates: Partial<WindowStoreState>) => store.updateWindow(windowId, updates),
   };
 }

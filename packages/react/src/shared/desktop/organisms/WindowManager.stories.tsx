@@ -108,7 +108,7 @@ export const AdminPanelExample: Story = {
       {
         id: 'dashboard',
         title: 'Admin Dashboard',
-        icon: <RpgIcon icon="gear" />,
+        icon: <RpgIcon icon="gears" />,
         content: (
           <div className="text-cfg-text-normal space-y-4">
             <h2 className="text-xl font-semibold">Welcome to FumbleBot Admin</h2>

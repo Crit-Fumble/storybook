@@ -8,8 +8,8 @@ export interface StoryCreditProps {
 }
 
 const iconSizes = {
-  xs: '1x' as const,
-  sm: '1x' as const,
+  xs: 'sm' as const,
+  sm: 'md' as const,
   md: '2x' as const,
   lg: '3x' as const,
   xl: '4x' as const,

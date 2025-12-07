@@ -36,7 +36,7 @@ export const WithIcons: Story = {
       },
       {
         id: 'settings',
-        icon: <RpgIcon icon="gear" size="2x" />,
+        icon: <RpgIcon icon="gears" size="2x" />,
         label: 'Settings',
         onOpen: () => alert('Opening Settings'),
       },
@@ -135,7 +135,7 @@ export const FullDesktopEnvironment: Story = {
       <Window
         id="main-window"
         title="Admin Dashboard"
-        icon={<RpgIcon icon="gear" />}
+        icon={<RpgIcon icon="gears" />}
         defaultPosition={{ x: 100, y: 80 }}
         defaultSize={{ width: 600, height: 450 }}
         isFocused
@@ -180,7 +180,7 @@ export const SciFiTheme: Story = {
     icons: [
       {
         id: 'power',
-        icon: <RpgIcon icon="lightning-helix" />,
+        icon: <RpgIcon icon="lightning-bolt" />,
         label: 'Power',
         onOpen: () => {},
       },
