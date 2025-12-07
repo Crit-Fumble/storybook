@@ -115,4 +115,53 @@ describe('TipJar', () => {
     const avatar = screen.getByAltText('Test');
     expect(avatar).toHaveAttribute('src', '/avatar.png');
   });
+
+  it('does not call onTip when amount is NaN (empty custom input)', async () => {
+    render(<TipJar recipientName="Test" onTip={mockOnTip} testId="tip-jar" />);
+
+    // Try to submit with empty custom input (NaN)
+    const submitButton = screen.getByTestId('tip-jar-submit');
+
+    // Button should be disabled, but let's try to trigger handleTip directly
+    // by simulating a click when button becomes enabled but amount is invalid
+    const input = screen.getByTestId('tip-jar-custom-input');
+    fireEvent.change(input, { target: { value: '' } });
+
+    // Force click even though disabled
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(mockOnTip).not.toHaveBeenCalled();
+    });
+  });
+
+  it('does not call onTip when amount exceeds maxAmount', async () => {
+    render(<TipJar recipientName="Test" onTip={mockOnTip} maxAmount={100} testId="tip-jar" />);
+
+    const input = screen.getByTestId('tip-jar-custom-input');
+    fireEvent.change(input, { target: { value: '150' } });
+
+    const submitButton = screen.getByTestId('tip-jar-submit');
+    // Try to submit with amount exceeding maxAmount
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(mockOnTip).not.toHaveBeenCalled();
+    });
+  });
+
+  it('does not call onTip when amount exceeds user balance', async () => {
+    render(<TipJar recipientName="Test" onTip={mockOnTip} userBalance={50} testId="tip-jar" />);
+
+    const input = screen.getByTestId('tip-jar-custom-input');
+    fireEvent.change(input, { target: { value: '75' } });
+
+    const submitButton = screen.getByTestId('tip-jar-submit');
+    // Try to submit with amount exceeding balance
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(mockOnTip).not.toHaveBeenCalled();
+    });
+  });
 });

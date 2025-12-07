@@ -8,7 +8,7 @@ export interface WaitingPageProps {
 export function WaitingPage({ testId = 'waiting-page' }: WaitingPageProps) {
   return (
     <CenteredLayout testId={testId}>
-      <div className="text-center">
+      <div className="flex flex-col items-center text-center">
         <Spinner size="lg" testId={`${testId}-spinner`} />
         <h2
           className="text-xl font-semibold text-discord-text-normal mt-6"

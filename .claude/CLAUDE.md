@@ -51,7 +51,7 @@ This project is licensed under **Apache License 2.0**. Brand assets (logos, font
 
 This is the shared React component library for Crit-Fumble Gaming projects. It provides UI components for:
 - **crit-fumble.com** - The main website
-- **FumbleBot Discord Activities** - VTT, chat mode, and other Discord embedded experiences
+- **CFGOS (Crit-Fumble Gaming OS)** - Gaming platform served on the website and Discord, includes FumbleBot chat, VTT, and interactive experiences
 
 ## Architecture
 
@@ -86,7 +86,7 @@ packages/react/
 │   │   └── molecules/    # Combinations of atoms (Card, Modal, FormField, etc.)
 │   ├── web/              # Website-specific components
 │   │   └── templates/    # Page layouts (MainLayout, CenteredLayout)
-│   ├── activity/         # FumbleBot Discord activity components
+│   ├── activity/         # CFGOS activity components (includes FumbleBot chat)
 │   │   ├── atoms/        # Activity-specific atoms (Avatar, StatusDot)
 │   │   ├── molecules/    # Activity-specific molecules (ChatBubble, UserBadge)
 │   │   └── organisms/    # Complex activity components (ChatWindow, FloatingChat)

@@ -12,7 +12,7 @@ export function LoadingPage({
 }: LoadingPageProps) {
   return (
     <CenteredLayout testId={testId}>
-      <div className="text-center">
+      <div className="flex flex-col items-center text-center">
         <Spinner size="lg" testId={`${testId}-spinner`} />
         <p
           className="text-discord-text-muted mt-4"

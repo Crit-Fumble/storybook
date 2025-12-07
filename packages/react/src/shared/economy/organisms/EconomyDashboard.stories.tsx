@@ -5,6 +5,28 @@ const meta: Meta<typeof EconomyDashboard> = {
   title: 'Shared/Economy/Organisms/EconomyDashboard',
   component: EconomyDashboard,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Economy dashboard showing both currency types:
+
+**Crit-Coins** (Store Credit):
+- Purchased by users ($0.80-$1.00 per CC depending on package)
+- Used for tipping creators
+- Displayed in purple/primary color
+
+**Story Credits** (Earned Currency):
+- Earned from tips (1 CC tipped = 0.75 SC earned)
+- Can be cashed out (1 SC = $1.00 USD with 2% processing fee)
+- Can be used to purchase Crit-Coins
+- Displayed in gold color
+
+The dashboard tracks both balances separately along with lifetime statistics.
+        `,
+      },
+    },
+  },
 };
 
 export default meta;

@@ -25,7 +25,7 @@ describe('PayoutPanel', () => {
     );
 
     expect(screen.getByText('1,000')).toBeInTheDocument();
-    expect(screen.getByText('Available for Payout')).toBeInTheDocument();
+    expect(screen.getByText('Available Story Credits')).toBeInTheDocument();
   });
 
   it('shows USD equivalent of balance', () => {
@@ -34,12 +34,13 @@ describe('PayoutPanel', () => {
         availableBalance={1000}
         payoutMethods={mockPayoutMethods}
         onRequestPayout={mockOnRequestPayout}
-        exchangeRate={0.01}
+        exchangeRate={1.0}
+        processingFee={0.02}
         testId="payout"
       />
     );
 
-    expect(screen.getByText(/≈ \$10\.00 USD/)).toBeInTheDocument();
+    expect(screen.getByText(/≈ \$980\.00 USD after fees/)).toBeInTheDocument();
   });
 
   it('renders payment method options', () => {
@@ -80,7 +81,8 @@ describe('PayoutPanel', () => {
         availableBalance={1000}
         payoutMethods={mockPayoutMethods}
         onRequestPayout={mockOnRequestPayout}
-        exchangeRate={0.01}
+        exchangeRate={1.0}
+        processingFee={0.02}
         testId="payout"
       />
     );
@@ -88,7 +90,7 @@ describe('PayoutPanel', () => {
     const input = screen.getByTestId('payout-amount');
     fireEvent.change(input, { target: { value: '500' } });
 
-    expect(screen.getByText(/≈ \$5\.00 USD/)).toBeInTheDocument();
+    expect(screen.getByText(/≈ \$490\.00 USD \(after 2% processing fee\)/)).toBeInTheDocument();
   });
 
   it('disables submit when amount is below minimum', () => {
@@ -126,7 +128,7 @@ describe('PayoutPanel', () => {
     const input = screen.getByTestId('payout-amount');
     fireEvent.change(input, { target: { value: '50' } });
 
-    expect(screen.getByText(/Minimum payout is 100 Crit-Coins/)).toBeInTheDocument();
+    expect(screen.getByText(/Minimum payout is 100 Story Credits/)).toBeInTheDocument();
   });
 
   it('disables submit when amount exceeds balance', () => {
@@ -272,18 +274,19 @@ describe('PayoutPanel', () => {
     expect(screen.getByText(/min: 200/)).toBeInTheDocument();
   });
 
-  it('uses custom exchange rate', () => {
+  it('uses custom exchange rate and processing fee', () => {
     render(
       <PayoutPanel
         availableBalance={1000}
         payoutMethods={mockPayoutMethods}
         onRequestPayout={mockOnRequestPayout}
-        exchangeRate={0.02}
+        exchangeRate={1.0}
+        processingFee={0.05} // 5% fee
         testId="payout"
       />
     );
 
-    expect(screen.getByText(/≈ \$20\.00 USD/)).toBeInTheDocument();
+    expect(screen.getByText(/≈ \$950\.00 USD after fees/)).toBeInTheDocument();
   });
 
   it('shows processing time message', () => {
@@ -311,5 +314,50 @@ describe('PayoutPanel', () => {
     );
 
     expect(screen.getByTestId('payout')).toHaveClass('custom-class');
+  });
+
+  it('handles empty payoutMethods array gracefully', () => {
+    render(
+      <PayoutPanel
+        availableBalance={1000}
+        payoutMethods={[]}
+        onRequestPayout={mockOnRequestPayout}
+        testId="payout"
+      />
+    );
+
+    // Component should render without crashing
+    expect(screen.getByRole('heading', { name: 'Request Payout' })).toBeInTheDocument();
+
+    // Select should exist but have no selected value
+    const select = screen.getByTestId('payout-method');
+    expect(select).toBeInTheDocument();
+    expect(select).toHaveValue('');
+  });
+
+  it('does not call onRequestPayout when canPayout is false', async () => {
+    render(
+      <PayoutPanel
+        availableBalance={1000}
+        minimumPayout={100}
+        payoutMethods={mockPayoutMethods}
+        onRequestPayout={mockOnRequestPayout}
+        testId="payout"
+      />
+    );
+
+    const input = screen.getByTestId('payout-amount');
+    const submit = screen.getByTestId('payout-submit');
+
+    // Enter amount below minimum
+    fireEvent.change(input, { target: { value: '50' } });
+
+    // Try to click submit (should be disabled but let's test the guard)
+    fireEvent.click(submit);
+
+    // Should not call the payout function
+    await waitFor(() => {
+      expect(mockOnRequestPayout).not.toHaveBeenCalled();
+    });
   });
 });

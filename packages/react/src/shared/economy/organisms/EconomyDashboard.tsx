@@ -4,10 +4,15 @@ import { StoryCreditBalance } from '../molecules/StoryCreditBalance';
 import { Card, CardHeader, CardTitle, CardContent } from '../../molecules/Card';
 
 export interface EconomyStats {
+  /** Crit-Coins (purchased, used for tipping) */
   critCoins: number;
+  /** Story Credits (earned from tips, can be cashed out) */
   storyCredits: number;
+  /** Total Story Credits earned from tips */
   totalEarned: number;
+  /** Total Crit-Coins spent on tips */
   totalSpent: number;
+  /** Story Credits in pending payouts */
   pendingPayouts: number;
 }
 
@@ -53,7 +58,7 @@ export function EconomyDashboard({
               <div className="text-2xl font-bold text-cfg-green">
                 {stats.totalEarned.toLocaleString()}
               </div>
-              <div className="text-sm text-cfg-text-muted">Crit-Coins</div>
+              <div className="text-sm text-cfg-text-muted">Story Credits</div>
             </CardContent>
           </Card>
 
@@ -77,7 +82,7 @@ export function EconomyDashboard({
               <div className="text-2xl font-bold text-cfg-yellow">
                 {stats.pendingPayouts.toLocaleString()}
               </div>
-              <div className="text-sm text-cfg-text-muted">Crit-Coins</div>
+              <div className="text-sm text-cfg-text-muted">Story Credits</div>
             </CardContent>
           </Card>
         </div>

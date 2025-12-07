@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import { Button } from '../../atoms/Button';
 import { Input } from '../../atoms/Input';
 import { Select } from '../../atoms/Select';
-import { CritCoin } from '../atoms/CritCoin';
+import { StoryCredit } from '../atoms/StoryCredit';
 
 export interface PayoutMethod {
   id: string;
@@ -13,11 +13,15 @@ export interface PayoutMethod {
 }
 
 export interface PayoutPanelProps {
+  /** Available Story Credit balance (earned from tips) */
   availableBalance: number;
   minimumPayout?: number;
   payoutMethods: PayoutMethod[];
   onRequestPayout: (amount: number, methodId: string) => void | Promise<void>;
-  exchangeRate?: number; // Crit-Coins to USD
+  /** Story Credits to USD exchange rate (default: 1.0 = 1 SC = $1 USD) */
+  exchangeRate?: number;
+  /** Processing fee as decimal (default: 0.02 = 2%) */
+  processingFee?: number;
   className?: string;
   testId?: string;
 }
@@ -27,7 +31,8 @@ export function PayoutPanel({
   minimumPayout = 100,
   payoutMethods,
   onRequestPayout,
-  exchangeRate = 0.01, // Default: 1 Crit-Coin = $0.01 USD
+  exchangeRate = 1.0, // Default: 1 Story Credit = $1.00 USD
+  processingFee = 0.02, // Default: 2% processing fee
   className,
   testId,
 }: PayoutPanelProps) {
@@ -36,7 +41,8 @@ export function PayoutPanel({
   const [isLoading, setIsLoading] = useState(false);
 
   const parsedAmount = parseInt(amount) || 0;
-  const usdAmount = parsedAmount * exchangeRate;
+  const afterFee = parsedAmount * (1 - processingFee);
+  const usdAmount = afterFee * exchangeRate;
   const canPayout = parsedAmount >= minimumPayout && parsedAmount <= availableBalance && selectedMethod;
 
   const handlePayout = async () => {
@@ -63,14 +69,14 @@ export function PayoutPanel({
 
       {/* Available Balance */}
       <div className="mb-6 p-4 rounded-lg bg-cfg-background-secondary border border-cfg-border">
-        <div className="text-sm text-cfg-text-muted mb-2">Available for Payout</div>
+        <div className="text-sm text-cfg-text-muted mb-2">Available Story Credits</div>
         <div className="flex items-center gap-2">
-          <CritCoin size="md" />
+          <StoryCredit size="md" />
           <span className="text-2xl font-bold text-cfg-text-normal">
             {availableBalance.toLocaleString()}
           </span>
           <span className="text-sm text-cfg-text-muted ml-2">
-            (≈ ${(availableBalance * exchangeRate).toFixed(2)} USD)
+            (≈ ${(availableBalance * (1 - processingFee) * exchangeRate).toFixed(2)} USD after fees)
           </span>
         </div>
       </div>
@@ -78,10 +84,10 @@ export function PayoutPanel({
       {/* Payout Amount */}
       <div className="mb-4">
         <label className="block text-sm text-cfg-text-muted mb-2">
-          Payout Amount (min: {minimumPayout.toLocaleString()})
+          Payout Amount (min: {minimumPayout.toLocaleString()} SC)
         </label>
         <div className="flex items-center gap-2">
-          <CritCoin size="sm" />
+          <StoryCredit size="sm" />
           <Input
             type="number"
             min={minimumPayout}
@@ -95,7 +101,7 @@ export function PayoutPanel({
         </div>
         {parsedAmount > 0 && (
           <div className="mt-2 text-sm text-cfg-text-muted">
-            ≈ ${usdAmount.toFixed(2)} USD
+            ≈ ${usdAmount.toFixed(2)} USD (after {(processingFee * 100).toFixed(0)}% processing fee)
           </div>
         )}
       </div>
@@ -118,7 +124,7 @@ export function PayoutPanel({
       {/* Warnings */}
       {parsedAmount > 0 && parsedAmount < minimumPayout && (
         <div className="mb-4 p-3 rounded bg-cfg-yellow/10 border border-cfg-yellow text-cfg-yellow text-sm">
-          Minimum payout is {minimumPayout.toLocaleString()} Crit-Coins
+          Minimum payout is {minimumPayout.toLocaleString()} Story Credits
         </div>
       )}
 
