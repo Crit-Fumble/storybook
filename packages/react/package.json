@@ -1,6 +1,6 @@
 {
   "name": "@crit-fumble/react",
-  "version": "19.10.2",
+  "version": "19.10.3",
   "description": "Shared React component library for Crit-Fumble projects",
   "type": "module",
   "main": "./dist/index.js",
@@ -14,6 +14,10 @@
     "./shared": {
       "types": "./dist/shared/index.d.ts",
       "import": "./dist/shared/index.js"
+    },
+    "./desktop": {
+      "types": "./dist/desktop/index.d.ts",
+      "import": "./dist/desktop/index.js"
     },
     "./web": {
       "types": "./dist/web/index.d.ts",

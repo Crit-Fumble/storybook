@@ -61,10 +61,13 @@ Components are organized into three main categories with distinct import paths:
 
 ```typescript
 // All components
-import { Button, Card, ChatWindow } from '@crit-fumble/react'
+import { Button, Card, ChatWindow, Desktop } from '@crit-fumble/react'
 
-// Shared components only (used by both web and activity)
-import { Button, Card } from '@crit-fumble/react/shared'
+// Shared components only (atoms, molecules, economy - NO desktop)
+import { Button, Card, CritCoin } from '@crit-fumble/react/shared'
+
+// Desktop components (requires framer-motion and react-rnd peer deps)
+import { Desktop, Window, WindowManager } from '@crit-fumble/react/desktop'
 
 // Web components (website-specific + shared)
 import { MainLayout, Button } from '@crit-fumble/react/web'

@@ -32,6 +32,7 @@ export default defineConfig(({ mode }) => {
             entry: {
               index: resolve(__dirname, 'src/index.ts'),
               'shared/index': resolve(__dirname, 'src/shared/index.ts'),
+              'desktop/index': resolve(__dirname, 'src/desktop/index.ts'),
               'web/index': resolve(__dirname, 'src/web/index.ts'),
               'activity/index': resolve(__dirname, 'src/activity/index.ts'),
             },
