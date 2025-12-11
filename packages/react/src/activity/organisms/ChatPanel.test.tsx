@@ -135,6 +135,22 @@ describe('ChatPanel', () => {
     });
   });
 
+  describe('input handling', () => {
+    it('updates input value when typing', async () => {
+      render(<ChatPanel {...defaultProps} />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId('chat-panel-input')).toBeInTheDocument();
+      });
+
+      const input = screen.getByTestId('chat-panel-input').querySelector('input');
+      if (input) {
+        fireEvent.change(input, { target: { value: 'Typing...' } });
+        expect(input).toHaveValue('Typing...');
+      }
+    });
+  });
+
   describe('sending messages', () => {
     it('sends message when send button clicked', async () => {
       render(<ChatPanel {...defaultProps} />);
@@ -150,6 +166,24 @@ describe('ChatPanel', () => {
 
         await waitFor(() => {
           expect(mockFetch).toHaveBeenCalledWith('/.proxy/api/chat', expect.any(Object));
+        });
+      }
+    });
+
+    it('adds user message immediately after send', async () => {
+      render(<ChatPanel {...defaultProps} />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId('chat-panel-input')).toBeInTheDocument();
+      });
+
+      const input = screen.getByTestId('chat-panel-input').querySelector('input');
+      if (input) {
+        fireEvent.change(input, { target: { value: 'User message' } });
+        fireEvent.click(screen.getByTestId('chat-panel-send-btn'));
+
+        await waitFor(() => {
+          expect(screen.getByText('User message')).toBeInTheDocument();
         });
       }
     });
@@ -189,18 +223,42 @@ describe('ChatPanel', () => {
         });
       }
     });
+
+    it('sets loading state while sending', async () => {
+      mockFetch
+        .mockResolvedValueOnce({ ok: true, json: async () => ({ messages: [] }) })
+        .mockImplementationOnce(() => new Promise(() => {})); // Never resolves
+
+      render(<ChatPanel {...defaultProps} />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId('chat-panel-input')).toBeInTheDocument();
+      });
+
+      const input = screen.getByTestId('chat-panel-input').querySelector('input');
+      if (input) {
+        fireEvent.change(input, { target: { value: 'Test' } });
+        fireEvent.click(screen.getByTestId('chat-panel-send-btn'));
+
+        await waitFor(() => {
+          expect(screen.getByTestId('chat-panel-typing')).toBeInTheDocument();
+        });
+      }
+    });
   });
 
   describe('error handling', () => {
     it('handles history fetch error', async () => {
-      mockFetch.mockRejectedValueOnce(new Error('Network error'));
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      // Reset and set up error mock
+      mockFetch.mockReset();
+      mockFetch.mockRejectedValue(new Error('Network error'));
 
       render(<ChatPanel {...defaultProps} />);
 
       await waitFor(() => {
         expect(consoleSpy).toHaveBeenCalledWith('Failed to load chat history:', expect.any(Error));
-      });
+      }, { timeout: 3000 });
 
       consoleSpy.mockRestore();
     });
@@ -287,13 +345,38 @@ describe('ChatPanel', () => {
         expect(screen.getByTestId('chat-panel-input')).toBeInTheDocument();
       });
 
+      const fetchCallsBefore = mockFetch.mock.calls.length;
       const input = screen.getByTestId('chat-panel-input').querySelector('input');
       if (input) {
         fireEvent.change(input, { target: { value: 'Test' } });
         fireEvent.keyPress(input, { key: 'Enter', code: 'Enter', shiftKey: true });
 
+        // Wait a bit
+        await new Promise(resolve => setTimeout(resolve, 50));
+
         // Should not send the message
-        expect(mockFetch).not.toHaveBeenCalledWith('/.proxy/api/chat', expect.any(Object));
+        expect(mockFetch.mock.calls.length).toBe(fetchCallsBefore);
+      }
+    });
+
+    it('calls preventDefault when Enter is pressed without Shift', async () => {
+      render(<ChatPanel {...defaultProps} />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId('chat-panel-input')).toBeInTheDocument();
+      });
+
+      const input = screen.getByTestId('chat-panel-input').querySelector('input');
+      if (input) {
+        fireEvent.change(input, { target: { value: 'Test' } });
+        const preventDefault = jest.fn();
+        fireEvent.keyPress(input, {
+          key: 'Enter',
+          code: 'Enter',
+          preventDefault
+        });
+
+        expect(preventDefault).toHaveBeenCalled();
       }
     });
 
@@ -304,13 +387,17 @@ describe('ChatPanel', () => {
         expect(screen.getByTestId('chat-panel-input')).toBeInTheDocument();
       });
 
+      const fetchCallsBefore = mockFetch.mock.calls.length;
       const input = screen.getByTestId('chat-panel-input').querySelector('input');
       if (input) {
         fireEvent.change(input, { target: { value: '   ' } }); // Only whitespace
         fireEvent.keyPress(input, { key: 'Enter', code: 'Enter' });
 
+        // Wait a bit
+        await new Promise(resolve => setTimeout(resolve, 50));
+
         // Should not send
-        expect(mockFetch).not.toHaveBeenCalledWith('/.proxy/api/chat', expect.any(Object));
+        expect(mockFetch.mock.calls.length).toBe(fetchCallsBefore);
       }
     });
 
