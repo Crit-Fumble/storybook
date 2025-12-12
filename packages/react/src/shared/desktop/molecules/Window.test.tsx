@@ -13,6 +13,23 @@ jest.mock('react-rnd', () => ({
       onClick={onMouseDown}
     >
       {children}
+      {/* Hidden buttons to trigger drag/resize callbacks in tests */}
+      <button
+        data-testid="rnd-trigger-drag"
+        style={{ display: 'none' }}
+        onClick={() => onDragStop && onDragStop({}, { x: 100, y: 200 })}
+      />
+      <button
+        data-testid="rnd-trigger-resize"
+        style={{ display: 'none' }}
+        onClick={() => onResizeStop && onResizeStop(
+          {},
+          'bottomRight',
+          { style: { width: '400px', height: '300px' } },
+          {},
+          { x: 150, y: 250 }
+        )}
+      />
     </div>
   ),
 }));
@@ -219,5 +236,98 @@ describe('Window', () => {
     );
 
     expect(screen.getByTestId('window')).toHaveAttribute('data-window-id', 'unique-window-id');
+  });
+
+  describe('drag and resize callbacks', () => {
+    it('calls onPositionChange when window is dragged', () => {
+      const onPositionChange = jest.fn();
+      render(
+        <Window id="drag-test" title="Test" onPositionChange={onPositionChange} testId="window">
+          <div>Content</div>
+        </Window>
+      );
+
+      // Trigger the drag callback via our mock button
+      fireEvent.click(screen.getByTestId('rnd-trigger-drag'));
+
+      expect(onPositionChange).toHaveBeenCalledWith({ x: 100, y: 200 });
+    });
+
+    it('does not call onPositionChange when not provided (drag)', () => {
+      // This test ensures no error is thrown when onPositionChange is not provided
+      render(
+        <Window id="drag-test-2" title="Test" testId="window">
+          <div>Content</div>
+        </Window>
+      );
+
+      // Should not throw
+      expect(() => {
+        fireEvent.click(screen.getByTestId('rnd-trigger-drag'));
+      }).not.toThrow();
+    });
+
+    it('calls onSizeChange when window is resized', () => {
+      const onSizeChange = jest.fn();
+      render(
+        <Window id="resize-test" title="Test" onSizeChange={onSizeChange} testId="window">
+          <div>Content</div>
+        </Window>
+      );
+
+      // Trigger the resize callback via our mock button
+      fireEvent.click(screen.getByTestId('rnd-trigger-resize'));
+
+      expect(onSizeChange).toHaveBeenCalledWith({ width: 400, height: 300 });
+    });
+
+    it('calls onPositionChange when window is resized (position adjustment)', () => {
+      const onPositionChange = jest.fn();
+      render(
+        <Window id="resize-pos-test" title="Test" onPositionChange={onPositionChange} testId="window">
+          <div>Content</div>
+        </Window>
+      );
+
+      // Trigger the resize callback which also updates position
+      fireEvent.click(screen.getByTestId('rnd-trigger-resize'));
+
+      expect(onPositionChange).toHaveBeenCalledWith({ x: 150, y: 250 });
+    });
+
+    it('calls both onSizeChange and onPositionChange on resize', () => {
+      const onSizeChange = jest.fn();
+      const onPositionChange = jest.fn();
+      render(
+        <Window
+          id="resize-both-test"
+          title="Test"
+          onSizeChange={onSizeChange}
+          onPositionChange={onPositionChange}
+          testId="window"
+        >
+          <div>Content</div>
+        </Window>
+      );
+
+      fireEvent.click(screen.getByTestId('rnd-trigger-resize'));
+
+      expect(onSizeChange).toHaveBeenCalledWith({ width: 400, height: 300 });
+      expect(onPositionChange).toHaveBeenCalledWith({ x: 150, y: 250 });
+    });
+
+    it('does not call callbacks when not provided (resize)', () => {
+      // This test ensures no error is thrown when callbacks are not provided
+      render(
+        <Window id="resize-test-2" title="Test" testId="window">
+          <div>Content</div>
+        </Window>
+      );
+
+      // Should not throw
+      expect(() => {
+        fireEvent.click(screen.getByTestId('rnd-trigger-resize'));
+      }).not.toThrow();
+    });
   });
 });
