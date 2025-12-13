@@ -1,3 +1,6 @@
+// Types
+export * from './types';
+
 // Atoms
 export * from './atoms';
 

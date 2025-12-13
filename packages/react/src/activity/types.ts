@@ -36,6 +36,7 @@ export type {
   // Activity
   UserActivity,
   // Voice
+  VoiceSession,
   VoiceStatusResponse,
   VoiceSessionsResponse,
   VoiceJoinRequest,
@@ -74,6 +75,22 @@ export type {
   GameDialogueTree,
   BehaviorCondition,
   GameScriptedBehavior,
+  // Combat types (v10.22+)
+  Combat,
+  Combatant,
+  InitiativeEntry,
+  InitiativeState,
+  DamageType,
+  // Economy types (v10.22+)
+  EconomyTransactionType,
+  EconomyCurrency,
+  EconomyTransactionStatus,
+  EconomyPayoutStatus,
+  EconomyPayoutMethod,
+  UserWallet,
+  EconomyTransaction,
+  EconomyPayout,
+  EconomyStats,
 } from '@crit-fumble/core/types';
 
 // Simplified campaign type for VTT launcher UI

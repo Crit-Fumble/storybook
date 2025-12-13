@@ -1,6 +1,6 @@
 {
   "name": "@crit-fumble/react",
-  "version": "19.11.1",
+  "version": "19.11.2",
   "description": "Shared React component library for Crit-Fumble projects",
   "type": "module",
   "main": "./dist/index.js",
@@ -59,7 +59,7 @@
     "release:major": "npm version major && npm run release"
   },
   "peerDependencies": {
-    "@crit-fumble/core": "^10.20.0",
+    "@crit-fumble/core": "^10.22.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
     "react": "^19.0.0",
@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
-    "@crit-fumble/core": "^10.20.0",
+    "@crit-fumble/core": "^10.22.0",
     "@playwright/test": "^1.57.0",
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",

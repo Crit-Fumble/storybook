@@ -2,19 +2,10 @@ import { clsx } from 'clsx';
 import { CritCoinBalance } from '../molecules/CritCoinBalance';
 import { StoryCreditBalance } from '../molecules/StoryCreditBalance';
 import { Card, CardHeader, CardTitle, CardContent } from '../../molecules/Card';
+import type { EconomyStats } from '../types';
 
-export interface EconomyStats {
-  /** Crit-Coins (purchased, used for tipping) */
-  critCoins: number;
-  /** Story Credits (earned from tips, can be cashed out) */
-  storyCredits: number;
-  /** Total Story Credits earned from tips */
-  totalEarned: number;
-  /** Total Crit-Coins spent on tips */
-  totalSpent: number;
-  /** Story Credits in pending payouts */
-  pendingPayouts: number;
-}
+// Re-export core type for backwards compatibility
+export type { EconomyStats };
 
 export interface EconomyDashboardProps {
   stats: EconomyStats;

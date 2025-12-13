@@ -1,18 +1,9 @@
 import { clsx } from 'clsx';
 import { InitiativeEntryCard } from '../molecules/InitiativeEntryCard';
+import type { InitiativeEntry } from '../types';
 
-export interface InitiativeEntry {
-  id: string;
-  name: string;
-  initiative: number;
-  hp?: number | null;
-  maxHp?: number | null;
-  ac?: number | null;
-  conditions?: string[];
-  isPlayer?: boolean;
-  avatarUrl?: string | null;
-  color?: string;
-}
+// Re-export core type for backwards compatibility
+export type { InitiativeEntry };
 
 export interface InitiativeTrackerProps {
   /** List of entries in initiative order */

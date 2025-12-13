@@ -1,27 +1,12 @@
 import { clsx } from 'clsx';
 import { Badge, Button } from '../../shared/atoms';
 import { Card } from '../../shared/molecules';
+import type { Combat, Combatant } from '../types';
 
-export interface CombatantInfo {
-  id: string;
-  name: string;
-  actorId?: string;
-  initiative?: number;
-  img?: string;
-  hp?: {
-    value: number;
-    max: number;
-  };
-  defeated?: boolean;
-}
-
-export interface CombatInfo {
-  id: string;
-  active: boolean;
-  round: number;
-  turn: number;
-  combatants: CombatantInfo[];
-}
+// Re-export core types with backwards-compatible aliases
+export type { Combatant, Combat };
+export type CombatantInfo = Combatant;
+export type CombatInfo = Combat;
 
 export interface CombatTrackerProps {
   combat: CombatInfo;
