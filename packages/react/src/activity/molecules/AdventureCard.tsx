@@ -1,7 +1,8 @@
 import { clsx } from 'clsx';
+import type { AdventureStatus } from '@crit-fumble/core/types';
 import { Badge } from '../../shared/atoms/Badge';
 
-export type AdventureStatus = 'waiting' | 'active' | 'paused' | 'ended';
+export type { AdventureStatus };
 
 export interface AdventureCardProps {
   /** Adventure ID */

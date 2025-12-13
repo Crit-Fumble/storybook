@@ -45,7 +45,7 @@ describe('ChatBubble', () => {
 
     it('applies assistant bubble styling', () => {
       const { container } = render(<ChatBubble content="Assistant message" isUser={false} />);
-      const bubble = container.querySelector('.bg-cfg-bg-secondary');
+      const bubble = container.querySelector('.bg-cfg-background-secondary');
       expect(bubble).toHaveClass('text-cfg-text-normal');
     });
   });

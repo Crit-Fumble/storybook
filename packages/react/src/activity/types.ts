@@ -52,6 +52,28 @@ export type {
   ContainerStatusResponse,
   ContainerExecRequest,
   ContainerExecResponse,
+  // Schedule/Party types
+  Party,
+  PartySchedule,
+  PartyMember,
+  PartyMemberRole,
+  ScheduleOccurrence,
+  // Adventure types
+  Adventure,
+  AdventureSummary,
+  AdventureStatus,
+  AdventureRole,
+  AdventureMessageType,
+  AdventurePlayer,
+  AdventureMessage as AdventureMessageData,
+  // Game content types
+  RandomTableEntry,
+  GameRandomTable,
+  DialogueNode,
+  DialogueResponse,
+  GameDialogueTree,
+  BehaviorCondition,
+  GameScriptedBehavior,
 } from '@crit-fumble/core/types';
 
 // Simplified campaign type for VTT launcher UI

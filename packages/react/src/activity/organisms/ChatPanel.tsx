@@ -136,7 +136,7 @@ export function ChatPanel({
 
   return (
     <div
-      className="fixed bottom-4 right-4 w-80 h-96 bg-discord-background-secondary rounded-lg shadow-lg flex flex-col border border-discord-background-tertiary z-50"
+      className="fixed inset-x-3 bottom-4 sm:inset-x-auto sm:right-4 sm:w-80 h-[calc(100vh-6rem)] max-h-96 sm:h-96 bg-discord-background-secondary rounded-lg shadow-lg flex flex-col border border-discord-background-tertiary z-50"
       data-testid={testId}
     >
       {/* Header */}
@@ -170,9 +170,9 @@ export function ChatPanel({
             <Spinner size="md" testId={`${testId}-loading`} />
           </div>
         ) : messages.length === 0 ? (
-          <div className="text-center text-discord-text-muted text-sm py-8">
+          <div className="text-center text-discord-text-muted text-sm sm:text-sm py-8">
             <p>Start a conversation with FumbleBot!</p>
-            <p className="mt-2 text-xs">Ask about campaigns, characters, or rules.</p>
+            <p className="mt-2 text-sm sm:text-xs">Ask about campaigns, characters, or rules.</p>
           </div>
         ) : (
           messages.map((msg) => (

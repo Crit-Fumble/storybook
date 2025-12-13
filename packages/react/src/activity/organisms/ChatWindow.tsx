@@ -83,12 +83,12 @@ export function ChatWindow({
     <div
       data-testid={testId}
       className={clsx(
-        'flex flex-col bg-cfg-bg-primary border border-cfg-border rounded-lg shadow-xl overflow-hidden',
+        'flex flex-col bg-cfg-background-primary border border-cfg-border rounded-lg shadow-xl overflow-hidden',
         className
       )}
     >
       {/* Header */}
-      <div className="px-4 py-3 border-b border-cfg-border flex items-center gap-3 bg-cfg-bg-secondary">
+      <div className="px-4 py-3 border-b border-cfg-border flex items-center gap-3 bg-cfg-background-secondary">
         {avatar && (
           <Avatar
             src={avatar.src}
@@ -96,21 +96,21 @@ export function ChatWindow({
             size="md"
           />
         )}
-        <div>
+        <div className="min-w-0">
           <div className="text-cfg-text-normal font-medium">{title}</div>
           {subtitle && (
-            <div className="text-xs text-cfg-text-muted">{subtitle}</div>
+            <div className="text-sm sm:text-xs text-cfg-text-muted">{subtitle}</div>
           )}
         </div>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
         {messages.length === 0 && welcomeMessage && (
-          <div className="text-center text-cfg-text-muted mt-8">
-            <p className="text-sm">{welcomeMessage.greeting}</p>
+          <div className="text-center text-cfg-text-muted mt-6 sm:mt-8">
+            <p className="text-base sm:text-sm">{welcomeMessage.greeting}</p>
             {welcomeMessage.hint && (
-              <p className="text-xs mt-2">{welcomeMessage.hint}</p>
+              <p className="text-sm sm:text-xs mt-2">{welcomeMessage.hint}</p>
             )}
           </div>
         )}
@@ -137,7 +137,7 @@ export function ChatWindow({
       </div>
 
       {/* Input */}
-      <form onSubmit={handleSubmit} className="p-4 border-t border-cfg-border">
+      <form onSubmit={handleSubmit} className="p-3 sm:p-4 border-t border-cfg-border">
         <div className="flex gap-2">
           <Input
             value={inputValue}

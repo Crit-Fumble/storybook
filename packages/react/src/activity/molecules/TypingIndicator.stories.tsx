@@ -7,7 +7,7 @@ const meta: Meta<typeof TypingIndicator> = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="p-4 bg-cfg-bg-primary min-h-[100px]">
+      <div className="p-4 bg-cfg-background-primary min-h-[100px]">
         <Story />
       </div>
     ),

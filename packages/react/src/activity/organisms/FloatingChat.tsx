@@ -19,14 +19,16 @@ export function FloatingChat({
   testId,
   ...chatProps
 }: FloatingChatProps) {
+  // Mobile: safe area margins; Desktop: fixed spacing
   const positionClasses = {
-    'bottom-right': 'bottom-6 right-6',
-    'bottom-left': 'bottom-6 left-6',
+    'bottom-right': 'bottom-4 right-4 sm:bottom-6 sm:right-6',
+    'bottom-left': 'bottom-4 left-4 sm:bottom-6 sm:left-6',
   };
 
+  // Mobile: full width with margins; Desktop: fixed position near toggle
   const windowPositionClasses = {
-    'bottom-right': 'bottom-24 right-6',
-    'bottom-left': 'bottom-24 left-6',
+    'bottom-right': 'inset-x-3 bottom-20 sm:inset-x-auto sm:bottom-24 sm:right-6',
+    'bottom-left': 'inset-x-3 bottom-20 sm:inset-x-auto sm:bottom-24 sm:left-6',
   };
 
   return (
@@ -72,13 +74,17 @@ export function FloatingChat({
         )}
       </button>
 
-      {/* Chat Window */}
+      {/* Chat Window - Mobile: nearly full screen; Desktop: fixed size */}
       {isOpen && (
         <ChatWindow
           {...chatProps}
           testId={testId ? `${testId}-window` : undefined}
           className={clsx(
-            'fixed w-96 h-[500px] z-50',
+            'fixed z-50',
+            // Mobile: full width with margins, max height with safe area
+            'w-auto h-[calc(100vh-7rem)] max-h-[500px]',
+            // Desktop: fixed dimensions
+            'sm:w-96 sm:h-[500px]',
             windowPositionClasses[position]
           )}
         />

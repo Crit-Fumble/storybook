@@ -62,22 +62,24 @@ describe('FloatingChat', () => {
   describe('position variants', () => {
     it('positions bottom-right by default', () => {
       render(<FloatingChat {...defaultProps} testId="floating" />);
-      expect(screen.getByTestId('floating-toggle')).toHaveClass('bottom-6', 'right-6');
+      // Mobile-first responsive positioning
+      expect(screen.getByTestId('floating-toggle')).toHaveClass('bottom-4', 'right-4');
     });
 
     it('positions bottom-left when specified', () => {
       render(<FloatingChat {...defaultProps} position="bottom-left" testId="floating" />);
-      expect(screen.getByTestId('floating-toggle')).toHaveClass('bottom-6', 'left-6');
+      expect(screen.getByTestId('floating-toggle')).toHaveClass('bottom-4', 'left-4');
     });
 
-    it('positions window relative to toggle button', () => {
+    it('positions window with mobile-first responsive classes', () => {
       render(<FloatingChat {...defaultProps} position="bottom-right" isOpen testId="floating" />);
-      expect(screen.getByTestId('floating-window')).toHaveClass('bottom-24', 'right-6');
+      // Mobile: full width with inset-x; Desktop: fixed position
+      expect(screen.getByTestId('floating-window')).toHaveClass('inset-x-3', 'bottom-20');
     });
 
     it('positions window bottom-left when toggle is bottom-left', () => {
       render(<FloatingChat {...defaultProps} position="bottom-left" isOpen testId="floating" />);
-      expect(screen.getByTestId('floating-window')).toHaveClass('bottom-24', 'left-6');
+      expect(screen.getByTestId('floating-window')).toHaveClass('inset-x-3', 'bottom-20');
     });
   });
 
@@ -99,9 +101,10 @@ describe('FloatingChat', () => {
   });
 
   describe('chat window sizing', () => {
-    it('applies fixed size to chat window', () => {
+    it('applies mobile-first responsive size to chat window', () => {
       render(<FloatingChat {...defaultProps} isOpen testId="floating" />);
-      expect(screen.getByTestId('floating-window')).toHaveClass('w-96', 'h-[500px]');
+      // Mobile: full width with height calc; Desktop: fixed dimensions
+      expect(screen.getByTestId('floating-window')).toHaveClass('w-auto', 'max-h-[500px]');
     });
 
     it('applies fixed positioning to chat window', () => {

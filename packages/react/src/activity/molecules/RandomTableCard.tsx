@@ -1,13 +1,8 @@
 import { clsx } from 'clsx';
+import type { RandomTableEntry } from '@crit-fumble/core/types';
 import { Badge } from '../../shared/atoms/Badge';
 
-export interface RandomTableEntry {
-  value: string;
-  weight?: number;
-  min?: number;
-  max?: number;
-  description?: string;
-}
+export type { RandomTableEntry };
 
 export interface RandomTableCardProps {
   /** Table ID */

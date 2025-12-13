@@ -37,7 +37,7 @@ export function ChatBubble({
           'max-w-[80%] px-3 py-2 rounded-lg',
           isUser
             ? 'bg-cfg-primary text-white'
-            : 'bg-cfg-bg-secondary text-cfg-text-normal'
+            : 'bg-cfg-background-secondary text-cfg-text-normal'
         )}
       >
         <p className="text-sm whitespace-pre-wrap">{content}</p>

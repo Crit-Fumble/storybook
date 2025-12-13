@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
+import type { AdventureMessageType } from '@crit-fumble/core/types';
 
-export type AdventureMessageType = 'action' | 'say' | 'emote' | 'system' | 'narrative';
+export type { AdventureMessageType };
 
 export interface AdventureMessageProps {
   /** Message ID */

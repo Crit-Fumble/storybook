@@ -24,7 +24,7 @@ describe('TypingIndicator', () => {
 
     it('applies background styling to bubble', () => {
       const { container } = render(<TypingIndicator />);
-      const bubble = container.querySelector('.bg-cfg-bg-secondary');
+      const bubble = container.querySelector('.bg-cfg-background-secondary');
       expect(bubble).toBeInTheDocument();
     });
 

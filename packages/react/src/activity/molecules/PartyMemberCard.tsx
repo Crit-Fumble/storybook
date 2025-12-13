@@ -1,7 +1,8 @@
 import { clsx } from 'clsx';
+import type { PartyMemberRole } from '@crit-fumble/core/types';
 import { Badge } from '../../shared/atoms/Badge';
 
-export type PartyMemberRole = 'gm' | 'player' | 'guest';
+export type { PartyMemberRole };
 
 export interface PartyMemberCardProps {
   /** Member ID */

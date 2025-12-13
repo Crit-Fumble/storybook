@@ -1,4 +1,4 @@
-name: Publish @crit-fumble/react
+name: Publish Package
 
 on:
   push:

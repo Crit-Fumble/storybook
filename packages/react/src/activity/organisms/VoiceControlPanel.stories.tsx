@@ -30,21 +30,33 @@ const disconnectedStatus: VoiceStatusResponse = {
   guildId: 'guild-123',
   connected: false,
   channelId: null,
+  channelName: null,
   listening: false,
+  playing: false,
+  participants: [],
+  gameSessionId: null,
 };
 
 const connectedStatus: VoiceStatusResponse = {
   guildId: 'guild-123',
   connected: true,
   channelId: 'channel-2',
+  channelName: 'Game Session',
   listening: false,
+  playing: false,
+  participants: ['user-1', 'user-2'],
+  gameSessionId: null,
 };
 
 const listeningStatus: VoiceStatusResponse = {
   guildId: 'guild-123',
   connected: true,
   channelId: 'channel-2',
+  channelName: 'Game Session',
   listening: true,
+  playing: false,
+  participants: ['user-1', 'user-2', 'user-3'],
+  gameSessionId: 'session-789',
 };
 
 export const Disconnected: Story = {

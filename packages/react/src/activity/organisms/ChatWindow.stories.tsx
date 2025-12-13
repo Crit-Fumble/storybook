@@ -8,7 +8,7 @@ const meta: Meta<typeof ChatWindow> = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="p-4 bg-cfg-bg-tertiary min-h-[600px]">
+      <div className="p-4 bg-cfg-background-tertiary min-h-[600px]">
         <Story />
       </div>
     ),
@@ -134,4 +134,98 @@ function InteractiveChatWindow() {
 
 export const Interactive: Story = {
   render: () => <InteractiveChatWindow />,
+};
+
+// Mobile-responsive chat window for testing
+function MobileChatWindow() {
+  const [messages, setMessages] = useState<ChatMessage[]>(sampleMessages);
+  const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = (message: string) => {
+    const userMsg: ChatMessage = {
+      id: Date.now().toString(),
+      role: 'user',
+      content: message,
+    };
+    setMessages((prev) => [...prev, userMsg]);
+    setInputValue('');
+    setIsLoading(true);
+
+    setTimeout(() => {
+      const assistantMsg: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: `Response to: "${message}"`,
+      };
+      setMessages((prev) => [...prev, assistantMsg]);
+      setIsLoading(false);
+    }, 1000);
+  };
+
+  return (
+    <ChatWindow
+      title="FumbleBot"
+      subtitle="Your TTRPG Assistant"
+      avatar={{ fallback: 'F' }}
+      messages={messages}
+      inputValue={inputValue}
+      onInputChange={setInputValue}
+      onSubmit={handleSubmit}
+      isLoading={isLoading}
+      welcomeMessage={{
+        greeting: 'Hey there!',
+        hint: 'Ask me anything about TTRPGs.',
+      }}
+      className="w-full h-[calc(100vh-2rem)] max-h-[500px] sm:w-96 sm:h-[500px]"
+    />
+  );
+}
+
+export const MobileSamsungS22: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'samsungS22',
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="p-2 bg-cfg-background-tertiary min-h-screen">
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => <MobileChatWindow />,
+};
+
+export const MobileIPhone13: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphone13',
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="p-2 bg-cfg-background-tertiary min-h-screen">
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => <MobileChatWindow />,
+};
+
+export const MobileDiscordActivity: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'discordActivity',
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="p-2 bg-cfg-background-tertiary min-h-screen">
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => <MobileChatWindow />,
 };

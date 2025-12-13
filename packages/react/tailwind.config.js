@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+export const baseConfig = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -74,3 +74,6 @@ export default {
   },
   plugins: [],
 };
+
+// Default export for Tailwind CLI
+export default baseConfig;

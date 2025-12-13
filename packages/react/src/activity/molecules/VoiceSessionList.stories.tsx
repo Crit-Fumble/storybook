@@ -25,16 +25,60 @@ const emptySessions: VoiceSessionsResponse = {
 
 const singleSession: VoiceSessionsResponse = {
   sessions: [
-    { guildId: 'guild-1', channelId: 'channel-1', listening: false },
+    {
+      id: 'session-1',
+      guildId: 'guild-1',
+      channelId: 'channel-1',
+      channelName: 'Game Session',
+      participants: ['user-1', 'user-2'],
+      listening: false,
+      playing: false,
+      gameSessionId: null,
+      joinedAt: new Date().toISOString(),
+      lastActiveAt: new Date().toISOString(),
+    },
   ],
   count: 1,
 };
 
 const multipleSessions: VoiceSessionsResponse = {
   sessions: [
-    { guildId: 'guild-1', channelId: 'channel-1', listening: true },
-    { guildId: 'guild-2', channelId: 'channel-2', listening: false },
-    { guildId: 'guild-3', channelId: 'channel-3', listening: true },
+    {
+      id: 'session-1',
+      guildId: 'guild-1',
+      channelId: 'channel-1',
+      channelName: 'Game Session',
+      participants: ['user-1', 'user-2', 'user-3'],
+      listening: true,
+      playing: false,
+      gameSessionId: 'game-123',
+      joinedAt: new Date().toISOString(),
+      lastActiveAt: new Date().toISOString(),
+    },
+    {
+      id: 'session-2',
+      guildId: 'guild-2',
+      channelId: 'channel-2',
+      channelName: 'Voice Chat',
+      participants: ['user-4'],
+      listening: false,
+      playing: true,
+      gameSessionId: null,
+      joinedAt: new Date().toISOString(),
+      lastActiveAt: new Date().toISOString(),
+    },
+    {
+      id: 'session-3',
+      guildId: 'guild-3',
+      channelId: 'channel-3',
+      channelName: 'General',
+      participants: ['user-5', 'user-6'],
+      listening: true,
+      playing: false,
+      gameSessionId: 'game-456',
+      joinedAt: new Date().toISOString(),
+      lastActiveAt: new Date().toISOString(),
+    },
   ],
   count: 3,
 };

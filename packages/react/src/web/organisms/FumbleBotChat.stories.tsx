@@ -10,7 +10,7 @@ const meta: Meta<typeof FumbleBotChat> = {
   },
   decorators: [
     (Story) => (
-      <div className="relative min-h-[700px] bg-cfg-bg-primary p-8">
+      <div className="relative min-h-[700px] bg-cfg-background-primary p-8">
         <div className="max-w-2xl">
           <h1 className="text-2xl font-bold text-cfg-text-normal mb-4">Sample Page Content</h1>
           <p className="text-cfg-text-muted mb-4">

@@ -16,6 +16,7 @@
     "secrets:scan": "secretlint \"packages/**/*.{ts,tsx,js,json}\" --secretlintignore .gitignore",
     "storybook": "npm run storybook --workspace=@crit-fumble/react",
     "build-storybook": "npm run build-storybook --workspace=@crit-fumble/react",
+    "publish:react": "npm run build:lib --workspace=@crit-fumble/react && npm publish --access public --workspace=@crit-fumble/react",
     "prepare": "husky"
   },
   "author": "Crit-Fumble Gaming",
@@ -26,7 +27,7 @@
   },
   "homepage": "https://storybook.crit-fumble.com",
   "devDependencies": {
-    "@crit-fumble/core": "^10.4.4",
+    "@crit-fumble/core": "^10.20.0",
     "@crit-fumble/core-fumblebot": "^0.1.0",
     "@secretlint/secretlint-rule-preset-recommend": "^11.2.5",
     "husky": "^9.1.7",
