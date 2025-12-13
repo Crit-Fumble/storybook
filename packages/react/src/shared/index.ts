@@ -9,3 +9,6 @@ export * from './molecules';
 
 // Economy - Monetization components (Crit-Coins, Story Credits, Payouts)
 export * from './economy';
+
+// Roles - Platform role components (badges, selectors, cards)
+export * from './roles';
